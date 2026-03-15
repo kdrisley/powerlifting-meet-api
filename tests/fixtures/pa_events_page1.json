@@ -1,0 +1,588 @@
+{
+  "events": [
+    {
+      "id": 11670,
+      "global_id": "www.powerlifting-america.com?id=11670",
+      "global_id_lineage": [
+        "www.powerlifting-america.com?id=11670"
+      ],
+      "author": "96",
+      "status": "publish",
+      "date": "2026-03-11 02:13:18",
+      "date_utc": "2026-03-11 06:13:18",
+      "modified": "2026-03-11 15:56:14",
+      "modified_utc": "2026-03-11 19:56:14",
+      "url": "https://www.powerlifting-america.com/event/powerlifting-america-dana-rosenzweig/",
+      "rest_url": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/events/11670",
+      "title": "Powerlifting America Dana Rosenzweig",
+      "description": "<p>Sanction# 2026-IL-09</p>\n<p>Event Director: Dana Rosenzweig</p>\n<p>Event Registration Link: <a href=\"https://liftingcast.com/meets/mac999jkxecv/registration\">HERE</a></p>",
+      "excerpt": "",
+      "slug": "powerlifting-america-dana-rosenzweig",
+      "image": false,
+      "all_day": true,
+      "start_date": "2026-03-14 00:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "03",
+        "day": "14",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-03-14 23:59:59",
+      "end_date_details": {
+        "year": "2026",
+        "month": "03",
+        "day": "14",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "utc_start_date": "2026-03-14 04:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "03",
+        "day": "14",
+        "hour": "04",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-03-15 03:59:59",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "03",
+        "day": "15",
+        "hour": "03",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "timezone": "America/New_York",
+      "timezone_abbr": "EDT",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [
+        {
+          "name": "Local",
+          "slug": "local",
+          "term_group": 0,
+          "term_taxonomy_id": 93,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 195,
+          "filter": "raw",
+          "id": 93,
+          "urls": {
+            "self": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/categories/93",
+            "collection": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/categories"
+          }
+        },
+        {
+          "name": "PA",
+          "slug": "pa",
+          "term_group": 0,
+          "term_taxonomy_id": 10,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 577,
+          "filter": "raw",
+          "id": 10,
+          "urls": {
+            "self": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/categories/10",
+            "collection": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/categories"
+          }
+        }
+      ],
+      "tags": [
+        {
+          "name": "IL",
+          "slug": "il",
+          "term_group": 0,
+          "term_taxonomy_id": 55,
+          "taxonomy": "post_tag",
+          "description": "",
+          "parent": 0,
+          "count": 45,
+          "filter": "raw",
+          "id": 55,
+          "urls": {
+            "self": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/tags/55",
+            "collection": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/tags"
+          }
+        }
+      ],
+      "venue": {
+        "id": 11671,
+        "author": "96",
+        "status": "publish",
+        "date": "2026-03-11 02:13:20",
+        "date_utc": "2026-03-11 06:13:20",
+        "modified": "2026-03-11 02:13:20",
+        "modified_utc": "2026-03-11 06:13:20",
+        "url": "https://www.powerlifting-america.com/venue/belleville-weightlifting-club/",
+        "venue": "Belleville Weightlifting Club",
+        "slug": "belleville-weightlifting-club",
+        "address": "1401 Lebanon Avenue",
+        "city": "Belleville",
+        "country": "United States",
+        "state": "IL",
+        "zip": "62221",
+        "stateprovince": "IL",
+        "show_map": false,
+        "show_map_link": false,
+        "global_id": "www.powerlifting-america.com?id=11671",
+        "global_id_lineage": [
+          "www.powerlifting-america.com?id=11671"
+        ]
+      },
+      "organizer": [
+        {
+          "id": 8906,
+          "author": "94",
+          "status": "publish",
+          "date": "2024-12-10 19:10:37",
+          "date_utc": "2024-12-11 00:10:37",
+          "modified": "2024-12-10 19:10:37",
+          "modified_utc": "2024-12-11 00:10:37",
+          "url": "https://www.powerlifting-america.com/organizer/dana-rosenzweig/",
+          "organizer": "Dana Rosenzweig",
+          "slug": "dana-rosenzweig",
+          "email": "dana93kg@gmail.com",
+          "global_id": "www.powerlifting-america.com?id=8906",
+          "global_id_lineage": [
+            "www.powerlifting-america.com?id=8906"
+          ]
+        }
+      ],
+      "is_virtual": false,
+      "virtual_url": null,
+      "virtual_video_source": ""
+    },
+    {
+      "id": 10144,
+      "global_id": "www.powerlifting-america.com?id=10144",
+      "global_id_lineage": [
+        "www.powerlifting-america.com?id=10144"
+      ],
+      "author": "94",
+      "status": "publish",
+      "date": "2025-05-22 17:36:23",
+      "date_utc": "2025-05-22 21:36:23",
+      "modified": "2026-01-21 18:39:50",
+      "modified_utc": "2026-01-21 23:39:50",
+      "url": "https://www.powerlifting-america.com/event/2nd-annual-powerlifting-america-strongher-strength-showdown-championship/",
+      "rest_url": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/events/10144",
+      "title": "2nd Annual Powerlifting America StrongHer Strength Showdown Championship",
+      "description": "<p><strong>Sanction #:</strong>\u00a0<span data-sheets-root=\"1\" data-sheets-value=\"{&quot;1&quot;:2,&quot;2&quot;:&quot;2024-NV-06&quot;}\" data-sheets-userformat=\"{&quot;2&quot;:33554432,&quot;28&quot;:1}\" data-sheets-formula=\"=if(R[0]C[-8]=&quot;&quot;,&quot;&quot;, R[0]C[-2]&amp;&quot;-&quot;&amp;R[0]C[-1])\">2026-FL-01</span></p>\n<p><strong>Event Director:</strong>\u00a0<span data-sheets-root=\"1\" data-sheets-value=\"{&quot;1&quot;:2,&quot;2&quot;:&quot;Lizz Smullen&quot;}\" data-sheets-userformat=\"{&quot;2&quot;:33554432,&quot;28&quot;:1}\" data-sheets-formula=\"=Proper(Import!R[0]C[0]&amp;&quot; &quot;&amp;Import!R[0]C[1])\">Robert Keller</span></p>\n<p><strong>Registration:</strong> <a href=\"https://form.jotform.com/251945039157159\">Enter Here</a></p>",
+      "excerpt": "",
+      "slug": "2nd-annual-powerlifting-america-strongher-strength-showdown-championship",
+      "image": {
+        "url": "https://www.powerlifting-america.com/wp-content/uploads/2025/05/2026-FL-01_cropped_processed_by_imagy.png",
+        "id": 11271,
+        "extension": "png",
+        "width": 1587,
+        "height": 893,
+        "filesize": 335581,
+        "sizes": {
+          "medium": {
+            "width": 540,
+            "height": 304,
+            "mime-type": "image/png",
+            "filesize": 77260,
+            "url": "https://www.powerlifting-america.com/wp-content/uploads/2025/05/2026-FL-01_cropped_processed_by_imagy-540x304.png"
+          },
+          "large": {
+            "width": 1080,
+            "height": 608,
+            "mime-type": "image/png",
+            "filesize": 211701,
+            "url": "https://www.powerlifting-america.com/wp-content/uploads/2025/05/2026-FL-01_cropped_processed_by_imagy-1080x608.png"
+          },
+          "thumbnail": {
+            "width": 540,
+            "height": 540,
+            "mime-type": "image/png",
+            "filesize": 161933,
+            "url": "https://www.powerlifting-america.com/wp-content/uploads/2025/05/2026-FL-01_cropped_processed_by_imagy-540x540.png"
+          },
+          "medium_large": {
+            "width": 768,
+            "height": 432,
+            "mime-type": "image/png",
+            "filesize": 127543,
+            "url": "https://www.powerlifting-america.com/wp-content/uploads/2025/05/2026-FL-01_cropped_processed_by_imagy-768x432.png"
+          },
+          "1536x1536": {
+            "width": 1536,
+            "height": 864,
+            "mime-type": "image/png",
+            "filesize": 350378,
+            "url": "https://www.powerlifting-america.com/wp-content/uploads/2025/05/2026-FL-01_cropped_processed_by_imagy-1536x864.png"
+          }
+        }
+      },
+      "all_day": true,
+      "start_date": "2026-03-21 00:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "03",
+        "day": "21",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-03-21 23:59:59",
+      "end_date_details": {
+        "year": "2026",
+        "month": "03",
+        "day": "21",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "utc_start_date": "2026-03-21 04:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "03",
+        "day": "21",
+        "hour": "04",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-03-22 03:59:59",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "03",
+        "day": "22",
+        "hour": "03",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "timezone": "America/New_York",
+      "timezone_abbr": "EDT",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [
+        {
+          "name": "PA",
+          "slug": "pa",
+          "term_group": 0,
+          "term_taxonomy_id": 10,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 577,
+          "filter": "raw",
+          "id": 10,
+          "urls": {
+            "self": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/categories/10",
+            "collection": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/categories"
+          }
+        }
+      ],
+      "tags": [
+        {
+          "name": "FL",
+          "slug": "fl",
+          "term_group": 0,
+          "term_taxonomy_id": 11,
+          "taxonomy": "post_tag",
+          "description": "",
+          "parent": 0,
+          "count": 81,
+          "filter": "raw",
+          "id": 11,
+          "urls": {
+            "self": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/tags/11",
+            "collection": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/tags"
+          }
+        }
+      ],
+      "venue": {
+        "id": 447,
+        "author": "44",
+        "status": "publish",
+        "date": "2021-11-17 19:42:40",
+        "date_utc": "2021-11-18 00:42:40",
+        "modified": "2021-12-20 22:10:53",
+        "modified_utc": "2021-12-21 03:10:53",
+        "url": "https://www.powerlifting-america.com/venue/tfx-training-facility/",
+        "venue": "TFX Training Center",
+        "slug": "tfx-training-facility",
+        "address": "1711 35TH Street Ste 102",
+        "city": "Orlando",
+        "country": "United States",
+        "state": "FL",
+        "zip": "32839",
+        "phone": "(407) 561-5478",
+        "website": "https://www.tfxtrainingfacility.com/",
+        "stateprovince": "FL",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "www.powerlifting-america.com?id=447",
+        "global_id_lineage": [
+          "www.powerlifting-america.com?id=447"
+        ]
+      },
+      "organizer": [
+        {
+          "id": 163,
+          "author": "44",
+          "status": "publish",
+          "date": "2021-11-07 21:06:43",
+          "date_utc": "2021-11-07 21:06:43",
+          "modified": "2021-12-20 22:08:46",
+          "modified_utc": "2021-12-21 03:08:46",
+          "url": "https://www.powerlifting-america.com/organizer/robert-keller-2/",
+          "organizer": "Robert Keller",
+          "slug": "robert-keller-2",
+          "phone": "(954) 790-2249",
+          "website": "www.florida-powerlifting.com",
+          "email": "rhk@verizon.net",
+          "global_id": "www.powerlifting-america.com?id=163",
+          "global_id_lineage": [
+            "www.powerlifting-america.com?id=163"
+          ]
+        }
+      ],
+      "is_virtual": false,
+      "virtual_url": null,
+      "virtual_video_source": ""
+    },
+    {
+      "id": 10554,
+      "global_id": "www.powerlifting-america.com?id=10554",
+      "global_id_lineage": [
+        "www.powerlifting-america.com?id=10554"
+      ],
+      "author": "96",
+      "status": "publish",
+      "date": "2025-09-06 00:14:59",
+      "date_utc": "2025-09-06 04:14:59",
+      "modified": "2025-09-06 22:15:52",
+      "modified_utc": "2025-09-07 02:15:52",
+      "url": "https://www.powerlifting-america.com/event/powerlifting-america-mpg-madness/",
+      "rest_url": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/events/10554",
+      "title": "Powerlifting America MPG Madness",
+      "description": "<p><b>Sanction #: 2026-IL-02</b></p>\n<p><b>Event Director: Andrew Cargill</b></p>\n<p>Registration: <a href=\"https://liftingcast.com/meets/m0c7z88bas1x/roster\">Enter Here</a></p>",
+      "excerpt": "",
+      "slug": "powerlifting-america-mpg-madness",
+      "image": {
+        "url": "https://www.powerlifting-america.com/wp-content/uploads/2025/09/cropped-26-MPG-Madness.png",
+        "id": 10573,
+        "extension": "png",
+        "width": 1271,
+        "height": 716,
+        "filesize": 454576,
+        "sizes": {
+          "medium": {
+            "width": 540,
+            "height": 304,
+            "mime-type": "image/png",
+            "filesize": 110253,
+            "url": "https://www.powerlifting-america.com/wp-content/uploads/2025/09/cropped-26-MPG-Madness-540x304.png"
+          },
+          "large": {
+            "width": 1080,
+            "height": 608,
+            "mime-type": "image/png",
+            "filesize": 356898,
+            "url": "https://www.powerlifting-america.com/wp-content/uploads/2025/09/cropped-26-MPG-Madness-1080x608.png"
+          },
+          "thumbnail": {
+            "width": 540,
+            "height": 540,
+            "mime-type": "image/png",
+            "filesize": 260030,
+            "url": "https://www.powerlifting-america.com/wp-content/uploads/2025/09/cropped-26-MPG-Madness-540x540.png"
+          },
+          "medium_large": {
+            "width": 768,
+            "height": 433,
+            "mime-type": "image/png",
+            "filesize": 198059,
+            "url": "https://www.powerlifting-america.com/wp-content/uploads/2025/09/cropped-26-MPG-Madness-768x433.png"
+          }
+        }
+      },
+      "all_day": true,
+      "start_date": "2026-03-21 00:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "03",
+        "day": "21",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-03-21 23:59:59",
+      "end_date_details": {
+        "year": "2026",
+        "month": "03",
+        "day": "21",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "utc_start_date": "2026-03-21 04:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "03",
+        "day": "21",
+        "hour": "04",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-03-22 03:59:59",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "03",
+        "day": "22",
+        "hour": "03",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "timezone": "America/New_York",
+      "timezone_abbr": "EDT",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [
+        {
+          "name": "Local",
+          "slug": "local",
+          "term_group": 0,
+          "term_taxonomy_id": 93,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 195,
+          "filter": "raw",
+          "id": 93,
+          "urls": {
+            "self": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/categories/93",
+            "collection": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/categories"
+          }
+        },
+        {
+          "name": "PA",
+          "slug": "pa",
+          "term_group": 0,
+          "term_taxonomy_id": 10,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 577,
+          "filter": "raw",
+          "id": 10,
+          "urls": {
+            "self": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/categories/10",
+            "collection": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/categories"
+          }
+        }
+      ],
+      "tags": [
+        {
+          "name": "IL",
+          "slug": "il",
+          "term_group": 0,
+          "term_taxonomy_id": 55,
+          "taxonomy": "post_tag",
+          "description": "",
+          "parent": 0,
+          "count": 45,
+          "filter": "raw",
+          "id": 55,
+          "urls": {
+            "self": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/tags/55",
+            "collection": "https://www.powerlifting-america.com/wp-json/tribe/events/v1/tags"
+          }
+        }
+      ],
+      "venue": {
+        "id": 2348,
+        "author": "4",
+        "status": "publish",
+        "date": "2023-06-14 18:16:52",
+        "date_utc": "2023-06-14 22:16:52",
+        "modified": "2023-06-14 18:16:52",
+        "modified_utc": "2023-06-14 22:16:52",
+        "url": "https://www.powerlifting-america.com/venue/mpg-fitness/",
+        "venue": "MPG Fitness",
+        "slug": "mpg-fitness",
+        "address": "3600 Thayer Ct, Unit 500",
+        "city": "Aurora",
+        "country": "United States",
+        "state": "IL",
+        "zip": "60504",
+        "phone": "(630) 345-8066",
+        "website": "https://www.mpgfitness.com/",
+        "stateprovince": "IL",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "www.powerlifting-america.com?id=2348",
+        "global_id_lineage": [
+          "www.powerlifting-america.com?id=2348"
+        ]
+      },
+      "organizer": [
+        {
+          "id": 1894,
+          "author": "15",
+          "status": "publish",
+          "date": "2023-02-03 02:54:13",
+          "date_utc": "2023-02-03 07:54:13",
+          "modified": "2023-02-03 02:54:13",
+          "modified_utc": "2023-02-03 07:54:13",
+          "url": "https://www.powerlifting-america.com/organizer/andrew-cargill/",
+          "organizer": "Andrew Cargill",
+          "slug": "andrew-cargill",
+          "phone": "(404) 277-4740",
+          "email": "odin@reachvalhalla.com",
+          "global_id": "www.powerlifting-america.com?id=1894",
+          "global_id_lineage": [
+            "www.powerlifting-america.com?id=1894"
+          ]
+        }
+      ],
+      "is_virtual": false,
+      "virtual_url": null,
+      "virtual_video_source": ""
+    }
+  ],
+  "total": 3,
+  "total_pages": 1
+}
