@@ -71,7 +71,7 @@ class TestRun:
         ):
             run()
 
-        meets_json = json.loads((tmp_path / "meets.json").read_text())
+        meets_json = json.loads((tmp_path / "events").read_text())
         assert meets_json["total_meets"] == 2
         assert meets_json["meets"][0]["name"] == "Test Meet A"
         assert meets_json["meta"]["USPA"]["status"] == "ok"
@@ -112,7 +112,7 @@ class TestRun:
         ):
             run()
 
-        meets_json = json.loads((tmp_path / "meets.json").read_text())
+        meets_json = json.loads((tmp_path / "events").read_text())
         assert meets_json["total_meets"] == 1
         assert meets_json["meets"][0]["name"] == "Fallback Meet"
         assert meets_json["meta"]["USPA"]["status"] == "stale"

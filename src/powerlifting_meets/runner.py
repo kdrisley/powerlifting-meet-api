@@ -18,7 +18,7 @@ from powerlifting_meets.scrapers.uspa import USPAScraper
 logger = logging.getLogger(__name__)
 
 # URL of the previously published meets.json on GitHub Pages
-PREVIOUS_DATA_URL = "https://kdrisley.github.io/powerlifting-meet-api/meets.json"
+PREVIOUS_DATA_URL = "https://kdrisley.github.io/powerlifting-meet-api/events"
 
 OUTPUT_DIR = Path("output")
 
@@ -134,8 +134,8 @@ def run() -> None:
 
     OUTPUT_DIR.mkdir(exist_ok=True)
 
-    # Write meets.json
-    meets_path = OUTPUT_DIR / "meets.json"
+    # Write events (matches WPGetAPI endpoint path)
+    meets_path = OUTPUT_DIR / "events"
     meets_path.write_text(
         response.model_dump_json(indent=2),
         encoding="utf-8",
