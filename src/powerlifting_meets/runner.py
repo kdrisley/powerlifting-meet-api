@@ -9,9 +9,11 @@ from pathlib import Path
 import httpx
 
 from powerlifting_meets.models import FederationMeta, Meet, MeetsResponse
+from powerlifting_meets.scrapers.apf import APFScraper
 from powerlifting_meets.scrapers.base import BaseScraper
 from powerlifting_meets.scrapers.powerlifting_america import PowerliftingAmericaScraper
 from powerlifting_meets.scrapers.rps import RPSScraper
+from powerlifting_meets.scrapers.spf import SPFScraper
 from powerlifting_meets.scrapers.usapl import USAPLScraper
 from powerlifting_meets.scrapers.uspa import USPAScraper
 
@@ -27,6 +29,8 @@ ALL_SCRAPERS: list[type[BaseScraper]] = [
     PowerliftingAmericaScraper,
     USAPLScraper,
     RPSScraper,
+    SPFScraper,
+    APFScraper,
 ]
 
 
