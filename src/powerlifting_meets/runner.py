@@ -18,7 +18,7 @@ from powerlifting_meets.scrapers.uspa import USPAScraper
 logger = logging.getLogger(__name__)
 
 # URL of the previously published meets.json on GitHub Pages
-PREVIOUS_DATA_URL = None  # Set after first deploy, e.g. "https://<user>.github.io/powerlifting-meet-api/meets.json"
+PREVIOUS_DATA_URL = "https://kdrisley.github.io/powerlifting-meet-api/meets.json"
 
 OUTPUT_DIR = Path("output")
 
