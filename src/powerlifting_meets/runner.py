@@ -31,13 +31,35 @@ ALL_SCRAPERS: list[type[BaseScraper]] = [
 
 
 def fetch_previous_data(url: str | None) -> MeetsResponse | None:
-    """Fetch yesterday's meets.json from GitHub Pages for fallback."""
+    """Fetch yesterday's events JSON from GitHub Pages for fallback."""
     if not url:
         return None
     try:
         resp = httpx.get(url, timeout=15.0, follow_redirects=True)
         resp.raise_for_status()
-        return MeetsResponse.model_validate(resp.json())
+        data = resp.json()
+        # The live JSON uses powermeet-compatible field names, so map back
+        meets = []
+        for e in data.get("events", []):
+            meets.append(Meet(
+                name=e.get("evt_name", ""),
+                federation=e.get("fed", ""),
+                date_start=e.get("parsed_date", ""),
+                state=e.get("state") or None,
+                city=e.get("city") or None,
+                url=e.get("link") or None,
+                venue=e.get("venue") or None,
+                status=e.get("status") or None,
+            ))
+        meta = {}
+        for k, v in data.get("meta", {}).items():
+            meta[k] = FederationMeta.model_validate(v)
+        return MeetsResponse(
+            generated_at=datetime.fromisoformat(data["generated_at"]),
+            total_meets=data.get("total_meets", len(meets)),
+            meets=meets,
+            meta=meta,
+        )
     except Exception as exc:
         logger.warning("Could not fetch previous data from %s: %s", url, exc)
         return None
@@ -134,13 +156,35 @@ def run() -> None:
 
     OUTPUT_DIR.mkdir(exist_ok=True)
 
-    # Write events (matches WPGetAPI endpoint path)
-    meets_path = OUTPUT_DIR / "events"
-    meets_path.write_text(
-        response.model_dump_json(indent=2),
+    # Write events file with field names matching the old powermeet API
+    # so existing WordPress snippets work without changes
+    events_output = {
+        "generated_at": response.generated_at.isoformat(),
+        "total_meets": response.total_meets,
+        "events": [
+            {
+                "parsed_date": m.date_start.isoformat(),
+                "state": m.state or "",
+                "fed": m.federation,
+                "evt_name": m.name,
+                "link": str(m.url) if m.url else "",
+                "venue": m.venue or "",
+                "status": m.status or "active",
+                "date_end": m.date_end.isoformat() if m.date_end else "",
+                "equipment": m.equipment or "",
+                "restrictions": m.restrictions or "",
+                "city": m.city or "",
+            }
+            for m in unique_meets
+        ],
+        "meta": {k: v.model_dump(mode="json") for k, v in meta.items()},
+    }
+    events_path = OUTPUT_DIR / "events"
+    events_path.write_text(
+        json.dumps(events_output, indent=2),
         encoding="utf-8",
     )
-    logger.info("Wrote %s (%d meets)", meets_path, len(unique_meets))
+    logger.info("Wrote %s (%d meets)", events_path, len(unique_meets))
 
     # Write meta.json separately for easy monitoring
     meta_path = OUTPUT_DIR / "meta.json"
