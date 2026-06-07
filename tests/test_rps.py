@@ -100,3 +100,17 @@ class TestRPSScraper:
         assert name == "Crowned in Iron II – Women's Full Power"
         assert city == "Fort Mill"
         assert state == "SC"
+
+        # Full state name spelled out, after a dash with no leading space.
+        name, city, state = scraper._parse_title(
+            "2026 RPS Tri- State Challenge at Mpower Gym- Dayton Ohio"
+        )
+        assert name == "2026 RPS Tri- State Challenge at Mpower Gym"
+        assert city == "Dayton"
+        assert state == "OH"
+
+        # Hyphenated city name must stay intact (not split on its hyphen).
+        name, city, state = scraper._parse_title("Bench Bash – Wilkes-Barre, PA")
+        assert name == "Bench Bash"
+        assert city == "Wilkes-Barre"
+        assert state == "PA"

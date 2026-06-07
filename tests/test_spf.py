@@ -40,3 +40,23 @@ class TestSPFScraper:
         assert m.date_start == date(2026, 3, 14)
         assert m.city == "Covington"
         assert m.state == "GA"
+
+    def test_address_in_venue_name_fallback(self):
+        """When structured city/state are empty, parse them from the venue text."""
+        scraper = SPFScraper.__new__(SPFScraper)
+        event = {
+            "title": "SPF Drug Tested Nationals/ASX 2026",
+            "start_date": "2026-09-19 09:00:00",
+            "end_date": "2026-09-19 17:00:00",
+            "venue": {
+                "venue": "Arkansas State Fair, 2600 Howard St, Little Rock, AR 72206, USA",
+                "address": "",
+                "city": "",
+                "state": "",
+                "stateprovince": "",
+            },
+        }
+        meet = scraper._parse_event(event)
+        assert meet is not None
+        assert meet.city == "Little Rock"
+        assert meet.state == "AR"

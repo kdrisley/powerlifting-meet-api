@@ -8,7 +8,7 @@ from urllib.parse import urlparse
 from bs4 import BeautifulSoup, Tag
 
 from powerlifting_meets.models import Meet
-from powerlifting_meets.normalize import LOCATION_CODES, normalize_state
+from powerlifting_meets.normalize import parse_trailing_location
 from powerlifting_meets.scrapers.base import BaseScraper
 
 logger = logging.getLogger(__name__)
@@ -108,26 +108,23 @@ class RPSScraper(BaseScraper):
             status=status,
         )
 
-    # "City, ST" or, on some RPS listings, "City ST" with no comma.
-    _LOCATION_RE = re.compile(r"^(?P<city>.+?),?\s+(?P<code>[A-Z]{2})$")
+    # A dash (-, –, —) followed by whitespace. A leading space is optional so
+    # listings like "...Mpower Gym- Dayton Ohio" split as well as the usual
+    # spaced " – ". Requiring trailing whitespace keeps hyphenated names intact
+    # ("Wilkes-Barre", "Push-Pull").
+    _SEPARATOR_RE = re.compile(r"[–—-]\s+")
 
     def _parse_title(self, text: str) -> tuple[str | None, str | None, str | None]:
-        """Parse 'Meet Name – City, ST' or 'Meet Name – City ST' into (name, city, state)."""
-        separators = [" – ", " — ", " - "]
-
-        for sep in separators:
-            idx = text.rfind(sep)
-            if idx == -1:
-                continue
-
-            candidate_loc = text[idx + len(sep):].strip()
-            m = self._LOCATION_RE.match(candidate_loc)
-            # Require a known state/province code so meet subtitles that merely
-            # end in two capitals (e.g. "Women's Full Power", "Round IV") aren't
-            # mistaken for a location.
-            if m and m.group("code") in LOCATION_CODES:
-                name = text[:idx].strip()
-                city = m.group("city").strip()
-                return name or None, city or None, normalize_state(m.group("code"))
+        """Parse 'Meet Name – City, ST' / 'Meet Name – City ST' / 'Meet Name - City StateName'."""
+        # Try each separator from right to left; the first whose trailing
+        # segment parses as a real location wins. Validating the segment is a
+        # known location keeps meet subtitles (e.g. "– Women's Full Power") from
+        # being mistaken for a city/state split.
+        for m in reversed(list(self._SEPARATOR_RE.finditer(text))):
+            loc = parse_trailing_location(text[m.end():])
+            if loc:
+                name = text[: m.start()].rstrip()
+                city, state = loc
+                return name or None, city or None, state
 
         return text.strip() or None, None, None

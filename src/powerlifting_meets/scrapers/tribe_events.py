@@ -6,7 +6,7 @@ from datetime import date, datetime
 import httpx
 
 from powerlifting_meets.models import Meet
-from powerlifting_meets.normalize import normalize_state
+from powerlifting_meets.normalize import normalize_state, parse_address_location
 from powerlifting_meets.scrapers.base import BaseScraper
 
 logger = logging.getLogger(__name__)
@@ -65,6 +65,19 @@ class TribeEventsScraper(BaseScraper):
         )
         city = (venue_data.get("city") or "").strip() or None
         venue_name = (venue_data.get("venue") or "").strip() or None
+
+        # Some venues leave the structured city/state empty and stuff the whole
+        # address into the venue name or address field (e.g. SPF's "Arkansas
+        # State Fair, 2600 Howard St, Little Rock, AR 72206, USA"). Fall back to
+        # parsing the city/state out of that free text.
+        if city is None or state is None:
+            loc = parse_address_location(venue_name or "") or parse_address_location(
+                venue_data.get("address") or ""
+            )
+            if loc:
+                city = city or loc[0]
+                state = state or loc[1]
+
         event_url = event.get("url") or None
 
         equipment = self._extract_equipment(title)
