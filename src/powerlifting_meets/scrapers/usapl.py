@@ -99,16 +99,17 @@ class USAPLScraper(BaseScraper):
                 if dir_match:
                     director_name = dir_match.group(1).strip() or None
 
-        # Registration or More Info links
+        # The "More Info" button is the meet's info page; "Registration" is the
+        # sign-up link. Keep them in separate fields.
+        registration_url: str | None = None
         button_div = panel.find("div", class_="event-button")
         if button_div:
             for a in button_div.find_all("a", href=True):
                 link_text = a.get_text(strip=True).lower()
-                if "registration" in link_text:
-                    url = a["href"]
-                    break
-                elif "more info" in link_text and url is None:
-                    url = a["href"]
+                if "registration" in link_text or "register" in link_text:
+                    registration_url = registration_url or a["href"]
+                elif "more info" in link_text or "info" in link_text:
+                    url = url or a["href"]
 
         return Meet(
             name=name,
@@ -118,6 +119,7 @@ class USAPLScraper(BaseScraper):
             state=state,
             city=city,
             url=url,
+            registration_url=registration_url,
             status="active",
             sanction=sanction,
             event_type=event_type,

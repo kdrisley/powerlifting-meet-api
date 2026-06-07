@@ -74,13 +74,11 @@ class SPFScraper(BaseScraper):
         state = normalize_state(item.get("locationState"))
         venue = (item.get("venue") or "").strip() or None
 
-        # Prefer the external registration URL (most useful to lifters); fall
-        # back to the SPF meet page so every meet still links somewhere.
-        url = (item.get("registrationUrl") or "").strip() or None
-        if url is None:
-            slug = (item.get("slug") or "").strip()
-            if slug:
-                url = MEET_PAGE_BASE + slug
+        # url is the SPF meet page (info); registration_url is the external
+        # sign-up link when the meet has one.
+        slug = (item.get("slug") or "").strip()
+        url = MEET_PAGE_BASE + slug if slug else None
+        registration_url = (item.get("registrationUrl") or "").strip() or None
 
         status = "cancelled" if item.get("status") == "cancelled" else "active"
 
@@ -94,6 +92,7 @@ class SPFScraper(BaseScraper):
             state=state,
             city=city,
             url=url,
+            registration_url=registration_url,
             venue=venue,
             status=status,
             equipment=extract_equipment(name),

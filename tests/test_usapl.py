@@ -39,7 +39,9 @@ class TestUSAPLScraper:
         assert m.date_start == date(2026, 3, 14)
         assert m.city == "Carol Stream"
         assert m.state == "IL"
-        assert str(m.url) == "https://liftingcast.com/meets/m0247b0mongl/registration"
+        # url is the "More Info" page; registration is its own field.
+        assert str(m.url) == "https://www.surgetonewlevels.net/"
+        assert str(m.registration_url) == "https://liftingcast.com/meets/m0247b0mongl/registration"
         assert m.event_type == "LOCAL"
         assert m.sanction == "IL-2026-04"
         assert m.director_name == "Sergio Luna"

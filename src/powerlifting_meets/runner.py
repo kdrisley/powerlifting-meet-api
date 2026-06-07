@@ -45,13 +45,19 @@ def fetch_previous_data(url: str | None) -> MeetsResponse | None:
         # The live JSON uses powermeet-compatible field names, so map back
         meets = []
         for e in data.get("events", []):
+            # `link` is url-or-registration; recover the bare info url so the
+            # round-trip doesn't promote a registration link into url.
+            link = e.get("link") or None
+            registration_url = e.get("registration_url") or None
+            url = link if link != registration_url else None
             meets.append(Meet(
                 name=e.get("evt_name", ""),
                 federation=e.get("fed", ""),
                 date_start=e.get("parsed_date", ""),
                 state=e.get("state") or None,
                 city=e.get("city") or None,
-                url=e.get("link") or None,
+                url=url,
+                registration_url=registration_url,
                 venue=e.get("venue") or None,
                 status=e.get("status") or None,
                 equipment=e.get("equipment") or None,
@@ -177,7 +183,11 @@ def run() -> None:
                 "state": m.state or "",
                 "fed": m.federation,
                 "evt_name": m.name,
-                "link": str(m.url) if m.url else "",
+                # `link` is the primary meet page (info page when there is one,
+                # otherwise the sign-up link) so legacy consumers always get a
+                # usable link. `registration_url` is the explicit sign-up link.
+                "link": str(m.url or m.registration_url or "") or "",
+                "registration_url": str(m.registration_url) if m.registration_url else "",
                 "venue": m.venue or "",
                 "status": m.status or "active",
                 "date_end": m.date_end.isoformat() if m.date_end else "",

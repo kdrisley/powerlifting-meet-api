@@ -13,6 +13,7 @@ class Meet(BaseModel):
     state: str | None = None
     city: str | None = None
     url: HttpUrl | None = None
+    registration_url: HttpUrl | None = None
     venue: str | None = None
     status: str | None = None
     equipment: str | None = None

@@ -45,8 +45,11 @@ class TestSPFScraper:
         assert m.city == "Little Rock"
         assert m.state == "AR"
         assert m.venue == "ARKANSAS STATE FAIRGROUNDS, 2600 Howard Street"
-        # The external registration URL is surfaced as the meet link.
-        assert str(m.url) == "https://www.invictuspowerlifting.net/schedule"
+        # url is the SPF meet page; the external sign-up link is registration_url.
+        assert str(m.url) == (
+            MEET_PAGE_BASE + "spf-arkansas-strength-expo-and-tested-untested-nationals"
+        )
+        assert str(m.registration_url) == "https://www.invictuspowerlifting.net/schedule"
         assert m.status == "active"
         # First meet director, preferring the public email over the private one.
         assert m.director_name == "David Shirley"
@@ -59,11 +62,13 @@ class TestSPFScraper:
         assert m.director_name == "Jordan Reed"
         assert m.director_email == "jordan.reed@example.com"
 
-    def test_falls_back_to_meet_page_when_no_registration_url(self, spf_fixture: dict):
+    def test_meet_page_url_with_no_registration_link(self, spf_fixture: dict):
         scraper = _scraper_with_fixture(spf_fixture)
         m = next(s for s in scraper.scrape() if s.name == "SPF Women's Raw Showdown")
 
+        # url is always the meet page; registration_url is None when absent.
         assert str(m.url) == MEET_PAGE_BASE + "spf-womens-raw-showdown"
+        assert m.registration_url is None
         assert m.city == "Covington"
         assert m.state == "GA"
         # Equipment/restrictions are inferred from the title, as before.

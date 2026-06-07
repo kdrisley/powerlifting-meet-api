@@ -83,11 +83,10 @@ class APFScraper(BaseScraper):
 
         city, state = self._parse_location(location)
 
-        # Entry form link is in last column
-        url: str | None = None
-        link = cells[-1].find("a", href=True)
-        if link:
-            url = link["href"]
+        # The last column holds a mix of links: an info page ("Meet Info",
+        # poster, website, FB event) and registration material (an "Online
+        # Registration" portal, a liftingcast link, or an entry-form PDF/Word).
+        url, registration_url = self._classify_links(cells[-1])
 
         # Director name (col 4) and email (col 5, usually a mailto link).
         director_name: str | None = None
@@ -109,10 +108,29 @@ class APFScraper(BaseScraper):
             state=state,
             city=city,
             url=url,
+            registration_url=registration_url,
             status="active",
             director_name=director_name,
             director_email=director_email,
         )
+
+    @staticmethod
+    def _classify_links(cell: Tag) -> tuple[str | None, str | None]:
+        """Split a link cell into (info_url, registration_url)."""
+        info_url: str | None = None
+        registration_url: str | None = None
+        entry_form: str | None = None
+        for a in cell.find_all("a", href=True):
+            href = a["href"]
+            text = a.get_text(" ", strip=True).lower()
+            if "registration" in text or "register" in text or "liftingcast.com" in href:
+                registration_url = registration_url or href
+            elif text in ("pdf", "word") or "entry" in text:
+                # Entry-form documents are how APF meets are entered.
+                entry_form = entry_form or href
+            elif any(k in text for k in ("info", "poster", "website", "event")):
+                info_url = info_url or href
+        return info_url, registration_url or entry_form
 
     def _build_date(
         self, month_text: str, day_text: str, year: int

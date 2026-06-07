@@ -37,15 +37,19 @@ class RPSScraper(BaseScraper):
             if meet is not None:
                 meets.append(meet)
 
-        # The listing has no contact info; the meet director's name and email
-        # live on each meet's detail page. Fetch them in parallel and attach.
-        self._enrich_directors(meets)
+        # The listing has no contact info or sign-up link; both live on each
+        # meet's detail page. Fetch them in parallel and attach.
+        self._enrich_from_detail(meets)
 
         logger.info("Scraped %d RPS meets", len(meets))
         return meets
 
-    def _enrich_directors(self, meets: list[Meet]) -> None:
-        """Populate director_name/director_email from each meet's detail page."""
+    def _enrich_from_detail(self, meets: list[Meet]) -> None:
+        """Fill director_name/email and registration_url from each detail page.
+
+        The listing only links to the meet's info page (kept as `url`); the
+        director and the sign-up form live on that page.
+        """
         def fetch(meet: Meet) -> None:
             if not meet.url:
                 return
@@ -55,10 +59,28 @@ class RPSScraper(BaseScraper):
             except Exception as exc:  # one bad page shouldn't sink the scrape
                 logger.warning("RPS detail fetch failed for %s: %s", meet.url, exc)
                 return
-            meet.director_name, meet.director_email = self._parse_director(resp.text)
+            soup = BeautifulSoup(resp.text, "lxml")
+            meet.director_name, meet.director_email = self._parse_director(soup)
+            meet.registration_url = self._find_registration(soup)
 
         with ThreadPoolExecutor(max_workers=_DETAIL_WORKERS) as pool:
             list(pool.map(fetch, meets))
+
+    @staticmethod
+    def _find_registration(soup: BeautifulSoup) -> str | None:
+        """Find a sign-up link (jotform / liftingcast / 'register') on the page."""
+        for a in soup.find_all("a", href=True):
+            href = a["href"]
+            text = a.get_text(" ", strip=True).lower()
+            if (
+                "jotform.com" in href
+                or "liftingcast.com" in href
+                or "register" in text
+                or "online entry" in text
+                or "sign up" in text
+            ):
+                return href
+        return None
 
     # Detail pages label the director inconsistently: "Meet Director:",
     # "Director:", "Directors:" (plural), lowercase, or "Meet Director –". A
@@ -75,8 +97,8 @@ class RPSScraper(BaseScraper):
         r"\b(?:Email|E-mail|Phone|Tel|Cell|Mobile|Contact)\b.*$", re.IGNORECASE
     )
 
-    def _parse_director(self, html: str) -> tuple[str | None, str | None]:
-        text = BeautifulSoup(html, "lxml").get_text(" ", strip=True).replace("\xa0", " ")
+    def _parse_director(self, soup: BeautifulSoup) -> tuple[str | None, str | None]:
+        text = soup.get_text(" ", strip=True).replace("\xa0", " ")
         m = self._DIRECTOR_RE.search(text)
         if not m:
             return None, None

@@ -40,14 +40,21 @@ class TestAPFScraper:
         assert m.date_start == date(2026, 3, 14)
         assert m.city == "Westbrooke"
         assert m.state == "ME"
-        assert str(m.url) == "https://form.jotform.com/DynaMaxx/9th-annual-womens-apf-meet-entry"
+        # "Online Registration" is a sign-up link, so it lands in registration_url
+        # and this meet has no separate info page.
+        assert m.url is None
+        assert str(m.registration_url) == (
+            "https://form.jotform.com/DynaMaxx/9th-annual-womens-apf-meet-entry"
+        )
         assert m.director_name == "Matt Israelson"
         assert m.director_email == "dynamaxx21@gmail.com"
 
-        # International meet has no US state
+        # International meet has no US state; its "Info" link is the info page.
         m_intl = meets[2]
         assert m_intl.name == "Arise"
         assert m_intl.state is None
+        assert str(m_intl.url) == "http://www.wpcpowerlifting.co.za/"
+        assert m_intl.registration_url is None
 
         # Illinois meet
         m_il = meets[3]

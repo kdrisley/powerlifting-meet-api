@@ -4,6 +4,7 @@ from unittest.mock import patch
 
 import httpx
 import pytest
+from bs4 import BeautifulSoup
 
 from powerlifting_meets.scrapers.rps import RPSScraper
 
@@ -14,13 +15,18 @@ def rps_html(fixtures_dir: Path) -> str:
 
 
 # Minimal RPS detail page carrying the meet-director line (email is plain text,
-# not a mailto link, as on the real site).
+# not a mailto link, as on the real site) and a jotform sign-up link.
 _DETAIL_HTML = (
     "<html><body><div class='entry-content'>"
     "<p>Meet Director: Matt Staub – hogmodetraining@gmail.com</p>"
     "<p>Some venue address, City, ST</p>"
+    "<a href='https://form.jotform.com/253644134571153'>Register Here</a>"
     "</div></body></html>"
 )
+
+
+def _soup(html: str) -> BeautifulSoup:
+    return BeautifulSoup(html, "lxml")
 
 
 def _route_handler(rps_html: str):
@@ -58,9 +64,12 @@ class TestRPSScraper:
         assert m.city == "Farmingdale"
         assert m.state == "NY"
         assert m.status == "sold_out"
-        # Director enriched from the detail page.
+        # Director and sign-up link enriched from the detail page; url stays the
+        # info page.
         assert m.director_name == "Matt Staub"
         assert m.director_email == "hogmodetraining@gmail.com"
+        assert str(m.url).startswith("https://meets.revolutionpowerlifting.com/")
+        assert str(m.registration_url) == "https://form.jotform.com/253644134571153"
 
         # Second meet - active, no status badge
         m = meets[1]
@@ -85,29 +94,38 @@ class TestRPSScraper:
     def test_parse_director(self):
         scraper = RPSScraper.__new__(RPSScraper)
 
-        name, email = scraper._parse_director(_DETAIL_HTML)
+        name, email = scraper._parse_director(_soup(_DETAIL_HTML))
         assert name == "Matt Staub"
         assert email == "hogmodetraining@gmail.com"
 
         # "Director:" (no "Meet"), email in parentheses, nbsp in the name.
-        name, email = scraper._parse_director(
+        name, email = scraper._parse_director(_soup(
             "<p>Natick MA, 01760 Director: Robert\xa0Popp "
             "(rpopp@nsiteam.com, 781-864-1347) Entry Fee: $135</p>"
-        )
+        ))
         assert name == "Robert Popp"
         assert email == "rpopp@nsiteam.com"
 
         # "Meet Director –" with only a phone number: name parsed, email None.
-        name, email = scraper._parse_director(
+        name, email = scraper._parse_director(_soup(
             "<p>Meet Director – Henri Skiba – 732-598-9369 Rare Breed Fitness</p>"
-        )
+        ))
         assert name == "Henri Skiba"
         assert email is None
 
         # No director line -> both None, so the meet is left unenriched.
-        name, email = scraper._parse_director("<html><body><p>No info</p></body></html>")
+        name, email = scraper._parse_director(_soup("<p>No info</p>"))
         assert name is None
         assert email is None
+
+    def test_find_registration(self):
+        scraper = RPSScraper.__new__(RPSScraper)
+        assert (
+            scraper._find_registration(_soup(_DETAIL_HTML))
+            == "https://form.jotform.com/253644134571153"
+        )
+        # No sign-up link present.
+        assert scraper._find_registration(_soup("<p>nothing</p>")) is None
 
     def test_title_parsing(self):
         scraper = RPSScraper.__new__(RPSScraper)
