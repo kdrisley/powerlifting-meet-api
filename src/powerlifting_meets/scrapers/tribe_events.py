@@ -3,13 +3,40 @@ from __future__ import annotations
 import logging
 from datetime import date, datetime
 
-import httpx
-
 from powerlifting_meets.models import Meet
 from powerlifting_meets.normalize import normalize_state, parse_address_location
 from powerlifting_meets.scrapers.base import BaseScraper
 
 logger = logging.getLogger(__name__)
+
+
+def extract_equipment(title: str) -> str | None:
+    """Infer the equipment division from a meet title, if stated."""
+    lower = title.lower()
+    if "raw w/ wraps" in lower or "raw with wraps" in lower or "raw/wraps" in lower:
+        return "Raw w/ Wraps"
+    if "equipped" in lower:
+        return "Equipped"
+    if "raw" in lower:
+        return "Raw"
+    return None
+
+
+def extract_restrictions(title: str) -> str | None:
+    """Infer entry restrictions (women-only, masters, etc.) from a meet title."""
+    lower = title.lower()
+    restrictions: list[str] = []
+    if "women" in lower:
+        restrictions.append("Women Only")
+    if "collegiate" in lower:
+        restrictions.append("Collegiate")
+    if "high school" in lower:
+        restrictions.append("High School")
+    if "masters" in lower:
+        restrictions.append("Masters")
+    if "teen" in lower:
+        restrictions.append("Teen")
+    return ", ".join(restrictions) if restrictions else None
 
 
 class TribeEventsScraper(BaseScraper):
@@ -67,8 +94,8 @@ class TribeEventsScraper(BaseScraper):
         venue_name = (venue_data.get("venue") or "").strip() or None
 
         # Some venues leave the structured city/state empty and stuff the whole
-        # address into the venue name or address field (e.g. SPF's "Arkansas
-        # State Fair, 2600 Howard St, Little Rock, AR 72206, USA"). Fall back to
+        # address into the venue name or address field (e.g. "Arkansas State
+        # Fair, 2600 Howard St, Little Rock, AR 72206, USA"). Fall back to
         # parsing the city/state out of that free text.
         if city is None or state is None:
             loc = parse_address_location(venue_name or "") or parse_address_location(
@@ -107,29 +134,10 @@ class TribeEventsScraper(BaseScraper):
             return None
 
     def _extract_equipment(self, title: str) -> str | None:
-        lower = title.lower()
-        if "raw w/ wraps" in lower or "raw with wraps" in lower or "raw/wraps" in lower:
-            return "Raw w/ Wraps"
-        if "equipped" in lower:
-            return "Equipped"
-        if "raw" in lower:
-            return "Raw"
-        return None
+        return extract_equipment(title)
 
     def _extract_restrictions(self, title: str) -> str | None:
-        lower = title.lower()
-        restrictions: list[str] = []
-        if "women" in lower:
-            restrictions.append("Women Only")
-        if "collegiate" in lower:
-            restrictions.append("Collegiate")
-        if "high school" in lower:
-            restrictions.append("High School")
-        if "masters" in lower:
-            restrictions.append("Masters")
-        if "teen" in lower:
-            restrictions.append("Teen")
-        return ", ".join(restrictions) if restrictions else None
+        return extract_restrictions(title)
 
     def _extract_status(self, event: dict) -> str | None:
         return "active"

@@ -6,57 +6,66 @@ from unittest.mock import patch
 import httpx
 import pytest
 
-from powerlifting_meets.scrapers.spf import SPFScraper
+from powerlifting_meets.scrapers.spf import MEET_PAGE_BASE, SPFScraper
 
 
 @pytest.fixture
 def spf_fixture(fixtures_dir: Path) -> dict:
-    return json.loads((fixtures_dir / "spf_events_page1.json").read_text())
+    return json.loads((fixtures_dir / "spf_meets_sanity.json").read_text())
+
+
+def _scraper_with_fixture(fixture: dict) -> SPFScraper:
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, json=fixture)
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    with patch.object(SPFScraper, "__init__", lambda self, **kw: None):
+        scraper = SPFScraper()
+        scraper.client = client
+        scraper._owns_client = False
+    return scraper
 
 
 class TestSPFScraper:
     def test_scrape_from_fixture(self, spf_fixture: dict):
-        def mock_handler(request: httpx.Request) -> httpx.Response:
-            return httpx.Response(200, json=spf_fixture)
+        scraper = _scraper_with_fixture(spf_fixture)
+        meets = scraper.scrape()
 
-        transport = httpx.MockTransport(mock_handler)
-        client = httpx.Client(transport=transport)
-
-        with patch.object(SPFScraper, "__init__", lambda self, **kw: None):
-            scraper = SPFScraper()
-            scraper.client = client
-            scraper._owns_client = False
-
-            with patch("powerlifting_meets.scrapers.tribe_events.date") as mock_date:
-                mock_date.today.return_value = date(2026, 3, 1)
-                mock_date.side_effect = lambda *a, **kw: date(*a, **kw)
-                meets = scraper.scrape()
-
-        assert len(meets) == 3
+        assert len(meets) == 4
         assert all(m.federation == "SPF" for m in meets)
 
-        m = meets[0]
-        assert m.name == "The Searcy Showdown"
-        assert m.date_start == date(2026, 3, 14)
+    def test_multiday_uppercase_city_with_registration_url(self, spf_fixture: dict):
+        scraper = _scraper_with_fixture(spf_fixture)
+        m = scraper.scrape()[0]
+
+        assert m.name == "SPF ARKANSAS STRENGTH EXPO & TESTED/UNTESTED NATIONALS"
+        assert m.date_start == date(2026, 6, 27)
+        assert m.date_end == date(2026, 6, 28)
+        # SHOUTING city is normalized to title case.
+        assert m.city == "Little Rock"
+        assert m.state == "AR"
+        assert m.venue == "ARKANSAS STATE FAIRGROUNDS, 2600 Howard Street"
+        # The external registration URL is surfaced as the meet link.
+        assert str(m.url) == "https://www.invictuspowerlifting.net/schedule"
+        assert m.status == "active"
+
+    def test_falls_back_to_meet_page_when_no_registration_url(self, spf_fixture: dict):
+        scraper = _scraper_with_fixture(spf_fixture)
+        m = next(s for s in scraper.scrape() if s.name == "SPF Women's Raw Showdown")
+
+        assert str(m.url) == MEET_PAGE_BASE + "spf-womens-raw-showdown"
         assert m.city == "Covington"
         assert m.state == "GA"
+        # Equipment/restrictions are inferred from the title, as before.
+        assert m.equipment == "Raw"
+        assert m.restrictions == "Women Only"
 
-    def test_address_in_venue_name_fallback(self):
-        """When structured city/state are empty, parse them from the venue text."""
-        scraper = SPFScraper.__new__(SPFScraper)
-        event = {
-            "title": "SPF Drug Tested Nationals/ASX 2026",
-            "start_date": "2026-09-19 09:00:00",
-            "end_date": "2026-09-19 17:00:00",
-            "venue": {
-                "venue": "Arkansas State Fair, 2600 Howard St, Little Rock, AR 72206, USA",
-                "address": "",
-                "city": "",
-                "state": "",
-                "stateprovince": "",
-            },
-        }
-        meet = scraper._parse_event(event)
-        assert meet is not None
-        assert meet.city == "Little Rock"
-        assert meet.state == "AR"
+    def test_single_day_has_no_end_date(self, spf_fixture: dict):
+        scraper = _scraper_with_fixture(spf_fixture)
+        m = next(s for s in scraper.scrape() if s.name == "SPF Women's Raw Showdown")
+        assert m.date_end is None
+
+    def test_cancelled_status_preserved(self, spf_fixture: dict):
+        scraper = _scraper_with_fixture(spf_fixture)
+        m = next(s for s in scraper.scrape() if s.name == "SPF Cancelled Classic")
+        assert m.status == "cancelled"

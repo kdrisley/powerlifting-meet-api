@@ -1,0 +1,48 @@
+{
+  "result": [
+    {
+      "name": "SPF ARKANSAS STRENGTH EXPO & TESTED/UNTESTED NATIONALS",
+      "startDate": "2026-06-27",
+      "endDate": "2026-06-28",
+      "locationCity": "LITTLE ROCK",
+      "locationState": "AR",
+      "venue": "ARKANSAS STATE FAIRGROUNDS, 2600 Howard Street",
+      "status": "open",
+      "registrationUrl": "https://www.invictuspowerlifting.net/schedule",
+      "slug": "spf-arkansas-strength-expo-and-tested-untested-nationals"
+    },
+    {
+      "name": "Cornfed Iron Classic",
+      "startDate": "2026-07-11",
+      "endDate": "2026-07-11",
+      "locationCity": "Mattoon",
+      "locationState": "IL",
+      "venue": "1005 Dewitt Ave",
+      "status": "open",
+      "registrationUrl": "https://www.invictuspowerlifting.net/events/iron-frost-classic",
+      "slug": "some-meet"
+    },
+    {
+      "name": "SPF Women's Raw Showdown",
+      "startDate": "2026-08-15",
+      "endDate": null,
+      "locationCity": "Covington",
+      "locationState": "GA",
+      "venue": "Crossfit Unyielding",
+      "status": "open",
+      "registrationUrl": null,
+      "slug": "spf-womens-raw-showdown"
+    },
+    {
+      "name": "SPF Cancelled Classic",
+      "startDate": "2026-09-01",
+      "endDate": null,
+      "locationCity": "Dallas",
+      "locationState": "TX",
+      "venue": null,
+      "status": "cancelled",
+      "registrationUrl": "https://example.com/reg",
+      "slug": "spf-cancelled-classic"
+    }
+  ]
+}
