@@ -8,7 +8,7 @@ from urllib.parse import urlparse
 from bs4 import BeautifulSoup, Tag
 
 from powerlifting_meets.models import Meet
-from powerlifting_meets.normalize import normalize_state
+from powerlifting_meets.normalize import LOCATION_CODES, normalize_state
 from powerlifting_meets.scrapers.base import BaseScraper
 
 logger = logging.getLogger(__name__)
@@ -108,20 +108,26 @@ class RPSScraper(BaseScraper):
             status=status,
         )
 
+    # "City, ST" or, on some RPS listings, "City ST" with no comma.
+    _LOCATION_RE = re.compile(r"^(?P<city>.+?),?\s+(?P<code>[A-Z]{2})$")
+
     def _parse_title(self, text: str) -> tuple[str | None, str | None, str | None]:
-        """Parse 'Meet Name – City, ST' into (name, city, state)."""
+        """Parse 'Meet Name – City, ST' or 'Meet Name – City ST' into (name, city, state)."""
         separators = [" – ", " — ", " - "]
 
         for sep in separators:
             idx = text.rfind(sep)
-            if idx != -1:
-                candidate_loc = text[idx + len(sep):]
-                # Check if it ends with 2-letter state/province code
-                if re.search(r",\s*[A-Z]{2}$", candidate_loc):
-                    name = text[:idx].strip()
-                    loc_parts = [s.strip() for s in candidate_loc.rsplit(",", 1)]
-                    city = loc_parts[0] if loc_parts else None
-                    state = normalize_state(loc_parts[1]) if len(loc_parts) == 2 else None
-                    return name or None, city, state
+            if idx == -1:
+                continue
+
+            candidate_loc = text[idx + len(sep):].strip()
+            m = self._LOCATION_RE.match(candidate_loc)
+            # Require a known state/province code so meet subtitles that merely
+            # end in two capitals (e.g. "Women's Full Power", "Round IV") aren't
+            # mistaken for a location.
+            if m and m.group("code") in LOCATION_CODES:
+                name = text[:idx].strip()
+                city = m.group("city").strip()
+                return name or None, city or None, normalize_state(m.group("code"))
 
         return text.strip() or None, None, None

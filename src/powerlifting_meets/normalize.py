@@ -18,6 +18,16 @@ US_STATES: dict[str, str] = {
 
 _VALID_ABBREVS = set(US_STATES.values())
 
+# Canadian provinces/territories. Not US states, so normalize_state() leaves
+# them as None, but they're valid trailing-location codes in meet titles
+# (e.g. RPS lists meets in Ontario), so we still want to split them off.
+CANADIAN_PROVINCES: set[str] = {
+    "AB", "BC", "MB", "NB", "NL", "NS", "NT", "NU", "ON", "PE", "QC", "SK", "YT",
+}
+
+# Two-letter codes that signal a trailing "City ST" location in a meet title.
+LOCATION_CODES: frozenset[str] = frozenset(_VALID_ABBREVS | CANADIAN_PROVINCES)
+
 
 def normalize_state(raw: str | None) -> str | None:
     """Normalize a state name or abbreviation to a two-letter code."""
