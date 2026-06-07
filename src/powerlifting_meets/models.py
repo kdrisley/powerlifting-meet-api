@@ -12,6 +12,10 @@ class Meet(BaseModel):
     date_end: date | None = None
     state: str | None = None
     city: str | None = None
+    country: str | None = None
+    # True when city/state/country were filled by the LLM fallback rather than
+    # parsed from the source, so consumers can tell inferred values apart.
+    geo_inferred: bool = False
     url: HttpUrl | None = None
     registration_url: HttpUrl | None = None
     venue: str | None = None
