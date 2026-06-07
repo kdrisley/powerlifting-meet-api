@@ -3,8 +3,6 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 from unittest.mock import patch
 
-import pytest
-
 from powerlifting_meets.models import FederationMeta, Meet, MeetsResponse
 from powerlifting_meets.runner import (
     fetch_previous_data,
@@ -68,6 +66,10 @@ class TestRun:
             patch("powerlifting_meets.runner.ALL_SCRAPERS", [FakeScraperA, FakeScraperB]),
             patch("powerlifting_meets.runner.OUTPUT_DIR", tmp_path),
             patch("powerlifting_meets.runner.PREVIOUS_DATA_URL", None),
+            # Keep run() offline: no geo-cache fetch, no LLM tier (tested
+            # separately in test_llm_geo).
+            patch("powerlifting_meets.runner.GEO_CACHE_URL", None),
+            patch("powerlifting_meets.runner.infer_missing_locations", return_value=0),
         ):
             run()
 
@@ -112,7 +114,15 @@ class TestRun:
             patch("powerlifting_meets.runner.ALL_SCRAPERS", [FailingScraper]),
             patch("powerlifting_meets.runner.OUTPUT_DIR", tmp_path),
             patch("powerlifting_meets.runner.fetch_previous_data", return_value=previous_response),
+            # Keep run() offline: no geo-cache fetch, no LLM tier.
+            patch("powerlifting_meets.runner.GEO_CACHE_URL", None),
+            patch("powerlifting_meets.runner.infer_missing_locations", return_value=0),
+            # Pin "today" so the fallback meet (dated 2026-05-01) stays in the
+            # future and isn't filtered out as past.
+            patch("powerlifting_meets.runner.date") as mock_date,
         ):
+            mock_date.today.return_value = date(2026, 3, 14)
+            mock_date.side_effect = lambda *a, **kw: date(*a, **kw)
             run()
 
         meets_json = json.loads((tmp_path / "events").read_text())

@@ -230,11 +230,6 @@ def run() -> None:
         format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     )
 
-    # Load GEMINI_API_KEY (and friends) from a local .env for dev runs. In CI
-    # the key comes from the environment, where there is no .env — load_dotenv
-    # is a harmless no-op then.
-    load_dotenv()
-
     previous = fetch_previous_data(PREVIOUS_DATA_URL)
     today = date.today()
 
@@ -382,4 +377,8 @@ def run() -> None:
 
 
 if __name__ == "__main__":
+    # Load GEMINI_API_KEY (and friends) from a local .env for dev runs. In CI
+    # the key comes from the environment (no .env), so this is a harmless no-op.
+    # Kept out of run() so importing/calling it from tests has no side effects.
+    load_dotenv()
     run()
