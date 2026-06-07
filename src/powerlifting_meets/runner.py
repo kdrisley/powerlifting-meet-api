@@ -7,8 +7,11 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 import httpx
+from dotenv import load_dotenv
 
+from powerlifting_meets import llm_geo
 from powerlifting_meets.models import FederationMeta, Meet, MeetsResponse
+from powerlifting_meets.normalize import normalize_country, normalize_state, resolve_location
 from powerlifting_meets.scrapers.apf import APFScraper
 from powerlifting_meets.scrapers.base import BaseScraper
 from powerlifting_meets.scrapers.powerlifting_america import PowerliftingAmericaScraper
@@ -21,6 +24,11 @@ logger = logging.getLogger(__name__)
 
 # URL of the previously published meets.json on GitHub Pages
 PREVIOUS_DATA_URL = "https://kdrisley.github.io/powerlifting-meet-api/events"
+
+# Published geo-inference cache. output/ isn't committed to the repo, but it is
+# published to GitHub Pages, so the cache persists across runs the same way the
+# meet-data fallback does (see fetch_previous_data).
+GEO_CACHE_URL = "https://kdrisley.github.io/powerlifting-meet-api/geo_cache.json"
 
 OUTPUT_DIR = Path("output")
 
@@ -56,6 +64,8 @@ def fetch_previous_data(url: str | None) -> MeetsResponse | None:
                 date_start=e.get("parsed_date", ""),
                 state=e.get("state") or None,
                 city=e.get("city") or None,
+                country=e.get("country") or None,
+                geo_inferred=bool(e.get("geo_inferred")),
                 url=url,
                 registration_url=registration_url,
                 venue=e.get("venue") or None,
@@ -93,6 +103,125 @@ def get_previous_meets_for_federation(
         m for m in previous.meets
         if m.federation == federation and m.date_start >= today
     ]
+
+
+def fetch_geo_cache(url: str | None) -> dict:
+    """Load the previously published geo-inference cache from GitHub Pages.
+
+    Returns an empty cache on any failure (first run, network hiccup) so the
+    pipeline degrades to "infer everything fresh" rather than breaking.
+    """
+    if not url:
+        return {}
+    try:
+        resp = httpx.get(url, timeout=15.0, follow_redirects=True)
+        resp.raise_for_status()
+        data = resp.json()
+        return data if isinstance(data, dict) else {}
+    except Exception as exc:
+        logger.warning("Could not fetch geo cache from %s: %s", url, exc)
+        return {}
+
+
+def save_geo_cache(cache: dict, path: Path) -> None:
+    """Write the geo cache so it's published alongside the events output."""
+    path.write_text(json.dumps(cache, indent=2, sort_keys=True), encoding="utf-8")
+
+
+def infer_missing_locations(meets: list[Meet], cache: dict) -> int:
+    """LLM fallback for meets with neither a state nor a country.
+
+    Runs after deterministic backfill, on the small residue parsing can't
+    resolve. Each meet is keyed by identity plus a hash of its input signals,
+    so a meet is sent to the model at most once across runs — a cache hit (even
+    a low-confidence "couldn't tell") costs nothing. Mutates `meets` and
+    `cache` in place; returns the number of meets a guess was applied to.
+    """
+    applied = 0
+    calls = 0
+    for m in meets:
+        if m.state or m.country:
+            continue
+        key = llm_geo.cache_key(m)
+        h = llm_geo.signals_hash(m)
+        entry = cache.get(key)
+        fresh = (
+            entry
+            and entry.get("signals_hash") == h
+            and entry.get("schema_version") == llm_geo.SCHEMA_VERSION
+        )
+        if not fresh:
+            guess = llm_geo.infer_location(m)
+            if guess is None:
+                # No API key or the call failed — retry next run, don't cache.
+                continue
+            calls += 1
+            entry = {
+                "schema_version": llm_geo.SCHEMA_VERSION,
+                "signals_hash": h,
+                "city": guess.city,
+                "state": normalize_state(guess.state),
+                "country": normalize_country(guess.country) or guess.country,
+                "confidence": guess.confidence,
+                "reasoning": guess.reasoning,
+            }
+            cache[key] = entry
+
+        if entry.get("confidence", 0) < llm_geo.CONFIDENCE_THRESHOLD:
+            continue
+        changed = False
+        if entry.get("state") and not m.state:
+            m.state = entry["state"]
+            changed = True
+        if entry.get("country") and not m.country:
+            m.country = entry["country"]
+            changed = True
+        if entry.get("city") and not m.city:
+            m.city = entry["city"]
+            changed = True
+        if changed:
+            m.geo_inferred = True
+            applied += 1
+
+    if calls:
+        logger.info(
+            "Gemini geo inference: %d new API call(s), %d meet(s) resolved", calls, applied
+        )
+    return applied
+
+
+def backfill_locations(meets: list[Meet]) -> int:
+    """Deterministically fill in missing state/country across all federations.
+
+    Some scrapers leave a state-bearing location stranded in the `city` field
+    (e.g. "Royal Oak MI") or a non-US meet with no state ("Port Elizabeth South
+    Africa"). For any meet still missing a state, re-run the shared location
+    parser over its `city` and `name` and adopt the first recognizable result.
+    US meets that already have a state are stamped with country "United States"
+    for a consistent, filterable feed. Mutates in place; returns the number of
+    meets whose location fields changed.
+    """
+    changed = 0
+    for m in meets:
+        if m.state and not m.country:
+            m.country = "United States"
+            changed += 1
+            continue
+        if m.state:
+            continue
+        for source in (m.city, m.name):
+            city, state, country = resolve_location(source)
+            if not state and not country:
+                continue
+            if city:
+                m.city = city
+            if state:
+                m.state = state
+            if country and not m.country:
+                m.country = country
+            changed += 1
+            break
+    return changed
 
 
 def run() -> None:
@@ -163,6 +292,26 @@ def run() -> None:
             seen.add(key)
             unique_meets.append(m)
 
+    # Backfill missing state/country from the city field and meet name.
+    filled = backfill_locations(unique_meets)
+    if filled:
+        logger.info("Backfilled location fields on %d meets", filled)
+
+    # LLM fallback for the residue deterministic parsing can't resolve.
+    geo_cache = fetch_geo_cache(GEO_CACHE_URL)
+    inferred = infer_missing_locations(unique_meets, geo_cache)
+    if inferred:
+        logger.info("Inferred location via Gemini on %d meets", inferred)
+
+    # Anything still without a state or a country is a genuine unknown.
+    unresolved = [m for m in unique_meets if not m.state and not m.country]
+    if unresolved:
+        logger.warning(
+            "%d meets still have no state or country: %s",
+            len(unresolved),
+            ", ".join(f"{m.federation}:{m.name}" for m in unresolved[:20]),
+        )
+
     response = MeetsResponse(
         generated_at=datetime.now(timezone.utc),
         total_meets=len(unique_meets),
@@ -194,6 +343,8 @@ def run() -> None:
                 "equipment": m.equipment or "",
                 "restrictions": m.restrictions or "",
                 "city": m.city or "",
+                "country": m.country or "",
+                "geo_inferred": m.geo_inferred,
                 "director_name": m.director_name or "",
                 "director_email": m.director_email or "",
                 "sanction": m.sanction or "",
@@ -220,6 +371,14 @@ def run() -> None:
     meta_path.write_text(json.dumps(meta_json, indent=2, default=str), encoding="utf-8")
     logger.info("Wrote %s", meta_path)
 
+    # Persist the geo cache alongside the output so it's published to Pages and
+    # available to the next run.
+    save_geo_cache(geo_cache, OUTPUT_DIR / "geo_cache.json")
+
 
 if __name__ == "__main__":
+    # Load GEMINI_API_KEY (and friends) from a local .env for dev runs. In CI
+    # the key comes from the environment (no .env), so this is a harmless no-op.
+    # Kept out of run() so importing/calling it from tests has no side effects.
+    load_dotenv()
     run()

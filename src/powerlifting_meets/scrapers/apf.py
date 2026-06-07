@@ -7,7 +7,7 @@ from datetime import date, datetime
 from bs4 import BeautifulSoup, Tag
 
 from powerlifting_meets.models import Meet
-from powerlifting_meets.normalize import normalize_state
+from powerlifting_meets.normalize import resolve_location
 from powerlifting_meets.scrapers.base import BaseScraper
 
 logger = logging.getLogger(__name__)
@@ -81,7 +81,7 @@ class APFScraper(BaseScraper):
         if date_start < today:
             return None
 
-        city, state = self._parse_location(location)
+        city, state, country = self._parse_location(location)
 
         # The last column holds a mix of links: an info page ("Meet Info",
         # poster, website, FB event) and registration material (an "Online
@@ -107,6 +107,7 @@ class APFScraper(BaseScraper):
             date_start=date_start,
             state=state,
             city=city,
+            country=country,
             url=url,
             registration_url=registration_url,
             status="active",
@@ -147,17 +148,21 @@ class APFScraper(BaseScraper):
         except ValueError:
             return None
 
-    def _parse_location(self, location: str) -> tuple[str | None, str | None]:
-        """Parse 'City, ST' or 'Venue, City, ST' into (city, state)."""
+    def _parse_location(
+        self, location: str
+    ) -> tuple[str | None, str | None, str | None]:
+        """Parse a location cell into (city, state, country).
+
+        APF/WPC lists meets worldwide in several shapes: "City, ST",
+        "Venue, City, ST", space-separated "City ST", and international
+        "City CountryName". resolve_location handles all of them; if nothing
+        is recognizable we keep the raw text as the city.
+        """
         if not location:
-            return None, None
+            return None, None, None
 
-        # Split on comma, take last part as potential state
-        parts = [p.strip() for p in location.split(",")]
-        if len(parts) >= 2:
-            state = normalize_state(parts[-1])
-            # City is the second-to-last part
-            city = parts[-2] or None
-            return city, state
+        city, state, country = resolve_location(location)
+        if state or country:
+            return city, state, country
 
-        return location, None
+        return location, None, None

@@ -30,6 +30,8 @@ jobs:
 
       - name: Run scrapers
         run: python -m powerlifting_meets.runner
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

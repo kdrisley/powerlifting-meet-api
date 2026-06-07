@@ -49,10 +49,14 @@ class TestAPFScraper:
         assert m.director_name == "Matt Israelson"
         assert m.director_email == "dynamaxx21@gmail.com"
 
-        # International meet has no US state; its "Info" link is the info page.
+        # International meet has no US state; the country is split off the
+        # space-separated "City CountryName" location. Its "Info" link is the
+        # info page.
         m_intl = meets[2]
         assert m_intl.name == "Arise"
         assert m_intl.state is None
+        assert m_intl.city == "Port Elizabeth"
+        assert m_intl.country == "South Africa"
         assert str(m_intl.url) == "http://www.wpcpowerlifting.co.za/"
         assert m_intl.registration_url is None
 

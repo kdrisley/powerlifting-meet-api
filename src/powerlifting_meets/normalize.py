@@ -30,6 +30,47 @@ CANADIAN_PROVINCES: set[str] = {
 # Two-letter codes that signal a trailing "City ST" location in a meet title.
 LOCATION_CODES: frozenset[str] = frozenset(_VALID_ABBREVS | CANADIAN_PROVINCES)
 
+# Country names we recognize as a trailing token in a location string, mapped to
+# a canonical display name. Several federations (notably APF/WPC) list meets
+# worldwide as "City CountryName" with no state, so we split the country off to
+# keep the city clean and flag the meet as non-US. Lowercase keys; longest-first
+# matching means multi-word names ("South Africa") win over a substring.
+COUNTRY_ALIASES: dict[str, str] = {
+    "united states": "United States", "usa": "United States",
+    "united states of america": "United States",
+    "canada": "Canada", "mexico": "Mexico",
+    "south africa": "South Africa", "australia": "Australia",
+    "new zealand": "New Zealand", "switzerland": "Switzerland",
+    "united kingdom": "United Kingdom", "great britain": "United Kingdom",
+    "england": "United Kingdom", "scotland": "United Kingdom",
+    "wales": "United Kingdom", "northern ireland": "United Kingdom",
+    "ireland": "Ireland", "germany": "Germany", "france": "France",
+    "spain": "Spain", "portugal": "Portugal", "italy": "Italy",
+    "netherlands": "Netherlands", "belgium": "Belgium", "austria": "Austria",
+    "sweden": "Sweden", "norway": "Norway", "finland": "Finland",
+    "denmark": "Denmark", "iceland": "Iceland", "poland": "Poland",
+    "czech republic": "Czech Republic", "hungary": "Hungary",
+    "romania": "Romania", "ukraine": "Ukraine", "russia": "Russia",
+    "japan": "Japan", "china": "China", "india": "India",
+    "south korea": "South Korea", "philippines": "Philippines",
+    "indonesia": "Indonesia", "malaysia": "Malaysia", "singapore": "Singapore",
+    "thailand": "Thailand", "brazil": "Brazil", "argentina": "Argentina",
+    "chile": "Chile", "colombia": "Colombia", "peru": "Peru",
+    "egypt": "Egypt", "nigeria": "Nigeria", "kenya": "Kenya",
+    "united arab emirates": "United Arab Emirates", "uae": "United Arab Emirates",
+    "israel": "Israel", "turkey": "Turkey", "greece": "Greece",
+}
+
+# Country names longest-first so multi-word names win over a trailing substring.
+_COUNTRY_NAMES_BY_LEN: list[str] = sorted(COUNTRY_ALIASES, key=len, reverse=True)
+
+
+def normalize_country(raw: str | None) -> str | None:
+    """Normalize a country name to its canonical form, or None if unrecognized."""
+    if not raw:
+        return None
+    return COUNTRY_ALIASES.get(raw.strip().lower())
+
 
 def normalize_state(raw: str | None) -> str | None:
     """Normalize a state name or abbreviation to a two-letter code."""
@@ -107,3 +148,76 @@ def parse_address_location(text: str) -> tuple[str, str] | None:
     if match is None:
         return None
     return match.group("city").strip(), match.group("code").upper()
+
+
+def parse_trailing_country(text: str) -> tuple[str, str] | None:
+    """Parse a trailing "City CountryName" segment into (city, country).
+
+    Mirrors parse_trailing_location but matches a known country name (possibly
+    multi-word, e.g. "Port Elizabeth South Africa"). Returns None when there is
+    no recognizable trailing country so callers can leave the text untouched.
+    """
+    s = text.strip()
+    low = s.lower()
+    for name in _COUNTRY_NAMES_BY_LEN:
+        if not low.endswith(name):
+            continue
+        start = len(s) - len(name)
+        if start == 0:
+            break  # bare country name, no city
+        if s[start - 1].isspace() or s[start - 1] == ",":
+            city = s[:start].rstrip().rstrip(",").rstrip()
+            if city:
+                return city, COUNTRY_ALIASES[name]
+        break
+    return None
+
+
+def resolve_location(
+    text: str | None,
+) -> tuple[str | None, str | None, str | None]:
+    """Best-effort (city, state, country) from a free-text location string.
+
+    `state` is a US two-letter code when the text resolves to a US location,
+    otherwise None. `country` is a canonical name when determinable. Returns
+    (None, None, None) when nothing recognizable is found, so callers can leave
+    existing values untouched. Handles comma forms ("Venue, City, ST" /
+    "City, ST" / "City, Country") and space-separated trailing forms
+    ("Royal Oak MI", "Port Elizabeth South Africa").
+    """
+    if not text or not text.strip():
+        return None, None, None
+    s = text.strip()
+
+    # Comma form: trust the last segment as state-or-country, prior as city.
+    if "," in s:
+        parts = [p.strip() for p in s.split(",") if p.strip()]
+        if len(parts) >= 2:
+            tail = parts[-1]
+            state = normalize_state(tail)
+            if state:
+                return parts[-2] or None, state, "United States"
+            country = normalize_country(tail)
+            if country:
+                return parts[-2] or None, None, country
+
+    # Space-separated trailing US state ("Royal Oak MI", "Dayton Ohio").
+    loc = parse_trailing_location(s)
+    if loc and loc[1]:
+        return loc[0], loc[1], "United States"
+
+    # Space-separated trailing country ("Port Elizabeth South Africa").
+    country_loc = parse_trailing_country(s)
+    if country_loc:
+        return country_loc[0], None, country_loc[1]
+
+    # Whole field is a bare state (code or name) or country, with no city.
+    # APF sometimes lists just "IL" or "Australia" in the location cell.
+    state = normalize_state(s)
+    if state:
+        return None, state, "United States"
+    country = normalize_country(s)
+    if country:
+        return None, None, country
+
+    return None, None, None
