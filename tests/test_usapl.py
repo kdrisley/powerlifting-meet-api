@@ -40,6 +40,10 @@ class TestUSAPLScraper:
         assert m.city == "Carol Stream"
         assert m.state == "IL"
         assert str(m.url) == "https://liftingcast.com/meets/m0247b0mongl/registration"
+        assert m.event_type == "LOCAL"
+        assert m.sanction == "IL-2026-04"
+        assert m.director_name == "Sergio Luna"
+        assert m.director_email == "surgetonewlevels@gmail.com"
 
     def test_date_range_parsing(self):
         scraper = USAPLScraper.__new__(USAPLScraper)

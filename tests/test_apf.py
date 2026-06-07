@@ -41,6 +41,8 @@ class TestAPFScraper:
         assert m.city == "Westbrooke"
         assert m.state == "ME"
         assert str(m.url) == "https://form.jotform.com/DynaMaxx/9th-annual-womens-apf-meet-entry"
+        assert m.director_name == "Matt Israelson"
+        assert m.director_email == "dynamaxx21@gmail.com"
 
         # International meet has no US state
         m_intl = meets[2]

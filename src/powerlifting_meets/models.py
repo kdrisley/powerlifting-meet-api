@@ -17,6 +17,10 @@ class Meet(BaseModel):
     status: str | None = None
     equipment: str | None = None
     restrictions: str | None = None
+    director_name: str | None = None
+    director_email: str | None = None
+    sanction: str | None = None
+    event_type: str | None = None
 
 
 class FederationMeta(BaseModel):

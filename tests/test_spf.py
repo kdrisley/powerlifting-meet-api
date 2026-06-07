@@ -48,6 +48,16 @@ class TestSPFScraper:
         # The external registration URL is surfaced as the meet link.
         assert str(m.url) == "https://www.invictuspowerlifting.net/schedule"
         assert m.status == "active"
+        # First meet director, preferring the public email over the private one.
+        assert m.director_name == "David Shirley"
+        assert m.director_email == "dshirley.spf@gmail.com"
+
+    def test_director_falls_back_to_contacts(self, spf_fixture: dict):
+        scraper = _scraper_with_fixture(spf_fixture)
+        m = next(s for s in scraper.scrape() if s.name == "SPF Women's Raw Showdown")
+        # No meetDirectors, so the first contact is used.
+        assert m.director_name == "Jordan Reed"
+        assert m.director_email == "jordan.reed@example.com"
 
     def test_falls_back_to_meet_page_when_no_registration_url(self, spf_fixture: dict):
         scraper = _scraper_with_fixture(spf_fixture)

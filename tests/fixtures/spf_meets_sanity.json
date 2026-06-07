@@ -9,7 +9,19 @@
       "venue": "ARKANSAS STATE FAIRGROUNDS, 2600 Howard Street",
       "status": "open",
       "registrationUrl": "https://www.invictuspowerlifting.net/schedule",
-      "slug": "spf-arkansas-strength-expo-and-tested-untested-nationals"
+      "slug": "spf-arkansas-strength-expo-and-tested-untested-nationals",
+      "meetDirectors": [
+        {
+          "name": "David Shirley",
+          "emails": [
+            {"email": "private@example.com", "visibility": "private"},
+            {"email": "dshirley.spf@gmail.com", "visibility": "public"}
+          ]
+        }
+      ],
+      "contacts": [
+        {"name": "Amanda Forbes", "emails": [{"email": "aforbes.spf@gmail.com", "visibility": "public"}]}
+      ]
     },
     {
       "name": "Cornfed Iron Classic",
@@ -31,7 +43,11 @@
       "venue": "Crossfit Unyielding",
       "status": "open",
       "registrationUrl": null,
-      "slug": "spf-womens-raw-showdown"
+      "slug": "spf-womens-raw-showdown",
+      "meetDirectors": [],
+      "contacts": [
+        {"name": "Jordan Reed", "emails": [{"email": "jordan.reed@example.com", "visibility": "public"}]}
+      ]
     },
     {
       "name": "SPF Cancelled Classic",

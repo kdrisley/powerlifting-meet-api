@@ -13,12 +13,29 @@ def rps_html(fixtures_dir: Path) -> str:
     return (fixtures_dir / "rps_meets.html").read_text()
 
 
+# Minimal RPS detail page carrying the meet-director line (email is plain text,
+# not a mailto link, as on the real site).
+_DETAIL_HTML = (
+    "<html><body><div class='entry-content'>"
+    "<p>Meet Director: Matt Staub – hogmodetraining@gmail.com</p>"
+    "<p>Some venue address, City, ST</p>"
+    "</div></body></html>"
+)
+
+
+def _route_handler(rps_html: str):
+    """Return the listing for the root URL and a detail page for meet URLs."""
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path.strip("/"):
+            return httpx.Response(200, text=_DETAIL_HTML)
+        return httpx.Response(200, text=rps_html)
+
+    return handler
+
+
 class TestRPSScraper:
     def test_scrape_from_fixture(self, rps_html: str):
-        def mock_handler(request: httpx.Request) -> httpx.Response:
-            return httpx.Response(200, text=rps_html)
-
-        transport = httpx.MockTransport(mock_handler)
+        transport = httpx.MockTransport(_route_handler(rps_html))
         client = httpx.Client(transport=transport)
 
         with patch.object(RPSScraper, "__init__", lambda self, **kw: None):
@@ -41,6 +58,9 @@ class TestRPSScraper:
         assert m.city == "Farmingdale"
         assert m.state == "NY"
         assert m.status == "sold_out"
+        # Director enriched from the detail page.
+        assert m.director_name == "Matt Staub"
+        assert m.director_email == "hogmodetraining@gmail.com"
 
         # Second meet - active, no status badge
         m = meets[1]
@@ -61,6 +81,33 @@ class TestRPSScraper:
         assert m.city == "Lancaster"
         assert m.state == "PA"
         assert m.status == "active"
+
+    def test_parse_director(self):
+        scraper = RPSScraper.__new__(RPSScraper)
+
+        name, email = scraper._parse_director(_DETAIL_HTML)
+        assert name == "Matt Staub"
+        assert email == "hogmodetraining@gmail.com"
+
+        # "Director:" (no "Meet"), email in parentheses, nbsp in the name.
+        name, email = scraper._parse_director(
+            "<p>Natick MA, 01760 Director: Robert\xa0Popp "
+            "(rpopp@nsiteam.com, 781-864-1347) Entry Fee: $135</p>"
+        )
+        assert name == "Robert Popp"
+        assert email == "rpopp@nsiteam.com"
+
+        # "Meet Director –" with only a phone number: name parsed, email None.
+        name, email = scraper._parse_director(
+            "<p>Meet Director – Henri Skiba – 732-598-9369 Rare Breed Fitness</p>"
+        )
+        assert name == "Henri Skiba"
+        assert email is None
+
+        # No director line -> both None, so the meet is left unenriched.
+        name, email = scraper._parse_director("<html><body><p>No info</p></body></html>")
+        assert name is None
+        assert email is None
 
     def test_title_parsing(self):
         scraper = RPSScraper.__new__(RPSScraper)

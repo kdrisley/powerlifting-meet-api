@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import html
 import logging
 from datetime import date, datetime
 
@@ -110,6 +111,7 @@ class TribeEventsScraper(BaseScraper):
         equipment = self._extract_equipment(title)
         restrictions = self._extract_restrictions(title)
         status = self._extract_status(event)
+        director_name, director_email = self._extract_organizer(event)
 
         return Meet(
             name=title,
@@ -123,7 +125,22 @@ class TribeEventsScraper(BaseScraper):
             status=status,
             equipment=equipment,
             restrictions=restrictions,
+            director_name=director_name,
+            director_email=director_email,
         )
+
+    @staticmethod
+    def _extract_organizer(event: dict) -> tuple[str | None, str | None]:
+        """Pull the meet director's name and email from the Tribe organizer."""
+        organizer = event.get("organizer")
+        if isinstance(organizer, list):
+            organizer = organizer[0] if organizer else None
+        if not isinstance(organizer, dict):
+            return None, None
+        # The name field is HTML-escaped in the API (e.g. "Katie &#038; Will").
+        name = html.unescape((organizer.get("organizer") or "").strip()) or None
+        email = (organizer.get("email") or "").strip() or None
+        return name, email
 
     def _parse_date(self, raw: str | None) -> date | None:
         if not raw:

@@ -89,6 +89,19 @@ class APFScraper(BaseScraper):
         if link:
             url = link["href"]
 
+        # Director name (col 4) and email (col 5, usually a mailto link).
+        director_name: str | None = None
+        director_email: str | None = None
+        if len(cells) > 4:
+            director_name = cells[4].get_text(strip=True) or None
+        if len(cells) > 5:
+            mailto = cells[5].find("a", href=re.compile(r"^mailto:", re.I))
+            if mailto:
+                director_email = mailto["href"].split(":", 1)[1].split("?")[0].strip()
+            else:
+                director_email = cells[5].get_text(strip=True)
+            director_email = director_email or None
+
         return Meet(
             name=name,
             federation="APF",
@@ -97,6 +110,8 @@ class APFScraper(BaseScraper):
             city=city,
             url=url,
             status="active",
+            director_name=director_name,
+            director_email=director_email,
         )
 
     def _build_date(

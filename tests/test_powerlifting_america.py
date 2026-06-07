@@ -40,3 +40,5 @@ class TestPAScraper:
         assert m.date_start == date(2026, 3, 14)
         assert m.city == "Belleville"
         assert m.state == "IL"
+        assert m.director_name == "Dana Rosenzweig"
+        assert m.director_email == "dana93kg@gmail.com"

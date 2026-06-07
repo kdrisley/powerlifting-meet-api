@@ -60,20 +60,44 @@ class USAPLScraper(BaseScraper):
         state_raw = state_div.get_text(strip=True) if state_div else None
         state = normalize_state(state_raw)
 
-        # Parse event-info div for location and links
+        # Parse event-info div for location, sanction, event type, and director
         city: str | None = None
         url: str | None = None
+        sanction: str | None = None
+        event_type: str | None = None
+        director_name: str | None = None
+        director_email: str | None = None
 
         info_div = panel.find("div", class_="event-info")
         if info_div:
-            info_text = info_div.get_text()
-            loc_match = re.search(r"Location:\s*(.+?)(?:\n|$)", info_text)
+            info_text = info_div.get_text(" ", strip=True)
+            loc_match = re.search(r"Location:\s*(.+?)\s*(?:Director:|$)", info_text)
             if loc_match:
                 loc = loc_match.group(1).strip()
                 parts = [s.strip() for s in loc.rsplit(",", 1)]
                 if len(parts) == 2:
                     city = parts[0] or None
                     state = normalize_state(parts[1]) or state
+
+            type_match = re.search(r"Type of Event:\s*(.+?)\s*(?:Sanction:|$)", info_text)
+            if type_match:
+                event_type = type_match.group(1).strip() or None
+
+            sanction_match = re.search(r"Sanction:\s*([A-Za-z0-9-]+)", info_text)
+            if sanction_match:
+                sanction = sanction_match.group(1).strip() or None
+
+            # The director's name is the mailto link's text; the email is its href.
+            mailto = info_div.find("a", href=re.compile(r"^mailto:", re.I))
+            if mailto:
+                director_name = mailto.get_text(strip=True) or None
+                director_email = (
+                    mailto["href"].split(":", 1)[1].split("?")[0].strip() or None
+                )
+            else:
+                dir_match = re.search(r"Director:\s*(.+?)\s*$", info_text)
+                if dir_match:
+                    director_name = dir_match.group(1).strip() or None
 
         # Registration or More Info links
         button_div = panel.find("div", class_="event-button")
@@ -95,6 +119,10 @@ class USAPLScraper(BaseScraper):
             city=city,
             url=url,
             status="active",
+            sanction=sanction,
+            event_type=event_type,
+            director_name=director_name,
+            director_email=director_email,
         )
 
     def _parse_date_range(self, text: str) -> tuple[date | None, date | None]:

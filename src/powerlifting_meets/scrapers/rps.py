@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import logging
 import re
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date
 from urllib.parse import urlparse
 
@@ -14,6 +15,9 @@ from powerlifting_meets.scrapers.base import BaseScraper
 logger = logging.getLogger(__name__)
 
 MEETS_URL = "https://meets.revolutionpowerlifting.com/"
+
+# Number of meet detail pages to fetch in parallel when enriching directors.
+_DETAIL_WORKERS = 8
 
 
 class RPSScraper(BaseScraper):
@@ -33,8 +37,65 @@ class RPSScraper(BaseScraper):
             if meet is not None:
                 meets.append(meet)
 
+        # The listing has no contact info; the meet director's name and email
+        # live on each meet's detail page. Fetch them in parallel and attach.
+        self._enrich_directors(meets)
+
         logger.info("Scraped %d RPS meets", len(meets))
         return meets
+
+    def _enrich_directors(self, meets: list[Meet]) -> None:
+        """Populate director_name/director_email from each meet's detail page."""
+        def fetch(meet: Meet) -> None:
+            if not meet.url:
+                return
+            try:
+                resp = self.client.get(str(meet.url))
+                resp.raise_for_status()
+            except Exception as exc:  # one bad page shouldn't sink the scrape
+                logger.warning("RPS detail fetch failed for %s: %s", meet.url, exc)
+                return
+            meet.director_name, meet.director_email = self._parse_director(resp.text)
+
+        with ThreadPoolExecutor(max_workers=_DETAIL_WORKERS) as pool:
+            list(pool.map(fetch, meets))
+
+    # Detail pages label the director inconsistently: "Meet Director:",
+    # "Director:", "Directors:" (plural), lowercase, or "Meet Director –". A
+    # separator after the label avoids matching breadcrumbs like "Director /".
+    _DIRECTOR_RE = re.compile(
+        r"\b(?:Meet\s+)?Directors?\b\s*[:–—-]\s*(?P<rest>.{0,120})", re.IGNORECASE
+    )
+    _EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
+    # Leading run of name characters; stops at a dash, comma, paren, ampersand,
+    # digit, or email — i.e. where co-directors or contact details begin.
+    _NAME_RE = re.compile(r"[A-Za-z][A-Za-z .'\-]*")
+    # Contact labels that can trail the name ("John Doe Email: ...").
+    _NAME_LABEL_RE = re.compile(
+        r"\b(?:Email|E-mail|Phone|Tel|Cell|Mobile|Contact)\b.*$", re.IGNORECASE
+    )
+
+    def _parse_director(self, html: str) -> tuple[str | None, str | None]:
+        text = BeautifulSoup(html, "lxml").get_text(" ", strip=True).replace("\xa0", " ")
+        m = self._DIRECTOR_RE.search(text)
+        if not m:
+            return None, None
+        rest = m.group("rest")
+
+        email_m = self._EMAIL_RE.search(rest)
+        email = email_m.group(0) if email_m else None
+
+        name_m = self._NAME_RE.match(rest)
+        name = name_m.group(0) if name_m else ""
+        # Drop a trailing contact label ("... Email"), then a swallowed email
+        # local part if there was no separator ("Robert Popp rpopp@...").
+        name = self._NAME_LABEL_RE.sub("", name)
+        if email:
+            local = email.split("@", 1)[0]
+            if local in name:
+                name = name.split(local)[0]
+        name = name.strip(" .,-") or None
+        return name, email
 
     def _parse_meet_li(self, li: Tag, today: date) -> Meet | None:
         a = li.find("a", href=True)

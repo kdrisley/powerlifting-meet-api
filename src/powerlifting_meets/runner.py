@@ -54,6 +54,12 @@ def fetch_previous_data(url: str | None) -> MeetsResponse | None:
                 url=e.get("link") or None,
                 venue=e.get("venue") or None,
                 status=e.get("status") or None,
+                equipment=e.get("equipment") or None,
+                restrictions=e.get("restrictions") or None,
+                director_name=e.get("director_name") or None,
+                director_email=e.get("director_email") or None,
+                sanction=e.get("sanction") or None,
+                event_type=e.get("event_type") or None,
             ))
         meta = {}
         for k, v in data.get("meta", {}).items():
@@ -178,6 +184,10 @@ def run() -> None:
                 "equipment": m.equipment or "",
                 "restrictions": m.restrictions or "",
                 "city": m.city or "",
+                "director_name": m.director_name or "",
+                "director_email": m.director_email or "",
+                "sanction": m.sanction or "",
+                "event_type": m.event_type or "",
             }
             for m in unique_meets
         ],

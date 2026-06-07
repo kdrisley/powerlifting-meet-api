@@ -42,6 +42,11 @@ class TestUSPAScraper:
         assert m.city == "Huntsville"
         assert m.state == "AL"
         assert m.venue == "Arsenal Fitness"
+        assert m.director_name == "Barbara Lee"
+        assert m.director_email == "relentlesspowersystems@gmail.com"
+
+        # HTML entities in the organizer name are unescaped.
+        assert meets[2].director_name == "Frankie Murrieta & Sheena Hodges"
 
     def test_scrape_sets_federation(self, uspa_fixture: dict):
         def mock_handler(request: httpx.Request) -> httpx.Response:

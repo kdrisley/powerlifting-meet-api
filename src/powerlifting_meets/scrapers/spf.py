@@ -31,10 +31,12 @@ MEET_PAGE_BASE = "https://southernpowerliftingfederation.com/meet/"
 
 # Upcoming meets ordered by date, projecting just the fields we surface. The
 # {today} placeholder is filled in per run; everything else is literal GROQ.
+# meetDirectors/contacts are reference arrays; we dereference name + emails.
 _GROQ_TEMPLATE = (
     '*[_type == "meet" && startDate >= "{today}"] | order(startDate asc){{'
     "name, startDate, endDate, locationCity, locationState, venue, status, "
-    'registrationUrl, "slug": slug.current'
+    'registrationUrl, "slug": slug.current, '
+    "meetDirectors[]->{{name, emails}}, contacts[]->{{name, emails}}"
     "}}"
 )
 
@@ -82,6 +84,8 @@ class SPFScraper(BaseScraper):
 
         status = "cancelled" if item.get("status") == "cancelled" else "active"
 
+        director_name, director_email = self._extract_director(item)
+
         return Meet(
             name=name,
             federation=self.federation,
@@ -94,7 +98,28 @@ class SPFScraper(BaseScraper):
             status=status,
             equipment=extract_equipment(name),
             restrictions=extract_restrictions(name),
+            director_name=director_name,
+            director_email=director_email,
         )
+
+    @staticmethod
+    def _extract_director(item: dict) -> tuple[str | None, str | None]:
+        """Take the first meet director (or contact) name and public email."""
+        people = (item.get("meetDirectors") or []) + (item.get("contacts") or [])
+        for person in people:
+            if not isinstance(person, dict):
+                continue
+            name = (person.get("name") or "").strip() or None
+            email = None
+            for entry in person.get("emails") or []:
+                if isinstance(entry, dict) and entry.get("email"):
+                    # Prefer a public email but accept the first one otherwise.
+                    email = entry["email"].strip()
+                    if entry.get("visibility") == "public":
+                        break
+            if name or email:
+                return name, email
+        return None, None
 
     @staticmethod
     def _clean_city(raw: str | None) -> str | None:
