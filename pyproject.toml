@@ -27,6 +27,13 @@ packages = ["src/powerlifting_meets"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+# The `eval` suite makes real Gemini API calls (gated on GEMINI_API_KEY) to
+# validate extraction prompts. It's excluded from the default/CI run; invoke it
+# explicitly with `pytest -m eval`.
+addopts = "-m 'not eval'"
+markers = [
+    "eval: real-Gemini prompt validation; needs GEMINI_API_KEY (deselected by default)",
+]
 
 [tool.ruff]
 target-version = "py311"

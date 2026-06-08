@@ -1,0 +1,302 @@
+{
+  "events": [
+    {
+      "id": 5601,
+      "global_id": "nzpu.org?id=5601",
+      "global_id_lineage": [
+        "nzpu.org?id=5601"
+      ],
+      "author": "9335",
+      "status": "publish",
+      "date": "2026-03-08 18:41:04",
+      "date_utc": "2026-03-08 08:41:04",
+      "modified": "2026-03-08 18:41:04",
+      "modified_utc": "2026-03-08 08:41:04",
+      "url": "https://nzpu.org/event/matariki-maxout-2/",
+      "rest_url": "https://nzpu.org/wp-json/tribe/events/v1/events/5601",
+      "title": "Matariki Maxout",
+      "description": "<h2>Raw &amp; Wraps</h2>\n<h2>Tested &amp; Open</h2>",
+      "excerpt": "",
+      "slug": "matariki-maxout-2",
+      "image": false,
+      "all_day": true,
+      "start_date": "2026-07-11 00:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "11",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-07-11 23:59:59",
+      "end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "11",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "utc_start_date": "2026-07-10 14:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "10",
+        "hour": "14",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-07-11 13:59:59",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "11",
+        "hour": "13",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "timezone": "Australia/Brisbane",
+      "timezone_abbr": "AEST",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [],
+      "tags": [],
+      "venue": {
+        "id": 5248,
+        "author": "9294",
+        "status": "publish",
+        "date": "2025-02-07 13:54:50",
+        "date_utc": "2025-02-07 03:54:50",
+        "modified": "2025-02-07 13:54:50",
+        "modified_utc": "2025-02-07 03:54:50",
+        "url": "https://nzpu.org/venue/viking-brothers/",
+        "venue": "Viking Brothers",
+        "slug": "viking-brothers",
+        "address": "51 Sydney Street",
+        "city": "Petone, Lower Hutt",
+        "country": "New Zealand",
+        "zip": "5012",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "nzpu.org?id=5248",
+        "global_id_lineage": [
+          "nzpu.org?id=5248"
+        ]
+      },
+      "organizer": [],
+      "custom_fields": []
+    },
+    {
+      "id": 5603,
+      "global_id": "nzpu.org?id=5603",
+      "global_id_lineage": [
+        "nzpu.org?id=5603"
+      ],
+      "author": "9335",
+      "status": "publish",
+      "date": "2026-03-08 18:44:06",
+      "date_utc": "2026-03-08 08:44:06",
+      "modified": "2026-03-08 18:44:06",
+      "modified_utc": "2026-03-08 08:44:06",
+      "url": "https://nzpu.org/event/chalk-chaos/",
+      "rest_url": "https://nzpu.org/wp-json/tribe/events/v1/events/5603",
+      "title": "Chalk &#038; Chaos",
+      "description": "<h2>Raw &amp; Wraps</h2>\n<h2>Tested &amp; Open</h2>",
+      "excerpt": "",
+      "slug": "chalk-chaos",
+      "image": false,
+      "all_day": true,
+      "start_date": "2026-07-25 00:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "25",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-07-25 23:59:59",
+      "end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "25",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "utc_start_date": "2026-07-24 14:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "24",
+        "hour": "14",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-07-25 13:59:59",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "25",
+        "hour": "13",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "timezone": "Australia/Brisbane",
+      "timezone_abbr": "AEST",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [],
+      "tags": [],
+      "venue": {
+        "id": 5229,
+        "author": "9294",
+        "status": "publish",
+        "date": "2025-02-04 11:42:07",
+        "date_utc": "2025-02-04 01:42:07",
+        "modified": "2025-02-04 11:42:07",
+        "modified_utc": "2025-02-04 01:42:07",
+        "url": "https://nzpu.org/venue/ruthless-barbell/",
+        "venue": "Ruthless Barbell",
+        "slug": "ruthless-barbell",
+        "address": "14 Cypress Street",
+        "city": "Judea, Tauranga",
+        "country": "New Zealand",
+        "zip": "3110",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "nzpu.org?id=5229",
+        "global_id_lineage": [
+          "nzpu.org?id=5229"
+        ]
+      },
+      "organizer": [],
+      "custom_fields": []
+    },
+    {
+      "id": 5606,
+      "global_id": "nzpu.org?id=5606",
+      "global_id_lineage": [
+        "nzpu.org?id=5606"
+      ],
+      "author": "9335",
+      "status": "publish",
+      "date": "2026-03-08 18:47:09",
+      "date_utc": "2026-03-08 08:47:09",
+      "modified": "2026-03-08 18:47:37",
+      "modified_utc": "2026-03-08 08:47:37",
+      "url": "https://nzpu.org/event/sub-zerow-ii/",
+      "rest_url": "https://nzpu.org/wp-json/tribe/events/v1/events/5606",
+      "title": "Sub ZeroW II",
+      "description": "<h2>Raw &amp; Wraps</h2>\n<h2>Tested &amp; Open</h2>",
+      "excerpt": "",
+      "slug": "sub-zerow-ii",
+      "image": false,
+      "all_day": true,
+      "start_date": "2026-08-15 00:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "08",
+        "day": "15",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-08-15 23:59:59",
+      "end_date_details": {
+        "year": "2026",
+        "month": "08",
+        "day": "15",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "utc_start_date": "2026-08-14 14:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "08",
+        "day": "14",
+        "hour": "14",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-08-15 13:59:59",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "08",
+        "day": "15",
+        "hour": "13",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "timezone": "Australia/Brisbane",
+      "timezone_abbr": "AEST",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [],
+      "tags": [],
+      "venue": {
+        "id": 5245,
+        "author": "9294",
+        "status": "publish",
+        "date": "2025-02-07 13:41:53",
+        "date_utc": "2025-02-07 03:41:53",
+        "modified": "2025-04-02 11:49:32",
+        "modified_utc": "2025-04-02 01:49:32",
+        "url": "https://nzpu.org/venue/zerow-christchurch/",
+        "venue": "ZeroW Christchurch",
+        "slug": "zerow-christchurch",
+        "address": "45 Durham Street South",
+        "city": "Sydenham",
+        "country": "New Zealand",
+        "province": "Christchurch",
+        "zip": "8023",
+        "stateprovince": "Christchurch",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "nzpu.org?id=5245",
+        "global_id_lineage": [
+          "nzpu.org?id=5245"
+        ]
+      },
+      "organizer": [],
+      "custom_fields": []
+    }
+  ],
+  "total": 4,
+  "total_pages": 2
+}

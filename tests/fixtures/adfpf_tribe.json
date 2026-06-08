@@ -1,0 +1,323 @@
+{
+  "events": [
+    {
+      "id": 652,
+      "global_id": "adfpf.net?id=652",
+      "global_id_lineage": [
+        "adfpf.net?id=652"
+      ],
+      "author": "1",
+      "status": "publish",
+      "date": "2026-05-07 13:08:12",
+      "date_utc": "2026-05-07 19:08:12",
+      "modified": "2026-05-07 13:28:04",
+      "modified_utc": "2026-05-07 19:28:04",
+      "url": "https://adfpf.net/calendar/2026-full-power-nationals/",
+      "rest_url": "https://adfpf.net/wp-json/tribe/events/v1/events/652",
+      "title": "2026 Full Power Nationals",
+      "description": "<p>2026 Full Power Nationals</p>\n<p>Date: June 20, 2026</p>\n<p>Location: Powerbody USA, O&#8217;Fallon, MO</p>\n<p>Meet Director: Mike Stagg</p>\n<p><a href=\"https://adfpf.net/wp-content/uploads/2026/05/2026-Full-Power-Nationals.pdf\">Meet Info &amp; Paper Registration &#8211; Click Here</a></p>\n<p>Online Registration Please <a href=\"https://form.jotform.com/260477600840152\">click here.</a></p>",
+      "excerpt": "",
+      "slug": "2026-full-power-nationals",
+      "image": false,
+      "all_day": true,
+      "start_date": "2026-06-20 00:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "20",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-06-20 23:59:59",
+      "end_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "20",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "utc_start_date": "2026-06-20 05:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "20",
+        "hour": "05",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-06-21 04:59:59",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "21",
+        "hour": "04",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "timezone": "UTC-6",
+      "timezone_abbr": "UTC-6",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [],
+      "tags": [],
+      "venue": [],
+      "organizer": [],
+      "custom_fields": []
+    },
+    {
+      "id": 682,
+      "global_id": "adfpf.net?id=682",
+      "global_id_lineage": [
+        "adfpf.net?id=682"
+      ],
+      "author": "3",
+      "status": "publish",
+      "date": "2026-05-20 18:27:11",
+      "date_utc": "2026-05-21 00:27:11",
+      "modified": "2026-05-23 17:46:44",
+      "modified_utc": "2026-05-23 23:46:44",
+      "url": "https://adfpf.net/calendar/midwest-massacre-meet/",
+      "rest_url": "https://adfpf.net/wp-json/tribe/events/v1/events/682",
+      "title": "Midwest Massacre Meet",
+      "description": "<p>June 27, 2025</p>\n<p>Meet Director: Bill Sias</p>\n<p>The Bar &amp; Plate Fitness Center</p>\n<p>Muskegon, MI</p>\n<p><a href=\"https://adfpf.net/wp-content/uploads/2026/05/2026-Midwest-Massacre.docx\">Meet Info and paper registration</a></p>\n<p><a href=\"https://form.jotform.com/261385774932165\">Online Registration</a></p>",
+      "excerpt": "",
+      "slug": "midwest-massacre-meet",
+      "image": {
+        "url": "https://adfpf.net/wp-content/uploads/2026/05/Powerlifting-Meet-Flyer-June-2026-e1779579935469.png",
+        "id": 688,
+        "extension": "png",
+        "width": 971,
+        "height": 1375,
+        "filesize": 542269,
+        "sizes": {
+          "medium": {
+            "width": 212,
+            "height": 300,
+            "mime-type": "image/png",
+            "filesize": 101176,
+            "url": "https://adfpf.net/wp-content/uploads/2026/05/Powerlifting-Meet-Flyer-June-2026-212x300.png"
+          },
+          "large": {
+            "width": 723,
+            "height": 1024,
+            "mime-type": "image/png",
+            "filesize": 1047087,
+            "url": "https://adfpf.net/wp-content/uploads/2026/05/Powerlifting-Meet-Flyer-June-2026-723x1024.png"
+          },
+          "thumbnail": {
+            "width": 150,
+            "height": 150,
+            "mime-type": "image/png",
+            "filesize": 39568,
+            "url": "https://adfpf.net/wp-content/uploads/2026/05/Powerlifting-Meet-Flyer-June-2026-150x150.png"
+          },
+          "medium_large": {
+            "width": 768,
+            "height": 1087,
+            "mime-type": "image/png",
+            "filesize": 1176362,
+            "url": "https://adfpf.net/wp-content/uploads/2026/05/Powerlifting-Meet-Flyer-June-2026-768x1087.png"
+          },
+          "et-pb-post-main-image": {
+            "width": 400,
+            "height": 250,
+            "mime-type": "image/png",
+            "filesize": 148384,
+            "url": "https://adfpf.net/wp-content/uploads/2026/05/Powerlifting-Meet-Flyer-June-2026-400x250.png"
+          },
+          "et-pb-post-main-image-fullwidth": {
+            "width": 1054,
+            "height": 675,
+            "mime-type": "image/png",
+            "filesize": 1100203,
+            "url": "https://adfpf.net/wp-content/uploads/2026/05/Powerlifting-Meet-Flyer-June-2026-1054x675.png"
+          },
+          "et-pb-portfolio-image": {
+            "width": 400,
+            "height": 284,
+            "mime-type": "image/png",
+            "filesize": 167271,
+            "url": "https://adfpf.net/wp-content/uploads/2026/05/Powerlifting-Meet-Flyer-June-2026-400x284.png"
+          },
+          "et-pb-portfolio-module-image": {
+            "width": 510,
+            "height": 382,
+            "mime-type": "image/png",
+            "filesize": 281596,
+            "url": "https://adfpf.net/wp-content/uploads/2026/05/Powerlifting-Meet-Flyer-June-2026-510x382.png"
+          },
+          "et-pb-gallery-module-image-portrait": {
+            "width": 400,
+            "height": 516,
+            "mime-type": "image/png",
+            "filesize": 312294,
+            "url": "https://adfpf.net/wp-content/uploads/2026/05/Powerlifting-Meet-Flyer-June-2026-400x516.png"
+          },
+          "et-pb-image--responsive--tablet": {
+            "width": 980,
+            "height": 1387,
+            "mime-type": "image/png",
+            "filesize": 1865834,
+            "url": "https://adfpf.net/wp-content/uploads/2026/05/Powerlifting-Meet-Flyer-June-2026-980x1387.png"
+          },
+          "et-pb-image--responsive--phone": {
+            "width": 480,
+            "height": 679,
+            "mime-type": "image/png",
+            "filesize": 474094,
+            "url": "https://adfpf.net/wp-content/uploads/2026/05/Powerlifting-Meet-Flyer-June-2026-480x679.png"
+          }
+        }
+      },
+      "all_day": true,
+      "start_date": "2026-06-27 00:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "27",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-06-27 23:59:59",
+      "end_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "27",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "utc_start_date": "2026-06-27 05:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "27",
+        "hour": "05",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-06-28 04:59:59",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "28",
+        "hour": "04",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "timezone": "UTC-6",
+      "timezone_abbr": "UTC-6",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [],
+      "tags": [],
+      "venue": [],
+      "organizer": [],
+      "custom_fields": []
+    },
+    {
+      "id": 654,
+      "global_id": "adfpf.net?id=654",
+      "global_id_lineage": [
+        "adfpf.net?id=654"
+      ],
+      "author": "1",
+      "status": "publish",
+      "date": "2026-05-07 13:09:09",
+      "date_utc": "2026-05-07 19:09:09",
+      "modified": "2026-05-07 13:19:19",
+      "modified_utc": "2026-05-07 19:19:19",
+      "url": "https://adfpf.net/calendar/phifers-fitness-invitational/",
+      "rest_url": "https://adfpf.net/wp-json/tribe/events/v1/events/654",
+      "title": "Phifer&#8217;s Fitness Invitational",
+      "description": "<p>July 25, 2026</p>\n<p>Phifer&#8217;s Fitness, Tipton, IN</p>\n<p>Meet Director: Cameron Taylor</p>\n<p><a href=\"https://adfpf.net/wp-content/uploads/2026/05/Phifer-Fitness-Meet-2026.pdf\">Meet Info &amp; Paper Registration &#8211; Click Here</a></p>\n<p>Online Registration Please use the link to <a href=\"https://linkprotect.cudasvc.com/url?a=https%3a%2f%2fform.jotform.com%2f261203782193152&amp;c=E,1,WkrviQW0jk844CnHW-K_p36r1zV8QGmpl0OZvu5Kd6nTeAZH5-KssWb2YnNg4_-bmTJzuUsGtGNqv0nMyFumcRZwokJI4JAIfI2syxBJYEoomT4,&amp;typo=1\">https://form.jotform.com/261203782193152</a></p>",
+      "excerpt": "",
+      "slug": "phifers-fitness-invitational",
+      "image": false,
+      "all_day": true,
+      "start_date": "2026-07-25 00:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "25",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-07-25 23:59:59",
+      "end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "25",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "utc_start_date": "2026-07-25 05:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "25",
+        "hour": "05",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-07-26 04:59:59",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "26",
+        "hour": "04",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "timezone": "UTC-6",
+      "timezone_abbr": "UTC-6",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [],
+      "tags": [],
+      "venue": [],
+      "organizer": [],
+      "custom_fields": []
+    }
+  ],
+  "total": 5,
+  "total_pages": 2
+}

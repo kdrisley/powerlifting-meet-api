@@ -18,6 +18,42 @@ class TestFetchPreviousData:
     def test_returns_none_on_error(self):
         assert fetch_previous_data("https://nonexistent.invalid/meets.json") is None
 
+    def test_round_trips_region_from_published_feed(self):
+        """A non-US meet's region survives the published-feed round-trip."""
+        import httpx
+
+        feed = {
+            "generated_at": "2026-03-13T00:00:00+00:00",
+            "total_meets": 1,
+            "events": [
+                {
+                    "parsed_date": "2026-07-12",
+                    "evt_name": "Battle of Brisbane",
+                    "fed": "APL",
+                    "state": "",
+                    "region": "QLD",
+                    "city": "Windsor",
+                    "country": "Australia",
+                }
+            ],
+            "meta": {},
+        }
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            return httpx.Response(200, json=feed)
+
+        with patch("powerlifting_meets.runner.httpx.get") as mock_get:
+            mock_get.return_value = httpx.Client(
+                transport=httpx.MockTransport(handler)
+            ).get("https://example.invalid/events")
+            result = fetch_previous_data("https://example.invalid/events")
+
+        assert result is not None
+        meet = result.meets[0]
+        assert meet.region == "QLD"
+        assert meet.state is None
+        assert meet.country == "Australia"
+
 
 class TestGetPreviousMeetsForFederation:
     def test_filters_by_federation_and_date(self):
@@ -69,6 +105,7 @@ class TestRun:
             # Keep run() offline: no geo-cache fetch, no LLM tier (tested
             # separately in test_llm_geo).
             patch("powerlifting_meets.runner.GEO_CACHE_URL", None),
+            patch("powerlifting_meets.runner.EXTRACT_CACHE_URL", None),
             patch("powerlifting_meets.runner.infer_missing_locations", return_value=0),
         ):
             run()
@@ -78,8 +115,13 @@ class TestRun:
         assert meets_json["events"][0]["evt_name"] == "Test Meet A"
         assert meets_json["events"][0]["fed"] == "USPA"
         assert meets_json["events"][0]["state"] == "TX"
+        # US meets carry an empty region; the key is always present.
+        assert meets_json["events"][0]["region"] == ""
         assert meets_json["events"][0]["parsed_date"] == "2026-04-01"
         assert meets_json["meta"]["USPA"]["status"] == "ok"
+
+        # The extraction cache is written alongside the events output.
+        assert (tmp_path / "extract_cache.json").exists()
 
         meta_json = json.loads((tmp_path / "meta.json").read_text())
         assert meta_json["total_meets"] == 2
@@ -116,6 +158,7 @@ class TestRun:
             patch("powerlifting_meets.runner.fetch_previous_data", return_value=previous_response),
             # Keep run() offline: no geo-cache fetch, no LLM tier.
             patch("powerlifting_meets.runner.GEO_CACHE_URL", None),
+            patch("powerlifting_meets.runner.EXTRACT_CACHE_URL", None),
             patch("powerlifting_meets.runner.infer_missing_locations", return_value=0),
             # Pin "today" so the fallback meet (dated 2026-05-01) stays in the
             # future and isn't filtered out as past.

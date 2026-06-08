@@ -1,0 +1,66 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//wp-events-plugin.com//7.0.5//EN
+TZID:America/New_York
+X-WR-TIMEZONE:America/New_York
+BEGIN:VEVENT
+UID:293@wabdl.org
+DTSTART;TZID=America/Detroit;VALUE=DATE:20260307
+DTEND;TZID=America/Detroit;VALUE=DATE:20260308
+DTSTAMP:20251216T213845Z
+URL:https://wabdl.org/events/wabdl-southern-nationals-3/
+SUMMARY:WABDL Southern Nationals
+DESCRIPTION:ONLINE MEET APPLICATION
+LOCATION:Trumann Sports Complex\, 16179 Pecan Grove\, Trumann\, Arkansas\, 
+ 72472\, United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=16179 Pecan Grove\, Trumann
+ \, Arkansas\, 72472\, United States;X-APPLE-RADIUS=100;X-TITLE=Trumann Spo
+ rts Complex:geo:0,0
+END:VEVENT
+BEGIN:VEVENT
+UID:287@wabdl.org
+DTSTART;TZID=America/Detroit;VALUE=DATE:20260307
+DTEND;TZID=America/Detroit;VALUE=DATE:20260308
+DTSTAMP:20251211T015159Z
+URL:https://wabdl.org/events/wabdl-florida-state-powerlifting-bench-press-
+ deadlift-push-pull/
+SUMMARY:WABDL Florida State Powerlifting Bench Press\, Deadlift\, & Push-Pu
+ ll
+DESCRIPTION:
+LOCATION:All American Gym\, 1245 George Jenkins Blvd\, Lakeland\, Florida\,
+  33815\, United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=1245 George Jenkins Blvd\, 
+ Lakeland\, Florida\, 33815\, United States;X-APPLE-RADIUS=100;X-TITLE=All 
+ American Gym:geo:0,0
+END:VEVENT
+BEGIN:VEVENT
+UID:288@wabdl.org
+DTSTART;TZID=America/Detroit;VALUE=DATE:20260314
+DTEND;TZID=America/Detroit;VALUE=DATE:20260315
+DTSTAMP:20260210T222523Z
+URL:https://wabdl.org/events/wabdl-monterey-classic-bench-press-and-deadli
+ ft-championships-2/
+SUMMARY:WABDL - Monterey Classic Bench Press and Deadlift Championships
+DESCRIPTION:MEET APPLICATION
+LOCATION:Carmel Mission Inn\, 3665 Rio Road\, Carmel-By-The-Sea\, Californi
+ a\, 93923\, United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=3665 Rio Road\, Carmel-By-T
+ he-Sea\, California\, 93923\, United States;X-APPLE-RADIUS=100;X-TITLE=Car
+ mel Mission Inn:geo:0,0
+END:VEVENT
+BEGIN:VEVENT
+UID:294@wabdl.org
+DTSTART;TZID=America/Detroit;VALUE=DATE:20260322
+DTEND;TZID=America/Detroit;VALUE=DATE:20260323
+DTSTAMP:20260124T000018Z
+URL:https://wabdl.org/events/wabdl-sonny%ca%bbs-xxv-bench-press-and-deadli
+ ft-championship/
+SUMMARY:WABDL - Sonnyʻs XXV Bench Press and Deadlift Championship
+DESCRIPTION:ONLINE APPLICATION
+LOCATION:The Barn @ SALT\, 327 Keawe St. \, Honolulu \, Hawaii\, 96813\, Un
+ ited States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=327 Keawe St. \, Honolulu \
+ , Hawaii\, 96813\, United States;X-APPLE-RADIUS=100;X-TITLE=The Barn @ SAL
+ T:geo:0,0
+END:VEVENT
+END:VCALENDAR

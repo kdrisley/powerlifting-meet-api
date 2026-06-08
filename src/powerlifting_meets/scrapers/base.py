@@ -18,6 +18,9 @@ USER_AGENT = (
 
 class BaseScraper(abc.ABC):
     federation: str
+    # Brittle scrapers that need the shared LLM-extraction cache set this True so
+    # the runner constructs them with extract_cache= (see runner._instantiate).
+    needs_extract_cache: bool = False
 
     def __init__(self, client: httpx.Client | None = None) -> None:
         if client is not None:

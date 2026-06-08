@@ -10,10 +10,10 @@ from __future__ import annotations
 
 import hashlib
 import logging
-import os
 
 from pydantic import BaseModel, Field
 
+from powerlifting_meets.gemini_client import get_client
 from powerlifting_meets.models import Meet
 
 logger = logging.getLogger(__name__)
@@ -25,7 +25,8 @@ GEMINI_MODEL = "gemini-3.1-flash-lite"
 
 # Bump to force a global re-assessment (e.g. after changing the prompt/model);
 # cached entries with an older version are ignored.
-SCHEMA_VERSION = 1
+# v2: added non-US `region` to GeoGuess.
+SCHEMA_VERSION = 2
 
 # Only adopt a guess at or above this confidence. Below it the meet stays
 # flagged as unresolved rather than risk publishing a bad value.
@@ -40,6 +41,13 @@ class GeoGuess(BaseModel):
         default=None,
         description="Two-letter US state code (e.g. TX). Null if the meet is not in the US.",
     )
+    region: str | None = Field(
+        default=None,
+        description=(
+            "Sub-national region for a NON-US meet (state/province/territory, "
+            "e.g. 'QLD', 'Ontario'). Null for US meets."
+        ),
+    )
     country: str | None = Field(default=None, description="Country name, or null if unknown")
     confidence: float = Field(description="0.0-1.0 confidence in the inferred location")
     reasoning: str = Field(description="One sentence explaining the inference")
@@ -50,7 +58,8 @@ _PROMPT = """You are locating a powerlifting meet from limited clues.
 Infer the meet's city, US state, and country. Rules:
 - `state` is the two-letter US postal code (e.g. TX, CA) ONLY when the meet is in the United States; otherwise null.
 - For US territories (Guam, Puerto Rico, etc.) set `country` to "United States" and leave `state` null.
-- When the meet is clearly outside the US, set `country` (e.g. "Ireland") and leave `state` null.
+- When the meet is clearly outside the US, set `country` (e.g. "Ireland") and leave `state` null. If you can tell the non-US sub-national region (state/province/territory, e.g. "QLD", "Ontario"), set `region`; otherwise leave it null.
+- `region` is for non-US meets only — never set both `state` and `region`.
 - Use only what the clues support. If you cannot tell, return low confidence with nulls — do not guess wildly.
 
 Clues:
@@ -63,20 +72,8 @@ Clues:
 
 
 def _get_client():
-    """Return a configured genai client, or None when no API key is set.
-
-    Imports the SDK lazily so the module loads even where google-genai isn't
-    installed (e.g. minimal test envs)."""
-    api_key = os.environ.get("GEMINI_API_KEY")
-    if not api_key:
-        return None
-    try:
-        from google import genai
-
-        return genai.Client(api_key=api_key)
-    except Exception as exc:
-        logger.warning("Gemini client unavailable: %s", exc)
-        return None
+    """Return a configured genai client, or None when no API key is set."""
+    return get_client()
 
 
 def infer_location(meet: Meet) -> GeoGuess | None:
