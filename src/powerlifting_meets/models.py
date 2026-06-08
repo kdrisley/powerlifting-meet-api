@@ -30,7 +30,16 @@ class Meet(BaseModel):
     director_name: str | None = None
     director_email: str | None = None
     sanction: str | None = None
+    # `event_type` is the competition format derived from the meet name
+    # (full_power | push_pull | bench_only | deadlift_only | squat_only).
+    # `event_level` is the competitive tier (LOCAL | STATE | REGIONAL |
+    # NATIONAL | INTERNATIONAL). The two are independent and were previously
+    # conflated — some scrapers used to write level values into event_type.
     event_type: str | None = None
+    event_level: str | None = None
+    # `tested` | `untested` when derivable from federation + name, else None
+    # (we leave it null rather than guess for both-posture federations).
+    testing_status: str | None = None
 
 
 class FederationMeta(BaseModel):
