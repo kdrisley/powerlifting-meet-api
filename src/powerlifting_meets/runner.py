@@ -10,6 +10,11 @@ import httpx
 from dotenv import load_dotenv
 
 from powerlifting_meets import llm_geo
+from powerlifting_meets.classify import (
+    classify_event_level,
+    classify_event_type,
+    classify_testing_status,
+)
 from powerlifting_meets.models import FederationMeta, Meet, MeetsResponse
 from powerlifting_meets.normalize import normalize_country, normalize_state, resolve_location
 from powerlifting_meets.scrapers.adfpf import ADFPFScraper
@@ -123,6 +128,8 @@ def fetch_previous_data(url: str | None) -> MeetsResponse | None:
                 director_email=e.get("director_email") or None,
                 sanction=e.get("sanction") or None,
                 event_type=e.get("event_type") or None,
+                event_level=e.get("event_level") or None,
+                testing_status=e.get("testing_status") or None,
             ))
         meta = {}
         for k, v in data.get("meta", {}).items():
@@ -279,6 +286,37 @@ def backfill_locations(meets: list[Meet]) -> int:
     return changed
 
 
+def derive_classifications(meets: list[Meet]) -> int:
+    """Fill event_type, event_level, and testing_status by pure transform.
+
+    Runs after dedup over the merged feed. Each field is only filled when a
+    scraper hasn't already set it, so a value parsed directly from the source
+    (e.g. USAPL's scraped event_level) always wins over a name-derived guess.
+    Mutates in place; returns the number of meets whose fields changed.
+    """
+    changed = 0
+    for m in meets:
+        touched = False
+        if not m.event_type:
+            et = classify_event_type(m.name)
+            if et:
+                m.event_type = et
+                touched = True
+        if not m.event_level:
+            el = classify_event_level(m.name)
+            if el:
+                m.event_level = el
+                touched = True
+        if not m.testing_status:
+            ts = classify_testing_status(m.federation, m.name)
+            if ts:
+                m.testing_status = ts
+                touched = True
+        if touched:
+            changed += 1
+    return changed
+
+
 def run() -> None:
     logging.basicConfig(
         level=logging.INFO,
@@ -356,6 +394,12 @@ def run() -> None:
     if filled:
         logger.info("Backfilled location fields on %d meets", filled)
 
+    # Pure-transform classification: event_type / event_level / testing_status
+    # from name + federation. No new requests; only fills unset fields.
+    classified = derive_classifications(unique_meets)
+    if classified:
+        logger.info("Derived classification fields on %d meets", classified)
+
     # LLM fallback for the residue deterministic parsing can't resolve.
     geo_cache = fetch_json_cache(GEO_CACHE_URL)
     inferred = infer_missing_locations(unique_meets, geo_cache)
@@ -409,6 +453,8 @@ def run() -> None:
                 "director_email": m.director_email or "",
                 "sanction": m.sanction or "",
                 "event_type": m.event_type or "",
+                "event_level": m.event_level or "",
+                "testing_status": m.testing_status or "",
             }
             for m in unique_meets
         ],

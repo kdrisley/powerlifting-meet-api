@@ -42,7 +42,8 @@ class TestUSAPLScraper:
         # url is the "More Info" page; registration is its own field.
         assert str(m.url) == "https://www.surgetonewlevels.net/"
         assert str(m.registration_url) == "https://liftingcast.com/meets/m0247b0mongl/registration"
-        assert m.event_type == "LOCAL"
+        # "Type of Event" is the competitive tier, captured as event_level.
+        assert m.event_level == "LOCAL"
         assert m.sanction == "IL-2026-04"
         assert m.director_name == "Sergio Luna"
         assert m.director_email == "surgetonewlevels@gmail.com"

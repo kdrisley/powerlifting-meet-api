@@ -27,7 +27,7 @@ def test_parses_ipf_and_epf_rows(ipf_html, scraper_runner):
     assert sheffield.city == "Sheffield"
     assert sheffield.country == "United Kingdom"
     assert sheffield.state is None
-    assert sheffield.event_type == "International"
+    assert sheffield.event_level == "INTERNATIONAL"
 
 
 def test_excludes_education_courses(ipf_html, scraper_runner):

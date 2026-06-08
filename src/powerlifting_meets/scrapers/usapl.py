@@ -6,6 +6,7 @@ from datetime import date, datetime
 
 from bs4 import BeautifulSoup, Tag
 
+from powerlifting_meets.classify import normalize_event_level
 from powerlifting_meets.models import Meet
 from powerlifting_meets.normalize import normalize_state
 from powerlifting_meets.scrapers.base import BaseScraper
@@ -64,7 +65,9 @@ class USAPLScraper(BaseScraper):
         city: str | None = None
         url: str | None = None
         sanction: str | None = None
-        event_type: str | None = None
+        # USAPL's "Type of Event" is the competitive tier (Local/State/National/
+        # Regional), not the competition format, so it maps to event_level.
+        event_level: str | None = None
         director_name: str | None = None
         director_email: str | None = None
 
@@ -81,7 +84,7 @@ class USAPLScraper(BaseScraper):
 
             type_match = re.search(r"Type of Event:\s*(.+?)\s*(?:Sanction:|$)", info_text)
             if type_match:
-                event_type = type_match.group(1).strip() or None
+                event_level = normalize_event_level(type_match.group(1).strip())
 
             sanction_match = re.search(r"Sanction:\s*([A-Za-z0-9-]+)", info_text)
             if sanction_match:
@@ -122,7 +125,7 @@ class USAPLScraper(BaseScraper):
             registration_url=registration_url,
             status="active",
             sanction=sanction,
-            event_type=event_type,
+            event_level=event_level,
             director_name=director_name,
             director_email=director_email,
         )

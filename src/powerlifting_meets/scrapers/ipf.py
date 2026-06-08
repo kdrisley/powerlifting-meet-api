@@ -95,7 +95,7 @@ class IPFScraper(BaseScraper):
             status="active",
             equipment=extract_equipment(name),
             restrictions=extract_restrictions(name),
-            event_type="International",
+            event_level="INTERNATIONAL",
         )
 
     @staticmethod
