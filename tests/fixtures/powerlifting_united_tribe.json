@@ -1,0 +1,537 @@
+{
+  "events": [
+    {
+      "id": 2945,
+      "global_id": "powerliftingunited.com?id=2945",
+      "global_id_lineage": [
+        "powerliftingunited.com?id=2945"
+      ],
+      "author": "2",
+      "status": "publish",
+      "date": "2026-02-13 00:05:43",
+      "date_utc": "2026-02-13 00:05:43",
+      "modified": "2026-02-13 00:08:06",
+      "modified_utc": "2026-02-13 00:08:06",
+      "url": "https://powerliftingunited.com/event/alabama-state-games-championships-3/",
+      "rest_url": "https://powerliftingunited.com/wp-json/tribe/events/v1/events/2945",
+      "title": "Alabama State Games Championships 3",
+      "description": "",
+      "excerpt": "",
+      "slug": "alabama-state-games-championships-3",
+      "image": false,
+      "all_day": true,
+      "start_date": "2026-06-13 00:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "13",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-06-13 23:59:59",
+      "end_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "13",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "utc_start_date": "2026-06-13 00:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "13",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-06-13 23:59:59",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "13",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "timezone": "UTC+0",
+      "timezone_abbr": "UTC+0",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [
+        {
+          "name": "Combo Rack",
+          "slug": "combo-rack",
+          "term_group": 0,
+          "term_taxonomy_id": 25,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 132,
+          "filter": "raw",
+          "id": 25,
+          "urls": {
+            "self": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories/25",
+            "collection": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories"
+          }
+        },
+        {
+          "name": "Drug Tested",
+          "slug": "drug-tested",
+          "term_group": 0,
+          "term_taxonomy_id": 22,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 184,
+          "filter": "raw",
+          "id": 22,
+          "urls": {
+            "self": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories/22",
+            "collection": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories"
+          }
+        },
+        {
+          "name": "Non-Tested",
+          "slug": "non-tested",
+          "term_group": 0,
+          "term_taxonomy_id": 23,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 194,
+          "filter": "raw",
+          "id": 23,
+          "urls": {
+            "self": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories/23",
+            "collection": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories"
+          }
+        }
+      ],
+      "tags": [],
+      "venue": {
+        "id": 2065,
+        "author": "2",
+        "status": "publish",
+        "date": "2025-02-27 06:06:54",
+        "date_utc": "2025-02-27 06:06:54",
+        "modified": "2025-02-27 06:06:54",
+        "modified_utc": "2025-02-27 06:06:54",
+        "url": "https://powerliftingunited.com/venue/gardendale-civic-center/",
+        "venue": "Gardendale Civic Center",
+        "slug": "gardendale-civic-center",
+        "address": "857 Main st.",
+        "city": "Gardendale",
+        "country": "United States",
+        "state": "AL",
+        "zip": "35071",
+        "website": "https://www.cityofgardendale.com/civic-center",
+        "stateprovince": "AL",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "powerliftingunited.com?id=2065",
+        "global_id_lineage": [
+          "powerliftingunited.com?id=2065"
+        ]
+      },
+      "organizer": [
+        {
+          "id": 1075,
+          "author": "2",
+          "status": "publish",
+          "date": "2024-09-02 00:36:59",
+          "date_utc": "2024-09-02 00:36:59",
+          "modified": "2024-09-04 04:43:55",
+          "modified_utc": "2024-09-04 04:43:55",
+          "url": "https://powerliftingunited.com/organizer/heidi-dehnel/",
+          "organizer": "Heidi Dehnel",
+          "slug": "heidi-dehnel",
+          "phone": "256-503-8312",
+          "email": "coach@core256.com",
+          "global_id": "powerliftingunited.com?id=1075",
+          "global_id_lineage": [
+            "powerliftingunited.com?id=1075"
+          ]
+        }
+      ],
+      "custom_fields": {
+        "_ecp_custom_2": {
+          "label": "LiftingCast Registration",
+          "value": "https://liftingcast.com/meets/mxe4vj650agp/registration"
+        }
+      },
+      "is_virtual": false,
+      "virtual_url": null,
+      "virtual_video_source": ""
+    },
+    {
+      "id": 2763,
+      "global_id": "powerliftingunited.com?id=2763",
+      "global_id_lineage": [
+        "powerliftingunited.com?id=2763"
+      ],
+      "author": "2",
+      "status": "publish",
+      "date": "2025-11-05 05:01:14",
+      "date_utc": "2025-11-05 05:01:14",
+      "modified": "2025-11-05 05:01:14",
+      "modified_utc": "2025-11-05 05:01:14",
+      "url": "https://powerliftingunited.com/event/crater-lake-clash-ii/",
+      "rest_url": "https://powerliftingunited.com/wp-json/tribe/events/v1/events/2763",
+      "title": "Crater Lake Clash II",
+      "description": "",
+      "excerpt": "",
+      "slug": "crater-lake-clash-ii",
+      "image": false,
+      "all_day": true,
+      "start_date": "2026-06-20 00:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "20",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-06-20 23:59:59",
+      "end_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "20",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "utc_start_date": "2026-06-20 00:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "20",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-06-20 23:59:59",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "20",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "timezone": "UTC+0",
+      "timezone_abbr": "UTC+0",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "https://liftingcast.com/meets/mncm5v2og64c/registration",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [
+        {
+          "name": "Combo Rack",
+          "slug": "combo-rack",
+          "term_group": 0,
+          "term_taxonomy_id": 25,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 132,
+          "filter": "raw",
+          "id": 25,
+          "urls": {
+            "self": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories/25",
+            "collection": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories"
+          }
+        },
+        {
+          "name": "Drug Tested",
+          "slug": "drug-tested",
+          "term_group": 0,
+          "term_taxonomy_id": 22,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 184,
+          "filter": "raw",
+          "id": 22,
+          "urls": {
+            "self": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories/22",
+            "collection": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories"
+          }
+        },
+        {
+          "name": "Non-Tested",
+          "slug": "non-tested",
+          "term_group": 0,
+          "term_taxonomy_id": 23,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 194,
+          "filter": "raw",
+          "id": 23,
+          "urls": {
+            "self": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories/23",
+            "collection": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories"
+          }
+        }
+      ],
+      "tags": [],
+      "venue": {
+        "id": 1611,
+        "author": "2",
+        "status": "publish",
+        "date": "2024-11-12 04:42:45",
+        "date_utc": "2024-11-12 04:42:45",
+        "modified": "2024-11-12 04:42:45",
+        "modified_utc": "2024-11-12 04:42:45",
+        "url": "https://powerliftingunited.com/venue/brixner-jr-high/",
+        "venue": "Brixner Jr. High",
+        "slug": "brixner-jr-high",
+        "address": "4727 Homedale Rd.",
+        "city": "Klamath Falls",
+        "country": "United States",
+        "state": "OR",
+        "zip": "97603",
+        "website": "http://www.vestrength.com/home",
+        "stateprovince": "OR",
+        "show_map": false,
+        "show_map_link": false,
+        "global_id": "powerliftingunited.com?id=1611",
+        "global_id_lineage": [
+          "powerliftingunited.com?id=1611"
+        ]
+      },
+      "organizer": [
+        {
+          "id": 1612,
+          "author": "2",
+          "status": "publish",
+          "date": "2024-11-12 04:42:45",
+          "date_utc": "2024-11-12 04:42:45",
+          "modified": "2024-11-12 04:42:45",
+          "modified_utc": "2024-11-12 04:42:45",
+          "url": "https://powerliftingunited.com/organizer/nico-veloz-espinola/",
+          "organizer": "Nico Veloz Espinola",
+          "slug": "nico-veloz-espinola",
+          "phone": "7756216628",
+          "email": "nespinola24@gmail.com",
+          "global_id": "powerliftingunited.com?id=1612",
+          "global_id_lineage": [
+            "powerliftingunited.com?id=1612"
+          ]
+        }
+      ],
+      "custom_fields": {
+        "_ecp_custom_2": {
+          "label": "LiftingCast Registration",
+          "value": "https://liftingcast.com/meets/mncm5v2og64c/registration"
+        }
+      },
+      "is_virtual": false,
+      "virtual_url": null,
+      "virtual_video_source": ""
+    },
+    {
+      "id": 2619,
+      "global_id": "powerliftingunited.com?id=2619",
+      "global_id_lineage": [
+        "powerliftingunited.com?id=2619"
+      ],
+      "author": "2",
+      "status": "publish",
+      "date": "2025-10-13 02:34:11",
+      "date_utc": "2025-10-13 02:34:11",
+      "modified": "2025-10-13 02:34:11",
+      "modified_utc": "2025-10-13 02:34:11",
+      "url": "https://powerliftingunited.com/event/ncw-open-at-ops/",
+      "rest_url": "https://powerliftingunited.com/wp-json/tribe/events/v1/events/2619",
+      "title": "NCW Open at OPS",
+      "description": "",
+      "excerpt": "",
+      "slug": "ncw-open-at-ops",
+      "image": false,
+      "all_day": true,
+      "start_date": "2026-06-27 00:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "27",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-06-27 23:59:59",
+      "end_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "27",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "utc_start_date": "2026-06-27 00:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "27",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-06-27 23:59:59",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "27",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "timezone": "UTC+0",
+      "timezone_abbr": "UTC+0",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "https://liftingcast.com/meets/m5kdevhgunl3/registration",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [
+        {
+          "name": "Drug Tested",
+          "slug": "drug-tested",
+          "term_group": 0,
+          "term_taxonomy_id": 22,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 184,
+          "filter": "raw",
+          "id": 22,
+          "urls": {
+            "self": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories/22",
+            "collection": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories"
+          }
+        },
+        {
+          "name": "Monolift",
+          "slug": "monolift",
+          "term_group": 0,
+          "term_taxonomy_id": 24,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 74,
+          "filter": "raw",
+          "id": 24,
+          "urls": {
+            "self": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories/24",
+            "collection": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories"
+          }
+        },
+        {
+          "name": "Non-Tested",
+          "slug": "non-tested",
+          "term_group": 0,
+          "term_taxonomy_id": 23,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 194,
+          "filter": "raw",
+          "id": 23,
+          "urls": {
+            "self": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories/23",
+            "collection": "https://powerliftingunited.com/wp-json/tribe/events/v1/categories"
+          }
+        }
+      ],
+      "tags": [],
+      "venue": {
+        "id": 2046,
+        "author": "2",
+        "status": "publish",
+        "date": "2025-02-26 02:50:22",
+        "date_utc": "2025-02-26 02:50:22",
+        "modified": "2025-02-26 03:08:54",
+        "modified_utc": "2025-02-26 03:08:54",
+        "url": "https://powerliftingunited.com/venue/osborn-performance-systems/",
+        "venue": "Osborn Performance Systems",
+        "slug": "osborn-performance-systems",
+        "address": "219 S Wenatchee Ave",
+        "city": "Wenatchee",
+        "country": "United States",
+        "state": "WA",
+        "zip": "98801",
+        "website": "https://www.opsgym.com/",
+        "stateprovince": "WA",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "powerliftingunited.com?id=2046",
+        "global_id_lineage": [
+          "powerliftingunited.com?id=2046"
+        ]
+      },
+      "organizer": [
+        {
+          "id": 2047,
+          "author": "2",
+          "status": "publish",
+          "date": "2025-02-26 02:50:22",
+          "date_utc": "2025-02-26 02:50:22",
+          "modified": "2025-02-26 02:50:22",
+          "modified_utc": "2025-02-26 02:50:22",
+          "url": "https://powerliftingunited.com/organizer/monica-cahalan/",
+          "organizer": "Monica Cahalan",
+          "slug": "monica-cahalan",
+          "phone": "509-860-9551",
+          "email": "newgoldperformance@gmail.com",
+          "global_id": "powerliftingunited.com?id=2047",
+          "global_id_lineage": [
+            "powerliftingunited.com?id=2047"
+          ]
+        }
+      ],
+      "custom_fields": {
+        "_ecp_custom_2": {
+          "label": "LiftingCast Registration",
+          "value": "https://liftingcast.com/meets/m5kdevhgunl3/registration"
+        }
+      },
+      "is_virtual": false,
+      "virtual_url": null,
+      "virtual_video_source": ""
+    }
+  ],
+  "total": 33,
+  "total_pages": 11
+}

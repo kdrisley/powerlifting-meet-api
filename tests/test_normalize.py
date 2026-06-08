@@ -2,10 +2,35 @@ from powerlifting_meets.normalize import (
     normalize_country,
     normalize_state,
     parse_address_location,
+    parse_full_address,
     parse_trailing_country,
     parse_trailing_location,
     resolve_location,
 )
+
+
+class TestParseFullAddress:
+    def test_us_full_state_name_with_country(self):
+        # WABDL iCal LOCATION shape: full state name, trailing country.
+        assert parse_full_address(
+            "Trumann Sports Complex, 16179 Pecan Grove, Trumann, Arkansas, United States"
+        ) == ("Trumann", "AR", None, "United States")
+
+    def test_us_full_state_with_zip_segment(self):
+        assert parse_full_address(
+            "The Barn, 327 Keawe St, Honolulu, Hawaii, 96813, United States"
+        ) == ("Honolulu", "HI", None, "United States")
+
+    def test_canadian_province_goes_to_region(self):
+        # CPU JSON-LD address shape: "PROV POSTAL" segment.
+        assert parse_full_address(
+            "141 Jessop Ave, Saskatoon, SK S7N 1Y3, Canada"
+        ) == ("Saskatoon", None, "SK", "Canada")
+
+    def test_no_signal_returns_all_none(self):
+        assert parse_full_address("Just A Venue Name") == (None, None, None, None)
+        assert parse_full_address(None) == (None, None, None, None)
+        assert parse_full_address("") == (None, None, None, None)
 
 
 class TestNormalizeState:

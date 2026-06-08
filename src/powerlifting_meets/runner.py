@@ -12,13 +12,27 @@ from dotenv import load_dotenv
 from powerlifting_meets import llm_geo
 from powerlifting_meets.models import FederationMeta, Meet, MeetsResponse
 from powerlifting_meets.normalize import normalize_country, normalize_state, resolve_location
+from powerlifting_meets.scrapers.adfpf import ADFPFScraper
 from powerlifting_meets.scrapers.apf import APFScraper
+from powerlifting_meets.scrapers.apl import APLScraper
 from powerlifting_meets.scrapers.base import BaseScraper
+from powerlifting_meets.scrapers.cpu import CPUScraper
+from powerlifting_meets.scrapers.ipa import IPAScraper
+from powerlifting_meets.scrapers.ipf import IPFScraper
+from powerlifting_meets.scrapers.irish import IrishScraper
+from powerlifting_meets.scrapers.nasa import NASAScraper
+from powerlifting_meets.scrapers.nzpu import NZPUScraper
 from powerlifting_meets.scrapers.powerlifting_america import PowerliftingAmericaScraper
+from powerlifting_meets.scrapers.powerlifting_australia import PowerliftingAustraliaScraper
+from powerlifting_meets.scrapers.powerlifting_united import PowerliftingUnitedScraper
+from powerlifting_meets.scrapers.raw100 import Raw100Scraper
 from powerlifting_meets.scrapers.rps import RPSScraper
 from powerlifting_meets.scrapers.spf import SPFScraper
 from powerlifting_meets.scrapers.usapl import USAPLScraper
 from powerlifting_meets.scrapers.uspa import USPAScraper
+from powerlifting_meets.scrapers.uspc import USPCScraper
+from powerlifting_meets.scrapers.wabdl import WABDLScraper
+from powerlifting_meets.scrapers.wnpf import WNPFScraper
 
 logger = logging.getLogger(__name__)
 
@@ -30,6 +44,11 @@ PREVIOUS_DATA_URL = "https://kdrisley.github.io/powerlifting-meet-api/events"
 # meet-data fallback does (see fetch_previous_data).
 GEO_CACHE_URL = "https://kdrisley.github.io/powerlifting-meet-api/geo_cache.json"
 
+# Published LLM meet-extraction cache for brittle sources (WNPF, NASA). Keyed by
+# source content hash so identical content is never sent to Gemini twice across
+# runs. Published to Pages and reloaded each run, exactly like the geo cache.
+EXTRACT_CACHE_URL = "https://kdrisley.github.io/powerlifting-meet-api/extract_cache.json"
+
 OUTPUT_DIR = Path("output")
 
 ALL_SCRAPERS: list[type[BaseScraper]] = [
@@ -39,7 +58,34 @@ ALL_SCRAPERS: list[type[BaseScraper]] = [
     RPSScraper,
     SPFScraper,
     APFScraper,
+    # Tier A: WordPress Tribe Events sites (US + international).
+    PowerliftingUnitedScraper,
+    ADFPFScraper,
+    PowerliftingAustraliaScraper,
+    APLScraper,
+    NZPUScraper,
+    # Tier B: structured non-Tribe sources (JSON API, iCal, JSON-LD).
+    USPCScraper,
+    WABDLScraper,
+    CPUScraper,
+    # Tier C: server-rendered HTML tables (US + international).
+    IPFScraper,
+    IrishScraper,
+    # Tier D: brittle sources interpreted by the Gemini extraction tier.
+    WNPFScraper,
+    IPAScraper,
+    NASAScraper,
+    Raw100Scraper,
 ]
+
+
+def _instantiate(scraper_cls: type[BaseScraper], extract_cache: dict) -> BaseScraper:
+    """Construct a scraper, passing the shared extraction cache to the brittle
+    LLM-extraction scrapers (flagged via `needs_extract_cache`) and nothing extra
+    to the rest. Keeps `run()` agnostic of the LLM-extraction module."""
+    if getattr(scraper_cls, "needs_extract_cache", False):
+        return scraper_cls(extract_cache=extract_cache)  # type: ignore[call-arg]
+    return scraper_cls()
 
 
 def fetch_previous_data(url: str | None) -> MeetsResponse | None:
@@ -63,6 +109,7 @@ def fetch_previous_data(url: str | None) -> MeetsResponse | None:
                 federation=e.get("fed", ""),
                 date_start=e.get("parsed_date", ""),
                 state=e.get("state") or None,
+                region=e.get("region") or None,
                 city=e.get("city") or None,
                 country=e.get("country") or None,
                 geo_inferred=bool(e.get("geo_inferred")),
@@ -105,11 +152,12 @@ def get_previous_meets_for_federation(
     ]
 
 
-def fetch_geo_cache(url: str | None) -> dict:
-    """Load the previously published geo-inference cache from GitHub Pages.
+def fetch_json_cache(url: str | None) -> dict:
+    """Load a previously published JSON cache from GitHub Pages.
 
+    Used for both the geo-inference cache and the LLM meet-extraction cache.
     Returns an empty cache on any failure (first run, network hiccup) so the
-    pipeline degrades to "infer everything fresh" rather than breaking.
+    pipeline degrades to "compute everything fresh" rather than breaking.
     """
     if not url:
         return {}
@@ -119,12 +167,12 @@ def fetch_geo_cache(url: str | None) -> dict:
         data = resp.json()
         return data if isinstance(data, dict) else {}
     except Exception as exc:
-        logger.warning("Could not fetch geo cache from %s: %s", url, exc)
+        logger.warning("Could not fetch cache from %s: %s", url, exc)
         return {}
 
 
-def save_geo_cache(cache: dict, path: Path) -> None:
-    """Write the geo cache so it's published alongside the events output."""
+def save_json_cache(cache: dict, path: Path) -> None:
+    """Write a JSON cache so it's published alongside the events output."""
     path.write_text(json.dumps(cache, indent=2, sort_keys=True), encoding="utf-8")
 
 
@@ -156,11 +204,15 @@ def infer_missing_locations(meets: list[Meet], cache: dict) -> int:
                 # No API key or the call failed — retry next run, don't cache.
                 continue
             calls += 1
+            inferred_state = normalize_state(guess.state)
             entry = {
                 "schema_version": llm_geo.SCHEMA_VERSION,
                 "signals_hash": h,
                 "city": guess.city,
-                "state": normalize_state(guess.state),
+                "state": inferred_state,
+                # `region` only applies to non-US meets; ignore it if the model
+                # also returned a US state.
+                "region": None if inferred_state else (guess.region or None),
                 "country": normalize_country(guess.country) or guess.country,
                 "confidence": guess.confidence,
                 "reasoning": guess.reasoning,
@@ -172,6 +224,9 @@ def infer_missing_locations(meets: list[Meet], cache: dict) -> int:
         changed = False
         if entry.get("state") and not m.state:
             m.state = entry["state"]
+            changed = True
+        if entry.get("region") and not m.region and not m.state:
+            m.region = entry["region"]
             changed = True
         if entry.get("country") and not m.country:
             m.country = entry["country"]
@@ -233,6 +288,10 @@ def run() -> None:
     previous = fetch_previous_data(PREVIOUS_DATA_URL)
     today = date.today()
 
+    # Loaded up front so brittle (LLM-extraction) scrapers can reuse cached
+    # extractions and avoid re-sending unchanged content to Gemini.
+    extract_cache = fetch_json_cache(EXTRACT_CACHE_URL)
+
     all_meets: list[Meet] = []
     meta: dict[str, FederationMeta] = {}
     any_success = False
@@ -241,7 +300,7 @@ def run() -> None:
         federation = scraper_cls.federation
         logger.info("Running %s scraper", federation)
         try:
-            with scraper_cls() as scraper:
+            with _instantiate(scraper_cls, extract_cache) as scraper:
                 meets = scraper.scrape()
             all_meets.extend(meets)
             meta[federation] = FederationMeta(
@@ -298,7 +357,7 @@ def run() -> None:
         logger.info("Backfilled location fields on %d meets", filled)
 
     # LLM fallback for the residue deterministic parsing can't resolve.
-    geo_cache = fetch_geo_cache(GEO_CACHE_URL)
+    geo_cache = fetch_json_cache(GEO_CACHE_URL)
     inferred = infer_missing_locations(unique_meets, geo_cache)
     if inferred:
         logger.info("Inferred location via Gemini on %d meets", inferred)
@@ -330,6 +389,7 @@ def run() -> None:
             {
                 "parsed_date": m.date_start.isoformat(),
                 "state": m.state or "",
+                "region": m.region or "",
                 "fed": m.federation,
                 "evt_name": m.name,
                 # `link` is the primary meet page (info page when there is one,
@@ -371,9 +431,10 @@ def run() -> None:
     meta_path.write_text(json.dumps(meta_json, indent=2, default=str), encoding="utf-8")
     logger.info("Wrote %s", meta_path)
 
-    # Persist the geo cache alongside the output so it's published to Pages and
-    # available to the next run.
-    save_geo_cache(geo_cache, OUTPUT_DIR / "geo_cache.json")
+    # Persist the geo and extraction caches alongside the output so they're
+    # published to Pages and available to the next run.
+    save_json_cache(geo_cache, OUTPUT_DIR / "geo_cache.json")
+    save_json_cache(extract_cache, OUTPUT_DIR / "extract_cache.json")
 
 
 if __name__ == "__main__":

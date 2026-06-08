@@ -10,7 +10,12 @@ class Meet(BaseModel):
     federation: str
     date_start: date
     date_end: date | None = None
+    # `state` is a US two-letter code ONLY (set iff the meet is in the US).
+    # `region` is the non-US sub-national region (e.g. "QLD", "Ontario"); it is
+    # set only for non-US meets, and `country` is always populated when it is.
+    # The two are mutually exclusive so US filters on `state` stay clean.
     state: str | None = None
+    region: str | None = None
     city: str | None = None
     country: str | None = None
     # True when city/state/country were filled by the LLM fallback rather than

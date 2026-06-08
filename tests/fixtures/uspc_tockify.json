@@ -1,0 +1,276 @@
+{
+  "events": [
+    {
+      "calid": "609bd806e9d13308d3426b03",
+      "eid": {
+        "uid": "324",
+        "seq": 0,
+        "tid": 1781323200000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1781323200000,
+          "tzid": "America/New_York",
+          "ltz": "EDT",
+          "offset": -14400000
+        },
+        "end": {
+          "millis": 1781409600000,
+          "tzid": "America/New_York",
+          "ltz": "EDT",
+          "offset": -14400000
+        },
+        "allDay": true
+      },
+      "content": {
+        "summary": {
+          "text": "USPC Iron City Open, Pittsburgh, PA"
+        },
+        "description": {
+          "text": "🎥 USPC Iron City – Livestream 🔒 Livestream Access Required Viewing the USPC Tennessee Open livestream requires an active USPC Livestream Access membership. 👉"
+        },
+        "tagset": {
+          "tags": {
+            "default": []
+          }
+        },
+        "address": "Washington County Fairgrounds, 2151 N Main St, Washington, PA 15301, USA",
+        "attachments": [],
+        "noDetail": false,
+        "version": 1,
+        "imageIdNg": "69cce2e9dc7c9e8f4582a69b",
+        "imageSets": [
+          {
+            "ownerId": "609bd007e9d13308d342622f",
+            "ownerType": "user",
+            "id": "69cce2e9dc7c9e8f4582a69b",
+            "name": "Photo Apr 01 2026, 4 56 46 AM",
+            "altText": "Photo Apr 01 2026, 4 56 46 AM",
+            "width": 1079,
+            "height": 1080,
+            "size": 200451,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ]
+      },
+      "sorter": "999_01C50390_0901_01C50390-0-01C50930_324-01C50390-0-0",
+      "ctstamp": 1768939528102,
+      "dtstamp": 1778408573609,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": true
+    },
+    {
+      "calid": "609bd806e9d13308d3426b03",
+      "eid": {
+        "uid": "296",
+        "seq": 0,
+        "tid": 1782532800000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1782532800000,
+          "tzid": "America/New_York",
+          "ltz": "EDT",
+          "offset": -14400000
+        },
+        "end": {
+          "millis": 1782619200000,
+          "tzid": "America/New_York",
+          "ltz": "EDT",
+          "offset": -14400000
+        },
+        "allDay": true
+      },
+      "content": {
+        "summary": {
+          "text": "USPC Heart of a Lion, Norfolk, VA"
+        },
+        "description": {
+          "text": "🎥 USPC Heart Of A Lion – Livestream 🔒 Livestream Access Required Viewing the USPC Tennessee Open livestream requires an active USPC Livestream Access membersh"
+        },
+        "tagset": {
+          "tags": {
+            "default": []
+          }
+        },
+        "address": "The Iron Asylum Gym - Norfolk, 1200 N Military Hwy, Norfolk, VA 23502, USA",
+        "imageId": "BWC_69033f4a974aaf165d4e029a",
+        "attachments": [],
+        "noDetail": false,
+        "version": 1,
+        "imageIdNg": "69033f4a974aaf165d4e029a",
+        "imageSets": [
+          {
+            "ownerId": "609bd007e9d13308d342622f",
+            "ownerType": "user",
+            "id": "69033f4a974aaf165d4e029a",
+            "name": "Heart of a lion 2026 (1)",
+            "altText": "Heart of a lion 2026 (1)",
+            "width": 639,
+            "height": 637,
+            "size": 47588,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "oldId": "BWC_69033f4a974aaf165d4e029a",
+            "tags": []
+          }
+        ]
+      },
+      "sorter": "999_01C55250_0901_01C55250-0-01C557F0_296-01C55250-0-0",
+      "ctstamp": 1755196800737,
+      "dtstamp": 1780918201611,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": true
+    },
+    {
+      "calid": "609bd806e9d13308d3426b03",
+      "eid": {
+        "uid": "316",
+        "seq": 0,
+        "tid": 1782532800000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1782532800000,
+          "tzid": "America/New_York",
+          "ltz": "EDT",
+          "offset": -14400000
+        },
+        "end": {
+          "millis": 1782619200000,
+          "tzid": "America/New_York",
+          "ltz": "EDT",
+          "offset": -14400000
+        },
+        "allDay": true
+      },
+      "content": {
+        "summary": {
+          "text": "USPC Triple Threat Pro/Am, Roanoke, VA"
+        },
+        "description": {
+          "text": "🎥 USPC Triple Threat – Livestream 🔒 Livestream Access Required Viewing the USPC Tennessee Open livestream requires an active USPC Livestream Access membership"
+        },
+        "tagset": {
+          "tags": {
+            "default": []
+          }
+        },
+        "address": "M-Power Fitness, 3739 Brambleton Ave, Roanoke, VA 24018",
+        "imageId": "BWC_694d43b202994d6568a0c8e2",
+        "attachments": [],
+        "noDetail": false,
+        "version": 1,
+        "imageIdNg": "694d43b202994d6568a0c8e2",
+        "imageSets": [
+          {
+            "ownerId": "609bd007e9d13308d342622f",
+            "ownerType": "user",
+            "id": "694d43b202994d6568a0c8e2",
+            "name": "Flier",
+            "altText": "Flier",
+            "width": 1080,
+            "height": 1080,
+            "size": 1405003,
+            "masterFormat": "png",
+            "variantFormat": "jpg",
+            "oldId": "BWC_694d43b202994d6568a0c8e2",
+            "tags": []
+          }
+        ]
+      },
+      "sorter": "999_01C55250_0901_01C55250-0-01C557F0_316-01C55250-0-0",
+      "ctstamp": 1766664590761,
+      "dtstamp": 1778408671779,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": true
+    },
+    {
+      "calid": "609bd806e9d13308d3426b03",
+      "eid": {
+        "uid": "292",
+        "seq": 0,
+        "tid": 1783742400000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1783742400000,
+          "tzid": "America/New_York",
+          "ltz": "EDT",
+          "offset": -14400000
+        },
+        "end": {
+          "millis": 1783828800000,
+          "tzid": "America/New_York",
+          "ltz": "EDT",
+          "offset": -14400000
+        },
+        "allDay": true
+      },
+      "content": {
+        "summary": {
+          "text": "USPC Reaper's Rebellion 4, Richmond, VA"
+        },
+        "description": {
+          "text": "🎥 USPC Reaper's Rebellion – Livestream 🔒 Livestream Access Required Viewing the USPC Tennessee Open livestream requires an active USPC Livestream Access membe"
+        },
+        "tagset": {
+          "tags": {
+            "default": []
+          }
+        },
+        "address": "RVA Iron Gym, 3910 Adams Rd, Richmond, VA 23222, USA",
+        "attachments": [],
+        "noDetail": false,
+        "version": 1,
+        "imageIdNg": "69a01ee6b2de589cfe2d538a",
+        "imageSets": [
+          {
+            "ownerId": "609bd007e9d13308d342622f",
+            "ownerType": "user",
+            "id": "69a01ee6b2de589cfe2d538a",
+            "name": "Reaper's Rebellion 2026 3.0",
+            "altText": "Reaper's Rebellion 2026 3.0",
+            "width": 1080,
+            "height": 1080,
+            "size": 456044,
+            "masterFormat": "png",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ]
+      },
+      "sorter": "999_01C5A110_0901_01C5A110-0-01C5A6B0_292-01C5A110-0-0",
+      "ctstamp": 1753465142645,
+      "dtstamp": 1780746133396,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": true
+    }
+  ],
+  "metaData": {
+    "to": 46,
+    "from": 9,
+    "end": 38,
+    "hasNext": false,
+    "start": 0,
+    "hasPrev": false
+  }
+}

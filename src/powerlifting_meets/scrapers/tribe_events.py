@@ -5,7 +5,11 @@ import logging
 from datetime import date, datetime
 
 from powerlifting_meets.models import Meet
-from powerlifting_meets.normalize import normalize_state, parse_address_location
+from powerlifting_meets.normalize import (
+    normalize_country,
+    normalize_state,
+    parse_address_location,
+)
 from powerlifting_meets.scrapers.base import BaseScraper
 
 logger = logging.getLogger(__name__)
@@ -88,23 +92,24 @@ class TribeEventsScraper(BaseScraper):
         if date_end == date_start:
             date_end = None
 
-        state = normalize_state(
-            venue_data.get("stateprovince") or venue_data.get("state") or venue_data.get("province")
-        )
+        state, region, country = self._resolve_venue_region(venue_data)
         city = (venue_data.get("city") or "").strip() or None
         venue_name = (venue_data.get("venue") or "").strip() or None
 
         # Some venues leave the structured city/state empty and stuff the whole
         # address into the venue name or address field (e.g. "Arkansas State
         # Fair, 2600 Howard St, Little Rock, AR 72206, USA"). Fall back to
-        # parsing the city/state out of that free text.
-        if city is None or state is None:
+        # parsing the city/state out of that free text. US-only, so it's gated to
+        # meets with no resolved state or non-US region yet.
+        if city is None or (state is None and region is None):
             loc = parse_address_location(venue_name or "") or parse_address_location(
                 venue_data.get("address") or ""
             )
             if loc:
                 city = city or loc[0]
-                state = state or loc[1]
+                if state is None and region is None:
+                    state = loc[1]
+                    country = country or "United States"
 
         event_url = event.get("url") or None
 
@@ -119,7 +124,9 @@ class TribeEventsScraper(BaseScraper):
             date_start=date_start,
             date_end=date_end,
             state=state,
+            region=region,
             city=city,
+            country=country,
             url=event_url,
             venue=venue_name,
             status=status,
@@ -128,6 +135,42 @@ class TribeEventsScraper(BaseScraper):
             director_name=director_name,
             director_email=director_email,
         )
+
+    @staticmethod
+    def _resolve_venue_region(
+        venue_data: dict,
+    ) -> tuple[str | None, str | None, str | None]:
+        """Resolve (state, region, country) from a Tribe venue dict.
+
+        US venues -> (state_code, None, "United States"). Non-US venues ->
+        (None, raw_province_string, normalized_country). Empty/unknown ->
+        (None, None, normalized_country_or_None). Keeps `state` US-only so
+        downstream US filters stay clean; the human-readable province string is
+        preserved in `region` since there's no non-US state normalizer.
+        """
+        raw_province = (
+            venue_data.get("stateprovince")
+            or venue_data.get("state")
+            or venue_data.get("province")
+            or ""
+        ).strip() or None
+        raw_country = (venue_data.get("country") or "").strip() or None
+        country = normalize_country(raw_country) or raw_country
+
+        state = normalize_state(raw_province)
+        if state is not None:
+            # A US state resolved -> definitively a US meet.
+            return state, None, "United States"
+
+        # No US state. If we have any non-US signal (a province string or a
+        # non-US country), treat the province as a non-US region.
+        if country and country != "United States":
+            return None, raw_province, country
+        if raw_province:
+            # Province text we couldn't map to a US state and no country given.
+            # Surface it as a region rather than dropping it.
+            return None, raw_province, country
+        return None, None, country
 
     @staticmethod
     def _extract_organizer(event: dict) -> tuple[str | None, str | None]:

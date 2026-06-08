@@ -173,6 +173,64 @@ def parse_trailing_country(text: str) -> tuple[str, str] | None:
     return None
 
 
+# A standalone postal-code segment: US ZIP ("72206", "72206-1234") or a
+# Canadian/UK-style code ("S7N 1Y3"). Used to drop postal noise from the tail of
+# a full street address before reading the state/province.
+_POSTAL_RE = re.compile(
+    r"^(?:\d{5}(?:-\d{4})?|[A-Za-z]\d[A-Za-z]\s*\d[A-Za-z]\d)$"
+)
+
+
+def parse_full_address(
+    text: str | None,
+) -> tuple[str | None, str | None, str | None, str | None]:
+    """Parse a full street address into (city, state, region, country).
+
+    Handles the comma-separated "Venue, Street, City, State/Province[, ZIP],
+    Country" shape that JSON-LD and iCal feeds use, where the state may be a full
+    name ("Arkansas") or a code, and the country/ZIP trail the state. `state` is
+    a US two-letter code (US only); non-US sub-national regions go in `region`.
+    Returns (None, None, None, None) when nothing is recognizable.
+    """
+    if not text or not text.strip():
+        return None, None, None, None
+    segs = [s.strip() for s in text.split(",") if s.strip()]
+    if not segs:
+        return None, None, None, None
+
+    country: str | None = None
+    if len(segs) > 1:
+        c = normalize_country(segs[-1])
+        if c:
+            country = c
+            segs.pop()
+
+    # Drop trailing standalone postal-code segments.
+    while len(segs) > 1 and _POSTAL_RE.match(segs[-1]):
+        segs.pop()
+
+    state: str | None = None
+    region: str | None = None
+    if len(segs) > 1:
+        cand = segs[-1]
+        token0 = cand.split()[0] if cand.split() else cand
+        us = normalize_state(cand) or normalize_state(token0)
+        if us:
+            state = us
+            country = "United States"
+            segs.pop()
+        elif token0.upper() in CANADIAN_PROVINCES:
+            region = token0.upper()
+            segs.pop()
+
+    city = segs[-1] if segs else None
+    # Guard against returning a street/venue line as the city when we found no
+    # state/region/country signal at all.
+    if state is None and region is None and country is None:
+        return None, None, None, None
+    return city or None, state, region, country
+
+
 def resolve_location(
     text: str | None,
 ) -> tuple[str | None, str | None, str | None]:

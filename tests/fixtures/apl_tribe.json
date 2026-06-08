@@ -1,0 +1,297 @@
+{
+  "events": [
+    {
+      "id": 10548,
+      "global_id": "aplpowerlifting.com?id=10548",
+      "global_id_lineage": [
+        "aplpowerlifting.com?id=10548"
+      ],
+      "author": "8656",
+      "status": "publish",
+      "date": "2026-04-22 14:14:03",
+      "date_utc": "2026-04-22 04:14:03",
+      "modified": "2026-04-22 14:14:03",
+      "modified_utc": "2026-04-22 04:14:03",
+      "url": "https://aplpowerlifting.com/event/battle-of-brisbane/",
+      "rest_url": "https://aplpowerlifting.com/wp-json/tribe/events/v1/events/10548",
+      "title": "Battle of Brisbane",
+      "description": "<p>Raw / Wraps / Single-Ply &#8211; Tested &amp; Untested &#8211; Combo for Squats</p>",
+      "excerpt": "",
+      "slug": "battle-of-brisbane",
+      "image": false,
+      "all_day": true,
+      "start_date": "2026-07-12 00:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "12",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-07-12 23:59:59",
+      "end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "12",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "utc_start_date": "2026-07-11 14:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "11",
+        "hour": "14",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-07-12 13:59:59",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "12",
+        "hour": "13",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "timezone": "Australia/Brisbane",
+      "timezone_abbr": "AEST",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "https://brisbane.zerow.com.au/battle-of-brisbane-sanctioned/",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [],
+      "tags": [],
+      "venue": {
+        "id": 10550,
+        "author": "8656",
+        "status": "publish",
+        "date": "2026-04-22 14:14:04",
+        "date_utc": "2026-04-22 04:14:04",
+        "modified": "2026-04-22 14:14:04",
+        "modified_utc": "2026-04-22 04:14:04",
+        "url": "https://aplpowerlifting.com/venue/zerow-brisbane/",
+        "venue": "ZeroW Brisbane",
+        "slug": "zerow-brisbane",
+        "address": "203 Lutwyche Road",
+        "city": "Windsor",
+        "country": "Australia",
+        "province": "Queensland",
+        "stateprovince": "Queensland",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "aplpowerlifting.com?id=10550",
+        "global_id_lineage": [
+          "aplpowerlifting.com?id=10550"
+        ]
+      },
+      "organizer": [],
+      "custom_fields": []
+    },
+    {
+      "id": 10571,
+      "global_id": "aplpowerlifting.com?id=10571",
+      "global_id_lineage": [
+        "aplpowerlifting.com?id=10571"
+      ],
+      "author": "8656",
+      "status": "publish",
+      "date": "2026-05-06 13:15:22",
+      "date_utc": "2026-05-06 03:15:22",
+      "modified": "2026-05-06 13:15:22",
+      "modified_utc": "2026-05-06 03:15:22",
+      "url": "https://aplpowerlifting.com/event/any-given-sunday-vii/",
+      "rest_url": "https://aplpowerlifting.com/wp-json/tribe/events/v1/events/10571",
+      "title": "Any Given Sunday VII",
+      "description": "<p>Novice &amp; Drug-Tested Sanction &#8211; Raw / Wraps &#8211; Combo for Squats</p>",
+      "excerpt": "",
+      "slug": "any-given-sunday-vii",
+      "image": false,
+      "all_day": true,
+      "start_date": "2026-08-16 00:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "08",
+        "day": "16",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-08-16 23:59:59",
+      "end_date_details": {
+        "year": "2026",
+        "month": "08",
+        "day": "16",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "utc_start_date": "2026-08-15 14:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "08",
+        "day": "15",
+        "hour": "14",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-08-16 13:59:59",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "08",
+        "day": "16",
+        "hour": "13",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "timezone": "Australia/Brisbane",
+      "timezone_abbr": "AEST",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [],
+      "tags": [],
+      "venue": {
+        "id": 6814,
+        "author": "8477",
+        "status": "publish",
+        "date": "2024-10-03 05:36:00",
+        "date_utc": "2024-10-02 19:36:00",
+        "modified": "2024-10-03 05:36:00",
+        "modified_utc": "2024-10-02 19:36:00",
+        "url": "https://aplpowerlifting.com/venue/house-of-pain/",
+        "venue": "House of Pain",
+        "slug": "house-of-pain",
+        "address": "2/8 Bombardier Rd, Wangara WA 6065",
+        "website": "http://houseofpain.fitness/",
+        "show_map": false,
+        "show_map_link": false,
+        "global_id": "aplpowerlifting.com?id=6814",
+        "global_id_lineage": [
+          "aplpowerlifting.com?id=6814"
+        ]
+      },
+      "organizer": [],
+      "custom_fields": []
+    },
+    {
+      "id": 10586,
+      "global_id": "aplpowerlifting.com?id=10586",
+      "global_id_lineage": [
+        "aplpowerlifting.com?id=10586"
+      ],
+      "author": "8656",
+      "status": "publish",
+      "date": "2026-05-13 12:06:39",
+      "date_utc": "2026-05-13 02:06:39",
+      "modified": "2026-05-13 12:06:39",
+      "modified_utc": "2026-05-13 02:06:39",
+      "url": "https://aplpowerlifting.com/event/winter-wrath/",
+      "rest_url": "https://aplpowerlifting.com/wp-json/tribe/events/v1/events/10586",
+      "title": "Winter Wrath",
+      "description": "<p>Raw / Wraps / Single-Ply &#8211; Tested &amp; Untested &#8211; Monolift for Squats</p>",
+      "excerpt": "",
+      "slug": "winter-wrath",
+      "image": false,
+      "all_day": true,
+      "start_date": "2026-08-16 00:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "08",
+        "day": "16",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-08-16 23:59:59",
+      "end_date_details": {
+        "year": "2026",
+        "month": "08",
+        "day": "16",
+        "hour": "23",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "utc_start_date": "2026-08-15 14:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "08",
+        "day": "15",
+        "hour": "14",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-08-16 13:59:59",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "08",
+        "day": "16",
+        "hour": "13",
+        "minutes": "59",
+        "seconds": "59"
+      },
+      "timezone": "Australia/Brisbane",
+      "timezone_abbr": "AEST",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "https://valhallastrength.com.au/pages/competitions",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [],
+      "tags": [],
+      "venue": {
+        "id": 6839,
+        "author": "8477",
+        "status": "publish",
+        "date": "2024-10-03 05:59:21",
+        "date_utc": "2024-10-02 19:59:21",
+        "modified": "2024-10-03 05:59:21",
+        "modified_utc": "2024-10-02 19:59:21",
+        "url": "https://aplpowerlifting.com/venue/valhalla-strength/",
+        "venue": "Valhalla Strength",
+        "slug": "valhalla-strength",
+        "address": "Unit 4/90 Northlink Pl, Virginia QLD 4014",
+        "website": "http://www.valhallastrength.com.au/",
+        "show_map": false,
+        "show_map_link": false,
+        "global_id": "aplpowerlifting.com?id=6839",
+        "global_id_lineage": [
+          "aplpowerlifting.com?id=6839"
+        ]
+      },
+      "organizer": [],
+      "custom_fields": []
+    }
+  ],
+  "total": 23,
+  "total_pages": 8
+}
