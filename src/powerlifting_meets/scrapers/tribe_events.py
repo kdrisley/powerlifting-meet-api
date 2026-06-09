@@ -78,7 +78,8 @@ class TribeEventsScraper(BaseScraper):
         return meets
 
     def _parse_event(self, event: dict) -> Meet | None:
-        title = event.get("title", "").strip()
+        # Titles are HTML-escaped in the API ("Northern Strength &#8211; ...").
+        title = html.unescape(event.get("title", "")).strip()
         if not title:
             return None
 

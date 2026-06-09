@@ -26,6 +26,7 @@ from powerlifting_meets.scrapers.ipa import IPAScraper
 from powerlifting_meets.scrapers.ipf import IPFScraper
 from powerlifting_meets.scrapers.irish import IrishScraper
 from powerlifting_meets.scrapers.nasa import NASAScraper
+from powerlifting_meets.scrapers.npl import NPLScraper
 from powerlifting_meets.scrapers.nzpu import NZPUScraper
 from powerlifting_meets.scrapers.powerlifting_america import PowerliftingAmericaScraper
 from powerlifting_meets.scrapers.powerlifting_australia import PowerliftingAustraliaScraper
@@ -33,6 +34,7 @@ from powerlifting_meets.scrapers.powerlifting_united import PowerliftingUnitedSc
 from powerlifting_meets.scrapers.raw100 import Raw100Scraper
 from powerlifting_meets.scrapers.rps import RPSScraper
 from powerlifting_meets.scrapers.spf import SPFScraper
+from powerlifting_meets.scrapers.ukipl import UKIPLScraper
 from powerlifting_meets.scrapers.usapl import USAPLScraper
 from powerlifting_meets.scrapers.uspa import USPAScraper
 from powerlifting_meets.scrapers.uspc import USPCScraper
@@ -69,6 +71,8 @@ ALL_SCRAPERS: list[type[BaseScraper]] = [
     PowerliftingAustraliaScraper,
     APLScraper,
     NZPUScraper,
+    NPLScraper,
+    UKIPLScraper,
     # Tier B: structured non-Tribe sources (JSON API, iCal, JSON-LD).
     USPCScraper,
     WABDLScraper,
