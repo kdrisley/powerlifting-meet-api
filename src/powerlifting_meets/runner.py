@@ -22,6 +22,7 @@ from powerlifting_meets.scrapers.apf import APFScraper
 from powerlifting_meets.scrapers.apl import APLScraper
 from powerlifting_meets.scrapers.apo import APOScraper
 from powerlifting_meets.scrapers.base import BaseScraper
+from powerlifting_meets.scrapers.british_pl import BritishPLScraper
 from powerlifting_meets.scrapers.cpu import CPUScraper
 from powerlifting_meets.scrapers.ipa import IPAScraper
 from powerlifting_meets.scrapers.ipf import IPFScraper
@@ -29,6 +30,7 @@ from powerlifting_meets.scrapers.ipl import IPLScraper
 from powerlifting_meets.scrapers.irish import IrishScraper
 from powerlifting_meets.scrapers.nasa import NASAScraper
 from powerlifting_meets.scrapers.npl import NPLScraper
+from powerlifting_meets.scrapers.nsf import NSFScraper
 from powerlifting_meets.scrapers.nzpu import NZPUScraper
 from powerlifting_meets.scrapers.powerlifting_america import PowerliftingAmericaScraper
 from powerlifting_meets.scrapers.powerlifting_australia import PowerliftingAustraliaScraper
@@ -84,6 +86,8 @@ ALL_SCRAPERS: list[type[BaseScraper]] = [
     # Tier C: server-rendered HTML tables (US + international).
     IPFScraper,
     IrishScraper,
+    BritishPLScraper,
+    NSFScraper,
     # Tier D: brittle sources interpreted by the Gemini extraction tier.
     WNPFScraper,
     IPAScraper,
