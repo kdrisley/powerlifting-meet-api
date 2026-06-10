@@ -18,6 +18,11 @@ USER_AGENT = (
 
 class BaseScraper(abc.ABC):
     federation: str
+    # Aggregator scrapers emit per-meet federation codes that differ from the
+    # class `federation` (which stays the meta.json key). They list the emitted
+    # codes here so the runner's stale-data fallback can find their meets in
+    # the previous feed (see runner.get_previous_meets_for_federation).
+    fallback_federations: frozenset[str] | None = None
     # Brittle scrapers that need the shared LLM-extraction cache set this True so
     # the runner constructs them with extract_cache= (see runner._instantiate).
     needs_extract_cache: bool = False

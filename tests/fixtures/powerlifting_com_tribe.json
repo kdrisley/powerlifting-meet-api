@@ -1,0 +1,3638 @@
+{
+ "events": [
+  {
+   "id": 24519,
+   "global_id": "powerlifting.com?id=24519",
+   "global_id_lineage": [
+    "powerlifting.com?id=24519"
+   ],
+   "author": "3",
+   "status": "publish",
+   "date": "2026-03-13 14:14:02",
+   "date_utc": "2026-03-13 21:14:02",
+   "modified": "2026-03-13 14:14:02",
+   "modified_utc": "2026-03-13 21:14:02",
+   "url": "https://powerlifting.com/event/west-yorkshire-qualifier-ii/",
+   "rest_url": "https://powerlifting.com/wp-json/tribe/events/v1/events/24519",
+   "title": "West Yorkshire Qualifier II",
+   "description": "<p>Powerlifting Meet Calendar curated by powerlifting.com / Categories: Bench Only, Deadlift Only, Full Power, Junior, Knee Sleeves, Masters, Multi Ply, Open, Raw, Single Ply, Teen, Tested, United Kingdom, Untested</p>",
+   "excerpt": "",
+   "slug": "west-yorkshire-qualifier-ii",
+   "image": false,
+   "all_day": true,
+   "start_date": "2026-06-21 00:00:00",
+   "start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "21",
+    "hour": "00",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "end_date": "2026-06-21 23:59:59",
+   "end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "21",
+    "hour": "23",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "utc_start_date": "2026-06-21 07:00:00",
+   "utc_start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "21",
+    "hour": "07",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "utc_end_date": "2026-06-22 06:59:59",
+   "utc_end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "22",
+    "hour": "06",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "timezone": "America/Los_Angeles",
+   "timezone_abbr": "PDT",
+   "cost": "",
+   "cost_details": {
+    "currency_symbol": "",
+    "currency_code": "",
+    "currency_position": "prefix",
+    "values": []
+   },
+   "website": "https://pci.jotform.com/form/260543964806363",
+   "show_map": true,
+   "show_map_link": true,
+   "hide_from_listings": false,
+   "sticky": false,
+   "featured": false,
+   "categories": [
+    {
+     "name": "Bench Only",
+     "slug": "bench-only",
+     "term_group": 0,
+     "term_taxonomy_id": 1109,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 980,
+     "filter": "raw",
+     "id": 1109,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1109",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Deadlift Only",
+     "slug": "deadlift-only",
+     "term_group": 0,
+     "term_taxonomy_id": 1103,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 911,
+     "filter": "raw",
+     "id": 1103,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1103",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Full Power",
+     "slug": "full-power",
+     "term_group": 0,
+     "term_taxonomy_id": 1100,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1892,
+     "filter": "raw",
+     "id": 1100,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1100",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Junior",
+     "slug": "junior",
+     "term_group": 0,
+     "term_taxonomy_id": 1092,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 908,
+     "filter": "raw",
+     "id": 1092,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1092",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Knee Sleeves",
+     "slug": "knee-sleeves",
+     "term_group": 0,
+     "term_taxonomy_id": 6740,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 5,
+     "filter": "raw",
+     "id": 6740,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/6740",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Masters",
+     "slug": "masters",
+     "term_group": 0,
+     "term_taxonomy_id": 1131,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 690,
+     "filter": "raw",
+     "id": 1131,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1131",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Multi Ply",
+     "slug": "multi-ply",
+     "term_group": 0,
+     "term_taxonomy_id": 1115,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 780,
+     "filter": "raw",
+     "id": 1115,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1115",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Open",
+     "slug": "open",
+     "term_group": 0,
+     "term_taxonomy_id": 1084,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 998,
+     "filter": "raw",
+     "id": 1084,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1084",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Raw",
+     "slug": "raw",
+     "term_group": 0,
+     "term_taxonomy_id": 1093,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 2093,
+     "filter": "raw",
+     "id": 1093,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1093",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Single Ply",
+     "slug": "single-ply",
+     "term_group": 0,
+     "term_taxonomy_id": 1116,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1141,
+     "filter": "raw",
+     "id": 1116,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1116",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Teen",
+     "slug": "teen",
+     "term_group": 0,
+     "term_taxonomy_id": 1091,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 311,
+     "filter": "raw",
+     "id": 1091,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1091",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Tested",
+     "slug": "tested",
+     "term_group": 0,
+     "term_taxonomy_id": 1132,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 391,
+     "filter": "raw",
+     "id": 1132,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1132",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "United Kingdom",
+     "slug": "united-kingdom",
+     "term_group": 0,
+     "term_taxonomy_id": 1650,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 235,
+     "filter": "raw",
+     "id": 1650,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1650",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Untested",
+     "slug": "untested",
+     "term_group": 0,
+     "term_taxonomy_id": 1142,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 174,
+     "filter": "raw",
+     "id": 1142,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1142",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    }
+   ],
+   "tags": [],
+   "venue": {
+    "id": 16634,
+    "status": "publish",
+    "date": "2025-10-29 17:01:36",
+    "date_utc": "2025-10-30 00:01:36",
+    "modified": "2026-04-14 15:39:26",
+    "modified_utc": "2026-04-14 22:39:26",
+    "url": "https://powerlifting.com/venue/viking-strength-gym/",
+    "venue": "Viking Strength Gym",
+    "slug": "viking-strength-gym",
+    "address": "Enterprise Business Park Unit 4",
+    "city": "Ossett",
+    "country": "United Kingdom",
+    "province": "West Yorkshire",
+    "state": "West Yorkshire",
+    "zip": "WF5 9JH",
+    "stateprovince": "West Yorkshire",
+    "geo_lat": 53.8260322,
+    "geo_lng": -1.7316734,
+    "show_map": true,
+    "show_map_link": true,
+    "global_id": "powerlifting.com?id=16634",
+    "global_id_lineage": [
+     "powerlifting.com?id=16634"
+    ]
+   },
+   "organizer": [
+    {
+     "id": 14601,
+     "status": "publish",
+     "date": "2025-10-29 10:18:53",
+     "date_utc": "2025-10-29 17:18:53",
+     "modified": "2026-03-13 14:07:49",
+     "modified_utc": "2026-03-13 21:07:49",
+     "url": "https://powerlifting.com/organizer/world-raw-powerlifting-federation/",
+     "organizer": "World Raw Powerlifting Federation",
+     "slug": "world-raw-powerlifting-federation",
+     "global_id": "powerlifting.com?id=14601",
+     "global_id_lineage": [
+      "powerlifting.com?id=14601"
+     ]
+    }
+   ],
+   "custom_fields": [],
+   "is_virtual": false,
+   "virtual_url": null,
+   "virtual_video_source": ""
+  },
+  {
+   "id": 27034,
+   "global_id": "powerlifting.com?id=27034",
+   "global_id_lineage": [
+    "powerlifting.com?id=27034"
+   ],
+   "author": "3",
+   "status": "publish",
+   "date": "2026-06-01 12:17:11",
+   "date_utc": "2026-06-01 19:17:11",
+   "modified": "2026-06-01 12:17:11",
+   "modified_utc": "2026-06-01 19:17:11",
+   "url": "https://powerlifting.com/event/montreal-open-5/",
+   "rest_url": "https://powerlifting.com/wp-json/tribe/events/v1/events/27034",
+   "title": "Montreal Open 5",
+   "description": "<p>Powerlifting Meet Calendar curated by powerlifting.com / Categories: Bench Only, Canada, Deadlift Only, Dorval, Full Power, Junior, Masters, Montreal Barbell Gym, Multi Ply, Open, Push/Pull, Qu\u00e9bec, Raw, Raw with Wraps, Singly-Ply, Unlimited, Untested</p>",
+   "excerpt": "",
+   "slug": "montreal-open-5",
+   "image": false,
+   "all_day": true,
+   "start_date": "2026-07-18 00:00:00",
+   "start_date_details": {
+    "year": "2026",
+    "month": "07",
+    "day": "18",
+    "hour": "00",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "end_date": "2026-07-18 23:59:59",
+   "end_date_details": {
+    "year": "2026",
+    "month": "07",
+    "day": "18",
+    "hour": "23",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "utc_start_date": "2026-07-18 07:00:00",
+   "utc_start_date_details": {
+    "year": "2026",
+    "month": "07",
+    "day": "18",
+    "hour": "07",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "utc_end_date": "2026-07-19 06:59:59",
+   "utc_end_date_details": {
+    "year": "2026",
+    "month": "07",
+    "day": "19",
+    "hour": "06",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "timezone": "America/Los_Angeles",
+   "timezone_abbr": "PDT",
+   "cost": "",
+   "cost_details": {
+    "currency_symbol": "",
+    "currency_code": "",
+    "currency_position": "prefix",
+    "values": []
+   },
+   "website": "https://docs.google.com/forms/d/e/1FAIpQLSevFFGN7hh6R9pBEb5vAWJTRwxBtGbCVYe_mUZkBmYua3yvsg/formResponse",
+   "show_map": true,
+   "show_map_link": true,
+   "hide_from_listings": false,
+   "sticky": false,
+   "featured": false,
+   "categories": [
+    {
+     "name": "Bench Only",
+     "slug": "bench-only",
+     "term_group": 0,
+     "term_taxonomy_id": 1109,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 980,
+     "filter": "raw",
+     "id": 1109,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1109",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Canada",
+     "slug": "canada",
+     "term_group": 0,
+     "term_taxonomy_id": 1709,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 66,
+     "filter": "raw",
+     "id": 1709,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1709",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Deadlift Only",
+     "slug": "deadlift-only",
+     "term_group": 0,
+     "term_taxonomy_id": 1103,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 911,
+     "filter": "raw",
+     "id": 1103,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1103",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Dorval",
+     "slug": "dorval",
+     "term_group": 0,
+     "term_taxonomy_id": 8247,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1,
+     "filter": "raw",
+     "id": 8247,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/8247",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Full Power",
+     "slug": "full-power",
+     "term_group": 0,
+     "term_taxonomy_id": 1100,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1892,
+     "filter": "raw",
+     "id": 1100,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1100",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Junior",
+     "slug": "junior",
+     "term_group": 0,
+     "term_taxonomy_id": 1092,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 908,
+     "filter": "raw",
+     "id": 1092,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1092",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Masters",
+     "slug": "masters",
+     "term_group": 0,
+     "term_taxonomy_id": 1131,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 690,
+     "filter": "raw",
+     "id": 1131,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1131",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Montreal Barbell Gym",
+     "slug": "montreal-barbell-gym",
+     "term_group": 0,
+     "term_taxonomy_id": 8246,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1,
+     "filter": "raw",
+     "id": 8246,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/8246",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Multi Ply",
+     "slug": "multi-ply",
+     "term_group": 0,
+     "term_taxonomy_id": 1115,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 780,
+     "filter": "raw",
+     "id": 1115,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1115",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Open",
+     "slug": "open",
+     "term_group": 0,
+     "term_taxonomy_id": 1084,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 998,
+     "filter": "raw",
+     "id": 1084,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1084",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Push/Pull",
+     "slug": "push-pull",
+     "term_group": 0,
+     "term_taxonomy_id": 1101,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 773,
+     "filter": "raw",
+     "id": 1101,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1101",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Qu\u00e9bec",
+     "slug": "quebec",
+     "term_group": 0,
+     "term_taxonomy_id": 2081,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 5,
+     "filter": "raw",
+     "id": 2081,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/2081",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Raw",
+     "slug": "raw",
+     "term_group": 0,
+     "term_taxonomy_id": 1093,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 2093,
+     "filter": "raw",
+     "id": 1093,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1093",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Raw with Wraps",
+     "slug": "raw-with-wraps",
+     "term_group": 0,
+     "term_taxonomy_id": 1157,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 285,
+     "filter": "raw",
+     "id": 1157,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1157",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Singly-Ply",
+     "slug": "singly-ply",
+     "term_group": 0,
+     "term_taxonomy_id": 8152,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 5,
+     "filter": "raw",
+     "id": 8152,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/8152",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Unlimited",
+     "slug": "unlimited",
+     "term_group": 0,
+     "term_taxonomy_id": 1110,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 166,
+     "filter": "raw",
+     "id": 1110,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1110",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Untested",
+     "slug": "untested",
+     "term_group": 0,
+     "term_taxonomy_id": 1142,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 174,
+     "filter": "raw",
+     "id": 1142,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1142",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    }
+   ],
+   "tags": [],
+   "venue": {
+    "id": 26907,
+    "status": "publish",
+    "date": "2026-06-01 11:58:49",
+    "date_utc": "2026-06-01 18:58:49",
+    "modified": "2026-06-01 11:58:49",
+    "modified_utc": "2026-06-01 18:58:49",
+    "url": "https://powerlifting.com/venue/montreal-barbell-gym/",
+    "venue": "Montreal Barbell Gym",
+    "slug": "montreal-barbell-gym",
+    "address": "2225 Boul Hymus Suite 112",
+    "city": "Dorval",
+    "country": "Canada",
+    "province": "Quebec",
+    "state": "Quebec",
+    "zip": "H9P 1J8",
+    "stateprovince": "Quebec",
+    "geo_lat": 45.4783856,
+    "geo_lng": -73.7865189,
+    "show_map": true,
+    "show_map_link": true,
+    "global_id": "powerlifting.com?id=26907",
+    "global_id_lineage": [
+     "powerlifting.com?id=26907"
+    ]
+   },
+   "organizer": [
+    {
+     "id": 14604,
+     "status": "publish",
+     "date": "2025-10-29 10:18:56",
+     "date_utc": "2025-10-29 17:18:56",
+     "modified": "2026-01-05 10:50:20",
+     "modified_utc": "2026-01-05 18:50:20",
+     "url": "https://powerlifting.com/organizer/world-raw-powerlifting-federation-canada/",
+     "organizer": "World Raw Powerlifting Federation Canada",
+     "slug": "world-raw-powerlifting-federation-canada",
+     "global_id": "powerlifting.com?id=14604",
+     "global_id_lineage": [
+      "powerlifting.com?id=14604"
+     ]
+    }
+   ],
+   "custom_fields": [],
+   "is_virtual": false,
+   "virtual_url": null,
+   "virtual_video_source": ""
+  },
+  {
+   "id": 25372,
+   "global_id": "powerlifting.com?id=25372",
+   "global_id_lineage": [
+    "powerlifting.com?id=25372"
+   ],
+   "author": "3",
+   "status": "publish",
+   "date": "2026-04-14 14:48:42",
+   "date_utc": "2026-04-14 21:48:42",
+   "modified": "2026-04-14 15:04:19",
+   "modified_utc": "2026-04-14 22:04:19",
+   "url": "https://powerlifting.com/event/dogman-rise-of-the-beast-ii/",
+   "rest_url": "https://powerlifting.com/wp-json/tribe/events/v1/events/25372",
+   "title": "Dogman: Rise of the Beast II",
+   "description": "<p>Powerlifting Meet Calendar curated by powerlifting.com / Categories: Bench Only, Deadlift Only, Fire, Juniors, Kids Club, Masters, Military, Multi Ply, Novice, Open, Para-Lifter, Police, Push/Pull, Raw, Single Ply, Strict Curl, Submasters, Team, Teenage, Tennessee, Tested, Unlimited, Untested, USA, Youth</p>",
+   "excerpt": "",
+   "slug": "dogman-rise-of-the-beast-ii",
+   "image": false,
+   "all_day": true,
+   "start_date": "2026-06-27 00:00:00",
+   "start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "27",
+    "hour": "00",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "end_date": "2026-06-27 23:59:59",
+   "end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "27",
+    "hour": "23",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "utc_start_date": "2026-06-27 07:00:00",
+   "utc_start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "27",
+    "hour": "07",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "utc_end_date": "2026-06-28 06:59:59",
+   "utc_end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "28",
+    "hour": "06",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "timezone": "America/Los_Angeles",
+   "timezone_abbr": "PDT",
+   "cost": "",
+   "cost_details": {
+    "currency_symbol": "",
+    "currency_code": "",
+    "currency_position": "prefix",
+    "values": []
+   },
+   "website": "https://form.123formbuilder.com/6928542/dogman-rise-of-the-beast-ii",
+   "show_map": true,
+   "show_map_link": true,
+   "hide_from_listings": false,
+   "sticky": false,
+   "featured": false,
+   "categories": [
+    {
+     "name": "Bench Only",
+     "slug": "bench-only",
+     "term_group": 0,
+     "term_taxonomy_id": 1109,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 980,
+     "filter": "raw",
+     "id": 1109,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1109",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Deadlift Only",
+     "slug": "deadlift-only",
+     "term_group": 0,
+     "term_taxonomy_id": 1103,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 911,
+     "filter": "raw",
+     "id": 1103,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1103",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Fire",
+     "slug": "fire",
+     "term_group": 0,
+     "term_taxonomy_id": 1139,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 127,
+     "filter": "raw",
+     "id": 1139,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1139",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Juniors",
+     "slug": "juniors",
+     "term_group": 0,
+     "term_taxonomy_id": 1118,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 36,
+     "filter": "raw",
+     "id": 1118,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1118",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Kids Club",
+     "slug": "kids-club",
+     "term_group": 0,
+     "term_taxonomy_id": 1126,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 18,
+     "filter": "raw",
+     "id": 1126,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1126",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Masters",
+     "slug": "masters",
+     "term_group": 0,
+     "term_taxonomy_id": 1131,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 690,
+     "filter": "raw",
+     "id": 1131,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1131",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Military",
+     "slug": "military",
+     "term_group": 0,
+     "term_taxonomy_id": 1141,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 116,
+     "filter": "raw",
+     "id": 1141,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1141",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Multi Ply",
+     "slug": "multi-ply",
+     "term_group": 0,
+     "term_taxonomy_id": 1115,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 780,
+     "filter": "raw",
+     "id": 1115,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1115",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Novice",
+     "slug": "novice",
+     "term_group": 0,
+     "term_taxonomy_id": 1119,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 164,
+     "filter": "raw",
+     "id": 1119,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1119",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Open",
+     "slug": "open",
+     "term_group": 0,
+     "term_taxonomy_id": 1084,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 998,
+     "filter": "raw",
+     "id": 1084,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1084",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Para-Lifter",
+     "slug": "para-lifter",
+     "term_group": 0,
+     "term_taxonomy_id": 1201,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 11,
+     "filter": "raw",
+     "id": 1201,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1201",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Police",
+     "slug": "police",
+     "term_group": 0,
+     "term_taxonomy_id": 1140,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 127,
+     "filter": "raw",
+     "id": 1140,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1140",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Push/Pull",
+     "slug": "push-pull",
+     "term_group": 0,
+     "term_taxonomy_id": 1101,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 773,
+     "filter": "raw",
+     "id": 1101,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1101",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Raw",
+     "slug": "raw",
+     "term_group": 0,
+     "term_taxonomy_id": 1093,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 2093,
+     "filter": "raw",
+     "id": 1093,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1093",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Single Ply",
+     "slug": "single-ply",
+     "term_group": 0,
+     "term_taxonomy_id": 1116,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1141,
+     "filter": "raw",
+     "id": 1116,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1116",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Strict Curl",
+     "slug": "strict-curl",
+     "term_group": 0,
+     "term_taxonomy_id": 1113,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 137,
+     "filter": "raw",
+     "id": 1113,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1113",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Submasters",
+     "slug": "submasters",
+     "term_group": 0,
+     "term_taxonomy_id": 6775,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 17,
+     "filter": "raw",
+     "id": 6775,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/6775",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Team",
+     "slug": "team",
+     "term_group": 0,
+     "term_taxonomy_id": 1190,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 246,
+     "filter": "raw",
+     "id": 1190,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1190",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Teenage",
+     "slug": "teenage",
+     "term_group": 0,
+     "term_taxonomy_id": 1121,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 57,
+     "filter": "raw",
+     "id": 1121,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1121",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Tennessee",
+     "slug": "tennessee",
+     "term_group": 0,
+     "term_taxonomy_id": 1662,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 38,
+     "filter": "raw",
+     "id": 1662,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1662",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Tested",
+     "slug": "tested",
+     "term_group": 0,
+     "term_taxonomy_id": 1132,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 391,
+     "filter": "raw",
+     "id": 1132,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1132",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Unlimited",
+     "slug": "unlimited",
+     "term_group": 0,
+     "term_taxonomy_id": 1110,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 166,
+     "filter": "raw",
+     "id": 1110,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1110",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Untested",
+     "slug": "untested",
+     "term_group": 0,
+     "term_taxonomy_id": 1142,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 174,
+     "filter": "raw",
+     "id": 1142,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1142",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "USA",
+     "slug": "usa",
+     "term_group": 0,
+     "term_taxonomy_id": 1635,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1597,
+     "filter": "raw",
+     "id": 1635,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1635",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Youth",
+     "slug": "youth",
+     "term_group": 0,
+     "term_taxonomy_id": 1090,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 410,
+     "filter": "raw",
+     "id": 1090,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1090",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    }
+   ],
+   "tags": [],
+   "venue": {
+    "id": 24200,
+    "status": "publish",
+    "date": "2026-03-13 10:56:31",
+    "date_utc": "2026-03-13 17:56:31",
+    "modified": "2026-03-13 10:56:31",
+    "modified_utc": "2026-03-13 17:56:31",
+    "url": "https://powerlifting.com/venue/double-tree-hotel/",
+    "venue": "Double Tree Hotel",
+    "slug": "double-tree-hotel",
+    "address": "1850 Old Fort Pkwy",
+    "city": "Murfreesboro",
+    "country": "USA",
+    "province": "Tennessee",
+    "state": "Tennessee",
+    "zip": "37129",
+    "stateprovince": "Tennessee",
+    "geo_lat": 35.8473673,
+    "geo_lng": -86.424491,
+    "show_map": true,
+    "show_map_link": true,
+    "global_id": "powerlifting.com?id=24200",
+    "global_id_lineage": [
+     "powerlifting.com?id=24200"
+    ]
+   },
+   "organizer": [
+    {
+     "id": 14179,
+     "author": "3",
+     "status": "publish",
+     "date": "2025-10-28 17:37:45",
+     "date_utc": "2025-10-29 00:37:45",
+     "modified": "2026-01-05 10:13:05",
+     "modified_utc": "2026-01-05 18:13:05",
+     "url": "https://powerlifting.com/organizer/365-strong-world-powerlifting-federation/",
+     "organizer": "365 Strong World Powerlifting Federation",
+     "slug": "365-strong-world-powerlifting-federation",
+     "global_id": "powerlifting.com?id=14179",
+     "global_id_lineage": [
+      "powerlifting.com?id=14179"
+     ]
+    }
+   ],
+   "custom_fields": [],
+   "is_virtual": false,
+   "virtual_url": null,
+   "virtual_video_source": ""
+  },
+  {
+   "id": 23965,
+   "global_id": "powerlifting.com?id=23965",
+   "global_id_lineage": [
+    "powerlifting.com?id=23965"
+   ],
+   "author": "3",
+   "status": "publish",
+   "date": "2026-03-02 14:32:40",
+   "date_utc": "2026-03-02 22:32:40",
+   "modified": "2026-03-02 15:10:17",
+   "modified_utc": "2026-03-02 23:10:17",
+   "url": "https://powerlifting.com/event/tennessee-state-championship/",
+   "rest_url": "https://powerlifting.com/wp-json/tribe/events/v1/events/23965",
+   "title": "Tennessee State Championship",
+   "description": "<p>Powerlifting Meet Calendar curated by powerlifting.com / Categories: Adaptive Athletes, Bench Press for Reps, Bench Press Only, Deadlift Only, Equipped Multi-Ply, Equipped Single-Ply, Fire, Full Power, Grand Masters, Junior, Masters 1, Masters 2, Masters 3, Masters 4, Masters 5, Masters 6, Masters 7, Masters 8, Open, Police, Push/Pull, Raw, Raw with Wraps, Sling Shot Bench Press, Strict Curls, Sub-Master, Teen, Tennessee, Unlimited, USA, Youth</p>",
+   "excerpt": "",
+   "slug": "tennessee-state-championship",
+   "image": false,
+   "all_day": true,
+   "start_date": "2026-06-27 00:00:00",
+   "start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "27",
+    "hour": "00",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "end_date": "2026-06-27 23:59:59",
+   "end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "27",
+    "hour": "23",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "utc_start_date": "2026-06-27 07:00:00",
+   "utc_start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "27",
+    "hour": "07",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "utc_end_date": "2026-06-28 06:59:59",
+   "utc_end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "28",
+    "hour": "06",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "timezone": "America/Los_Angeles",
+   "timezone_abbr": "PDT",
+   "cost": "",
+   "cost_details": {
+    "currency_symbol": "",
+    "currency_code": "",
+    "currency_position": "prefix",
+    "values": []
+   },
+   "website": "https://www.americanpowerliftingunion.com/product/tennessee-state-championship/6MISYR2KMHPVGGVVLPV3IS7G?si=true",
+   "show_map": true,
+   "show_map_link": true,
+   "hide_from_listings": false,
+   "sticky": false,
+   "featured": false,
+   "categories": [
+    {
+     "name": "Adaptive Athletes",
+     "slug": "adaptive-athletes",
+     "term_group": 0,
+     "term_taxonomy_id": 6811,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 11,
+     "filter": "raw",
+     "id": 6811,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/6811",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Bench Press for Reps",
+     "slug": "bench-press-for-reps",
+     "term_group": 0,
+     "term_taxonomy_id": 6724,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 10,
+     "filter": "raw",
+     "id": 6724,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/6724",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Bench Press Only",
+     "slug": "bench-press-only",
+     "term_group": 0,
+     "term_taxonomy_id": 1102,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 268,
+     "filter": "raw",
+     "id": 1102,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1102",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Deadlift Only",
+     "slug": "deadlift-only",
+     "term_group": 0,
+     "term_taxonomy_id": 1103,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 911,
+     "filter": "raw",
+     "id": 1103,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1103",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Equipped Multi-Ply",
+     "slug": "equipped-multi-ply",
+     "term_group": 0,
+     "term_taxonomy_id": 6816,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 6,
+     "filter": "raw",
+     "id": 6816,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/6816",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Equipped Single-Ply",
+     "slug": "equipped-single-ply",
+     "term_group": 0,
+     "term_taxonomy_id": 6777,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 10,
+     "filter": "raw",
+     "id": 6777,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/6777",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Fire",
+     "slug": "fire",
+     "term_group": 0,
+     "term_taxonomy_id": 1139,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 127,
+     "filter": "raw",
+     "id": 1139,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1139",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Full Power",
+     "slug": "full-power",
+     "term_group": 0,
+     "term_taxonomy_id": 1100,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1892,
+     "filter": "raw",
+     "id": 1100,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1100",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Grand Masters",
+     "slug": "grand-masters",
+     "term_group": 0,
+     "term_taxonomy_id": 6815,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 8,
+     "filter": "raw",
+     "id": 6815,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/6815",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Junior",
+     "slug": "junior",
+     "term_group": 0,
+     "term_taxonomy_id": 1092,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 908,
+     "filter": "raw",
+     "id": 1092,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1092",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Masters 1",
+     "slug": "masters-1",
+     "term_group": 0,
+     "term_taxonomy_id": 1096,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 38,
+     "filter": "raw",
+     "id": 1096,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1096",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Masters 2",
+     "slug": "masters-2",
+     "term_group": 0,
+     "term_taxonomy_id": 1097,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 21,
+     "filter": "raw",
+     "id": 1097,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1097",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Masters 3",
+     "slug": "masters-3",
+     "term_group": 0,
+     "term_taxonomy_id": 1098,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 23,
+     "filter": "raw",
+     "id": 1098,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1098",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Masters 4",
+     "slug": "masters-4",
+     "term_group": 0,
+     "term_taxonomy_id": 1099,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 23,
+     "filter": "raw",
+     "id": 1099,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1099",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Masters 5",
+     "slug": "masters-5",
+     "term_group": 0,
+     "term_taxonomy_id": 6760,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 22,
+     "filter": "raw",
+     "id": 6760,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/6760",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Masters 6",
+     "slug": "masters-6",
+     "term_group": 0,
+     "term_taxonomy_id": 6812,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 8,
+     "filter": "raw",
+     "id": 6812,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/6812",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Masters 7",
+     "slug": "masters-7",
+     "term_group": 0,
+     "term_taxonomy_id": 6813,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 7,
+     "filter": "raw",
+     "id": 6813,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/6813",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Masters 8",
+     "slug": "masters-8",
+     "term_group": 0,
+     "term_taxonomy_id": 6814,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 8,
+     "filter": "raw",
+     "id": 6814,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/6814",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Open",
+     "slug": "open",
+     "term_group": 0,
+     "term_taxonomy_id": 1084,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 998,
+     "filter": "raw",
+     "id": 1084,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1084",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Police",
+     "slug": "police",
+     "term_group": 0,
+     "term_taxonomy_id": 1140,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 127,
+     "filter": "raw",
+     "id": 1140,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1140",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Push/Pull",
+     "slug": "push-pull",
+     "term_group": 0,
+     "term_taxonomy_id": 1101,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 773,
+     "filter": "raw",
+     "id": 1101,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1101",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Raw",
+     "slug": "raw",
+     "term_group": 0,
+     "term_taxonomy_id": 1093,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 2093,
+     "filter": "raw",
+     "id": 1093,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1093",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Raw with Wraps",
+     "slug": "raw-with-wraps",
+     "term_group": 0,
+     "term_taxonomy_id": 1157,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 285,
+     "filter": "raw",
+     "id": 1157,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1157",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Sling Shot Bench Press",
+     "slug": "sling-shot-bench-press",
+     "term_group": 0,
+     "term_taxonomy_id": 6817,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 8,
+     "filter": "raw",
+     "id": 6817,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/6817",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Strict Curls",
+     "slug": "strict-curls",
+     "term_group": 0,
+     "term_taxonomy_id": 6818,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 8,
+     "filter": "raw",
+     "id": 6818,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/6818",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Sub-Master",
+     "slug": "sub-master",
+     "term_group": 0,
+     "term_taxonomy_id": 1111,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 217,
+     "filter": "raw",
+     "id": 1111,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1111",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Teen",
+     "slug": "teen",
+     "term_group": 0,
+     "term_taxonomy_id": 1091,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 311,
+     "filter": "raw",
+     "id": 1091,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1091",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Tennessee",
+     "slug": "tennessee",
+     "term_group": 0,
+     "term_taxonomy_id": 1662,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 38,
+     "filter": "raw",
+     "id": 1662,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1662",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Unlimited",
+     "slug": "unlimited",
+     "term_group": 0,
+     "term_taxonomy_id": 1110,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 166,
+     "filter": "raw",
+     "id": 1110,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1110",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "USA",
+     "slug": "usa",
+     "term_group": 0,
+     "term_taxonomy_id": 1635,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1597,
+     "filter": "raw",
+     "id": 1635,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1635",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Youth",
+     "slug": "youth",
+     "term_group": 0,
+     "term_taxonomy_id": 1090,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 410,
+     "filter": "raw",
+     "id": 1090,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1090",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    }
+   ],
+   "tags": [],
+   "venue": {
+    "id": 23904,
+    "author": "3",
+    "status": "publish",
+    "date": "2026-03-02 14:21:44",
+    "date_utc": "2026-03-02 22:21:44",
+    "modified": "2026-03-02 14:21:44",
+    "modified_utc": "2026-03-02 22:21:44",
+    "url": "https://powerlifting.com/venue/overton-county-fairgrounds/",
+    "venue": "Overton County Fairgrounds",
+    "slug": "overton-county-fairgrounds",
+    "address": "610 Monterey Hwy",
+    "city": "Livingston",
+    "country": "USA",
+    "province": "Tennessee",
+    "state": "Tennessee",
+    "zip": "38570",
+    "stateprovince": "Tennessee",
+    "geo_lat": 36.3483738,
+    "geo_lng": -85.3234329,
+    "show_map": true,
+    "show_map_link": true,
+    "global_id": "powerlifting.com?id=23904",
+    "global_id_lineage": [
+     "powerlifting.com?id=23904"
+    ]
+   },
+   "organizer": [
+    {
+     "id": 14201,
+     "status": "publish",
+     "date": "2025-10-28 17:40:31",
+     "date_utc": "2025-10-29 00:40:31",
+     "modified": "2026-01-05 10:13:47",
+     "modified_utc": "2026-01-05 18:13:47",
+     "url": "https://powerlifting.com/organizer/american-powerlifting-union/",
+     "organizer": "American Powerlifting Union",
+     "slug": "american-powerlifting-union",
+     "global_id": "powerlifting.com?id=14201",
+     "global_id_lineage": [
+      "powerlifting.com?id=14201"
+     ]
+    }
+   ],
+   "custom_fields": [],
+   "is_virtual": false,
+   "virtual_url": null,
+   "virtual_video_source": ""
+  },
+  {
+   "id": 26125,
+   "global_id": "powerlifting.com?id=26125",
+   "global_id_lineage": [
+    "powerlifting.com?id=26125"
+   ],
+   "author": "3",
+   "status": "publish",
+   "date": "2026-05-06 12:11:54",
+   "date_utc": "2026-05-06 19:11:54",
+   "modified": "2026-05-06 12:11:54",
+   "modified_utc": "2026-05-06 19:11:54",
+   "url": "https://powerlifting.com/event/battle-of-the-boyne-2026-2/",
+   "rest_url": "https://powerlifting.com/wp-json/tribe/events/v1/events/26125",
+   "title": "Battle of the Boyne 2026",
+   "description": "<p>Powerlifting Meet Calendar curated by powerlifting.com / Categories: Boyneside Gym &#8211; Drogheda, County Louth, Drogheda, Ireland, Powerlifting</p>",
+   "excerpt": "",
+   "slug": "battle-of-the-boyne-2026-2",
+   "image": false,
+   "all_day": true,
+   "start_date": "2026-08-26 00:00:00",
+   "start_date_details": {
+    "year": "2026",
+    "month": "08",
+    "day": "26",
+    "hour": "00",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "end_date": "2026-08-26 23:59:59",
+   "end_date_details": {
+    "year": "2026",
+    "month": "08",
+    "day": "26",
+    "hour": "23",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "utc_start_date": "2026-08-26 07:00:00",
+   "utc_start_date_details": {
+    "year": "2026",
+    "month": "08",
+    "day": "26",
+    "hour": "07",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "utc_end_date": "2026-08-27 06:59:59",
+   "utc_end_date_details": {
+    "year": "2026",
+    "month": "08",
+    "day": "27",
+    "hour": "06",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "timezone": "America/Los_Angeles",
+   "timezone_abbr": "PDT",
+   "cost": "",
+   "cost_details": {
+    "currency_symbol": "",
+    "currency_code": "",
+    "currency_position": "prefix",
+    "values": []
+   },
+   "website": "https://powerliftingireland.ie/ipo-event/battle-of-the-boyne-2026/",
+   "show_map": true,
+   "show_map_link": true,
+   "hide_from_listings": false,
+   "sticky": false,
+   "featured": false,
+   "categories": [
+    {
+     "name": "Boyneside Gym - Drogheda",
+     "slug": "boyneside-gym-drogheda",
+     "term_group": 0,
+     "term_taxonomy_id": 7949,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 4,
+     "filter": "raw",
+     "id": 7949,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/7949",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "County Louth",
+     "slug": "county-louth",
+     "term_group": 0,
+     "term_taxonomy_id": 7951,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 4,
+     "filter": "raw",
+     "id": 7951,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/7951",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Drogheda",
+     "slug": "drogheda",
+     "term_group": 0,
+     "term_taxonomy_id": 7950,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 4,
+     "filter": "raw",
+     "id": 7950,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/7950",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Ireland",
+     "slug": "ireland",
+     "term_group": 0,
+     "term_taxonomy_id": 1897,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 27,
+     "filter": "raw",
+     "id": 1897,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1897",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Powerlifting",
+     "slug": "powerlifting",
+     "term_group": 0,
+     "term_taxonomy_id": 1083,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 116,
+     "filter": "raw",
+     "id": 1083,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1083",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    }
+   ],
+   "tags": [],
+   "venue": {
+    "id": 26051,
+    "status": "publish",
+    "date": "2026-05-06 11:58:04",
+    "date_utc": "2026-05-06 18:58:04",
+    "modified": "2026-05-11 12:54:37",
+    "modified_utc": "2026-05-11 19:54:37",
+    "url": "https://powerlifting.com/venue/boyneside-gym-drogheda/",
+    "venue": "Boyneside Gym &#8211; Drogheda",
+    "slug": "boyneside-gym-drogheda",
+    "address": "2 Merchant's Quay",
+    "city": "Drogheda",
+    "country": "Ireland",
+    "province": "County Louth",
+    "state": "County Louth",
+    "zip": "A92 AY26",
+    "stateprovince": "County Louth",
+    "geo_lat": 53.715064,
+    "geo_lng": -6.3453475,
+    "show_map": true,
+    "show_map_link": true,
+    "global_id": "powerlifting.com?id=26051",
+    "global_id_lineage": [
+     "powerlifting.com?id=26051"
+    ]
+   },
+   "organizer": [
+    {
+     "id": 14329,
+     "author": "3",
+     "status": "publish",
+     "date": "2025-10-28 17:44:51",
+     "date_utc": "2025-10-29 00:44:51",
+     "modified": "2026-01-05 10:42:01",
+     "modified_utc": "2026-01-05 18:42:01",
+     "url": "https://powerlifting.com/organizer/irish-powerlifting-organisation/",
+     "organizer": "Irish Powerlifting Organisation",
+     "slug": "irish-powerlifting-organisation",
+     "global_id": "powerlifting.com?id=14329",
+     "global_id_lineage": [
+      "powerlifting.com?id=14329"
+     ]
+    },
+    {
+     "id": 24448,
+     "status": "publish",
+     "date": "2026-03-13 14:07:49",
+     "date_utc": "2026-03-13 21:07:49",
+     "modified": "2026-03-13 14:07:49",
+     "modified_utc": "2026-03-13 21:07:49",
+     "url": "https://powerlifting.com/organizer/amateur-irish-powerlifting-organisation-2/",
+     "organizer": "Amateur Irish Powerlifting Organisation",
+     "slug": "amateur-irish-powerlifting-organisation-2",
+     "global_id": "powerlifting.com?id=24448",
+     "global_id_lineage": [
+      "powerlifting.com?id=24448"
+     ]
+    },
+    {
+     "id": 14324,
+     "status": "publish",
+     "date": "2025-10-28 17:44:47",
+     "date_utc": "2025-10-29 00:44:47",
+     "modified": "2026-01-10 10:07:04",
+     "modified_utc": "2026-01-10 18:07:04",
+     "url": "https://powerlifting.com/organizer/international-powerlifting-league/",
+     "organizer": "International Powerlifting League",
+     "slug": "international-powerlifting-league",
+     "global_id": "powerlifting.com?id=14324",
+     "global_id_lineage": [
+      "powerlifting.com?id=14324"
+     ]
+    }
+   ],
+   "custom_fields": [],
+   "is_virtual": false,
+   "virtual_url": null,
+   "virtual_video_source": ""
+  },
+  {
+   "id": 27124,
+   "global_id": "powerlifting.com?id=27124",
+   "global_id_lineage": [
+    "powerlifting.com?id=27124"
+   ],
+   "author": "3",
+   "status": "publish",
+   "date": "2026-06-01 12:26:23",
+   "date_utc": "2026-06-01 19:26:23",
+   "modified": "2026-06-01 12:26:23",
+   "modified_utc": "2026-06-01 19:26:23",
+   "url": "https://powerlifting.com/event/wupa-european-championships/",
+   "rest_url": "https://powerlifting.com/wp-json/tribe/events/v1/events/27124",
+   "title": "WUPA European Championships",
+   "description": "<p>Powerlifting Meet Calendar curated by powerlifting.com / Categories: Austria, Bench Press, Bruck an der Leitha, Deadlift, Equipped, Juniors, Lower Austria, Masters, Open, Powerlifting, Raw, Stadttheater Bruck an der Leitha, Teens, Youth</p>",
+   "excerpt": "",
+   "slug": "wupa-european-championships",
+   "image": false,
+   "all_day": true,
+   "start_date": "2026-06-24 00:00:00",
+   "start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "24",
+    "hour": "00",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "end_date": "2026-06-27 23:59:59",
+   "end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "27",
+    "hour": "23",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "utc_start_date": "2026-06-24 07:00:00",
+   "utc_start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "24",
+    "hour": "07",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "utc_end_date": "2026-06-28 06:59:59",
+   "utc_end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "28",
+    "hour": "06",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "timezone": "America/Los_Angeles",
+   "timezone_abbr": "PDT",
+   "cost": "",
+   "cost_details": {
+    "currency_symbol": "",
+    "currency_code": "",
+    "currency_position": "prefix",
+    "values": []
+   },
+   "website": "https://www.e-powerlifting.com/mistrzostwa-europy-wupa-austria-2026/",
+   "show_map": true,
+   "show_map_link": true,
+   "hide_from_listings": false,
+   "sticky": false,
+   "featured": false,
+   "categories": [
+    {
+     "name": "Austria",
+     "slug": "austria",
+     "term_group": 0,
+     "term_taxonomy_id": 8410,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1,
+     "filter": "raw",
+     "id": 8410,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/8410",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Bench Press",
+     "slug": "bench-press",
+     "term_group": 0,
+     "term_taxonomy_id": 1128,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 704,
+     "filter": "raw",
+     "id": 1128,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1128",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Bruck an der Leitha",
+     "slug": "bruck-an-der-leitha",
+     "term_group": 0,
+     "term_taxonomy_id": 8408,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1,
+     "filter": "raw",
+     "id": 8408,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/8408",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Deadlift",
+     "slug": "deadlift",
+     "term_group": 0,
+     "term_taxonomy_id": 1129,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1099,
+     "filter": "raw",
+     "id": 1129,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1129",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Equipped",
+     "slug": "equipped",
+     "term_group": 0,
+     "term_taxonomy_id": 1094,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 495,
+     "filter": "raw",
+     "id": 1094,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1094",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Juniors",
+     "slug": "juniors",
+     "term_group": 0,
+     "term_taxonomy_id": 1118,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 36,
+     "filter": "raw",
+     "id": 1118,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1118",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Lower Austria",
+     "slug": "lower-austria",
+     "term_group": 0,
+     "term_taxonomy_id": 8409,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1,
+     "filter": "raw",
+     "id": 8409,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/8409",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Masters",
+     "slug": "masters",
+     "term_group": 0,
+     "term_taxonomy_id": 1131,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 690,
+     "filter": "raw",
+     "id": 1131,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1131",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Open",
+     "slug": "open",
+     "term_group": 0,
+     "term_taxonomy_id": 1084,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 998,
+     "filter": "raw",
+     "id": 1084,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1084",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Powerlifting",
+     "slug": "powerlifting",
+     "term_group": 0,
+     "term_taxonomy_id": 1083,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 116,
+     "filter": "raw",
+     "id": 1083,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1083",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Raw",
+     "slug": "raw",
+     "term_group": 0,
+     "term_taxonomy_id": 1093,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 2093,
+     "filter": "raw",
+     "id": 1093,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1093",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Stadttheater Bruck an der Leitha",
+     "slug": "stadttheater-bruck-an-der-leitha",
+     "term_group": 0,
+     "term_taxonomy_id": 8407,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1,
+     "filter": "raw",
+     "id": 8407,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/8407",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Teens",
+     "slug": "teens",
+     "term_group": 0,
+     "term_taxonomy_id": 1445,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 10,
+     "filter": "raw",
+     "id": 1445,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1445",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Youth",
+     "slug": "youth",
+     "term_group": 0,
+     "term_taxonomy_id": 1090,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 410,
+     "filter": "raw",
+     "id": 1090,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1090",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    }
+   ],
+   "tags": [],
+   "venue": {
+    "id": 26944,
+    "status": "publish",
+    "date": "2026-06-01 12:00:15",
+    "date_utc": "2026-06-01 19:00:15",
+    "modified": "2026-06-01 12:00:15",
+    "modified_utc": "2026-06-01 19:00:15",
+    "url": "https://powerlifting.com/venue/stadttheater-bruck-an-der-leitha/",
+    "venue": "Stadttheater Bruck an der Leitha",
+    "slug": "stadttheater-bruck-an-der-leitha",
+    "address": "Raiffeiseng\u00fcrtel 43",
+    "city": "Bruck an der Leitha",
+    "country": "Austria",
+    "province": "Lower Austria",
+    "state": "Lower Austria",
+    "zip": "2460",
+    "stateprovince": "Lower Austria",
+    "geo_lat": 48.0266667,
+    "geo_lng": 16.7761111,
+    "show_map": true,
+    "show_map_link": true,
+    "global_id": "powerlifting.com?id=26944",
+    "global_id_lineage": [
+     "powerlifting.com?id=26944"
+    ]
+   },
+   "organizer": [
+    {
+     "id": 14619,
+     "status": "publish",
+     "date": "2025-10-29 10:19:37",
+     "date_utc": "2025-10-29 17:19:37",
+     "modified": "2026-01-05 10:50:38",
+     "modified_utc": "2026-01-05 18:50:38",
+     "url": "https://powerlifting.com/organizer/world-united-amateur-powerlifting/",
+     "organizer": "World United Amateur Powerlifting",
+     "slug": "world-united-amateur-powerlifting",
+     "global_id": "powerlifting.com?id=14619",
+     "global_id_lineage": [
+      "powerlifting.com?id=14619"
+     ]
+    }
+   ],
+   "custom_fields": [],
+   "is_virtual": false,
+   "virtual_url": null,
+   "virtual_video_source": ""
+  },
+  {
+   "id": 18165,
+   "global_id": "powerlifting.com?id=18165",
+   "global_id_lineage": [
+    "powerlifting.com?id=18165"
+   ],
+   "author": "3",
+   "status": "publish",
+   "date": "2025-10-30 11:27:40",
+   "date_utc": "2025-10-30 18:27:40",
+   "modified": "2026-01-05 12:56:25",
+   "modified_utc": "2026-01-05 20:56:25",
+   "url": "https://powerlifting.com/event/2026-usa-powerlifting-military-police-firefighters-nationals/",
+   "rest_url": "https://powerlifting.com/wp-json/tribe/events/v1/events/18165",
+   "title": "2026 USA Powerlifting Military/Police/Firefighters Nationals",
+   "description": "<p>Powerlifting Meet Calendar curated by powerlifting.com / Categories: Bench Only, Deadlift Only, Full Power, Push/Pull, USA</p>",
+   "excerpt": "",
+   "slug": "2026-usa-powerlifting-military-police-firefighters-nationals",
+   "image": false,
+   "all_day": true,
+   "start_date": "2026-06-11 00:00:00",
+   "start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "11",
+    "hour": "00",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "end_date": "2026-06-14 23:59:59",
+   "end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "14",
+    "hour": "23",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "utc_start_date": "2026-06-11 07:00:00",
+   "utc_start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "11",
+    "hour": "07",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "utc_end_date": "2026-06-15 06:59:59",
+   "utc_end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "15",
+    "hour": "06",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "timezone": "America/Los_Angeles",
+   "timezone_abbr": "PDT",
+   "cost": "",
+   "cost_details": {
+    "currency_symbol": "",
+    "currency_code": "",
+    "currency_position": "prefix",
+    "values": []
+   },
+   "website": "https://powerlifting-america.com/police-military-fire-nationals/",
+   "show_map": true,
+   "show_map_link": true,
+   "hide_from_listings": false,
+   "sticky": false,
+   "featured": false,
+   "categories": [
+    {
+     "name": "Bench Only",
+     "slug": "bench-only",
+     "term_group": 0,
+     "term_taxonomy_id": 1109,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 980,
+     "filter": "raw",
+     "id": 1109,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1109",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Deadlift Only",
+     "slug": "deadlift-only",
+     "term_group": 0,
+     "term_taxonomy_id": 1103,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 911,
+     "filter": "raw",
+     "id": 1103,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1103",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Full Power",
+     "slug": "full-power",
+     "term_group": 0,
+     "term_taxonomy_id": 1100,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1892,
+     "filter": "raw",
+     "id": 1100,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1100",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Push/Pull",
+     "slug": "push-pull",
+     "term_group": 0,
+     "term_taxonomy_id": 1101,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 773,
+     "filter": "raw",
+     "id": 1101,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1101",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "USA",
+     "slug": "usa",
+     "term_group": 0,
+     "term_taxonomy_id": 1635,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1597,
+     "filter": "raw",
+     "id": 1635,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1635",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    }
+   ],
+   "tags": [],
+   "venue": {
+    "id": 21930,
+    "status": "publish",
+    "date": "2026-01-05 09:18:24",
+    "date_utc": "2026-01-05 17:18:24",
+    "modified": "2026-01-05 09:18:24",
+    "modified_utc": "2026-01-05 17:18:24",
+    "url": "https://powerlifting.com/venue/georgia-international-convention-center/",
+    "venue": "Georgia International Convention Center",
+    "slug": "georgia-international-convention-center",
+    "address": "2000 Convention Center Concourse",
+    "city": "College Park",
+    "country": "USA",
+    "province": "GA",
+    "state": "GA",
+    "zip": "30337",
+    "stateprovince": "GA",
+    "geo_lat": 33.6456015,
+    "geo_lng": -84.4574173,
+    "show_map": true,
+    "show_map_link": true,
+    "global_id": "powerlifting.com?id=21930",
+    "global_id_lineage": [
+     "powerlifting.com?id=21930"
+    ]
+   },
+   "organizer": [
+    {
+     "id": 14552,
+     "status": "publish",
+     "date": "2025-10-29 10:17:38",
+     "date_utc": "2025-10-29 17:17:38",
+     "modified": "2026-03-13 14:07:40",
+     "modified_utc": "2026-03-13 21:07:40",
+     "url": "https://powerlifting.com/organizer/usa-powerlifting/",
+     "organizer": "USA Powerlifting",
+     "slug": "usa-powerlifting",
+     "global_id": "powerlifting.com?id=14552",
+     "global_id_lineage": [
+      "powerlifting.com?id=14552"
+     ]
+    }
+   ],
+   "custom_fields": [],
+   "is_virtual": false,
+   "virtual_url": null,
+   "virtual_video_source": ""
+  },
+  {
+   "id": 18439,
+   "global_id": "powerlifting.com?id=18439",
+   "global_id_lineage": [
+    "powerlifting.com?id=18439"
+   ],
+   "author": "0",
+   "status": "publish",
+   "date": "2025-10-30 12:00:14",
+   "date_utc": "2025-10-30 19:00:14",
+   "modified": "2026-01-05 12:56:24",
+   "modified_utc": "2026-01-05 20:56:24",
+   "url": "https://powerlifting.com/event/clash-of-the-krakens-2/",
+   "rest_url": "https://powerlifting.com/wp-json/tribe/events/v1/events/18439",
+   "title": "Clash of the Krakens 2",
+   "description": "<p>Powerlifting Meet Calendar curated by powerlifting.com / Categories: Maine, Other, Single Lift, Strongman, USA, Weightlifting</p>",
+   "excerpt": "",
+   "slug": "clash-of-the-krakens-2",
+   "image": false,
+   "all_day": true,
+   "start_date": "2026-06-13 00:00:00",
+   "start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "13",
+    "hour": "00",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "end_date": "2026-06-13 23:59:59",
+   "end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "13",
+    "hour": "23",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "utc_start_date": "2026-06-13 07:00:00",
+   "utc_start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "13",
+    "hour": "07",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "utc_end_date": "2026-06-14 06:59:59",
+   "utc_end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "14",
+    "hour": "06",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "timezone": "America/Los_Angeles",
+   "timezone_abbr": "PDT",
+   "cost": "",
+   "cost_details": {
+    "currency_symbol": "",
+    "currency_code": "",
+    "currency_position": "prefix",
+    "values": []
+   },
+   "website": "https://ironpodium.com/browse/event/clash-of-the-krakens-2",
+   "show_map": true,
+   "show_map_link": true,
+   "hide_from_listings": false,
+   "sticky": false,
+   "featured": false,
+   "categories": [
+    {
+     "name": "Maine",
+     "slug": "maine",
+     "term_group": 0,
+     "term_taxonomy_id": 3434,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 10,
+     "filter": "raw",
+     "id": 3434,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/3434",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Other",
+     "slug": "other",
+     "term_group": 0,
+     "term_taxonomy_id": 1393,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 590,
+     "filter": "raw",
+     "id": 1393,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1393",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Single Lift",
+     "slug": "single-lift",
+     "term_group": 0,
+     "term_taxonomy_id": 1231,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 396,
+     "filter": "raw",
+     "id": 1231,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1231",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Strongman",
+     "slug": "strongman",
+     "term_group": 0,
+     "term_taxonomy_id": 1395,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 433,
+     "filter": "raw",
+     "id": 1395,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1395",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "USA",
+     "slug": "usa",
+     "term_group": 0,
+     "term_taxonomy_id": 1635,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1597,
+     "filter": "raw",
+     "id": 1635,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1635",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Weightlifting",
+     "slug": "weightlifting",
+     "term_group": 0,
+     "term_taxonomy_id": 1274,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 336,
+     "filter": "raw",
+     "id": 1274,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1274",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    }
+   ],
+   "tags": [],
+   "venue": {
+    "id": 18127,
+    "status": "publish",
+    "date": "2025-10-30 11:22:36",
+    "date_utc": "2025-10-30 18:22:36",
+    "modified": "2026-01-05 09:18:23",
+    "modified_utc": "2026-01-05 17:18:23",
+    "url": "https://powerlifting.com/venue/currents-seafood-spirits/",
+    "venue": "Currents Seafood &amp; Spirits",
+    "slug": "currents-seafood-spirits",
+    "address": "1192 Bar Harbor Rd",
+    "city": "Trenton",
+    "country": "USA",
+    "province": "Maine",
+    "state": "Maine",
+    "zip": "4605",
+    "stateprovince": "Maine",
+    "geo_lat": 44.4356711,
+    "geo_lng": -68.368394,
+    "show_map": true,
+    "show_map_link": true,
+    "global_id": "powerlifting.com?id=18127",
+    "global_id_lineage": [
+     "powerlifting.com?id=18127"
+    ]
+   },
+   "organizer": [
+    {
+     "id": 14546,
+     "status": "publish",
+     "date": "2025-10-29 10:17:27",
+     "date_utc": "2025-10-29 17:17:27",
+     "modified": "2026-03-13 14:07:45",
+     "modified_utc": "2026-03-13 21:07:45",
+     "url": "https://powerlifting.com/organizer/united-states-strongman/",
+     "organizer": "United States Strongman",
+     "slug": "united-states-strongman",
+     "global_id": "powerlifting.com?id=14546",
+     "global_id_lineage": [
+      "powerlifting.com?id=14546"
+     ]
+    }
+   ],
+   "custom_fields": [],
+   "is_virtual": false,
+   "virtual_url": null,
+   "virtual_video_source": ""
+  },
+  {
+   "id": 21865,
+   "global_id": "powerlifting.com?id=21865",
+   "global_id_lineage": [
+    "powerlifting.com?id=21865"
+   ],
+   "author": "0",
+   "status": "publish",
+   "date": "2026-01-03 15:53:49",
+   "date_utc": "2026-01-03 23:53:49",
+   "modified": "2026-01-05 12:56:25",
+   "modified_utc": "2026-01-05 20:56:25",
+   "url": "https://powerlifting.com/event/man-beast-presents-2026-yorkshires-strongest-man-and-woman/",
+   "rest_url": "https://powerlifting.com/wp-json/tribe/events/v1/events/21865",
+   "title": "Man Beast Presents 2026 Yorkshire&#8217;s Strongest Man and Woman",
+   "description": "<p>Powerlifting Meet Calendar curated by powerlifting.com / Categories: Doncaster, Masters, Men, Single Lift, South Yorkshire, Strongman, Teenage Junior, United Kingdom, Women</p>",
+   "excerpt": "",
+   "slug": "man-beast-presents-2026-yorkshires-strongest-man-and-woman",
+   "image": false,
+   "all_day": true,
+   "start_date": "2026-06-11 00:00:00",
+   "start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "11",
+    "hour": "00",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "end_date": "2026-06-11 23:59:59",
+   "end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "11",
+    "hour": "23",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "utc_start_date": "2026-06-11 07:00:00",
+   "utc_start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "11",
+    "hour": "07",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "utc_end_date": "2026-06-12 06:59:59",
+   "utc_end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "12",
+    "hour": "06",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "timezone": "America/Los_Angeles",
+   "timezone_abbr": "PDT",
+   "cost": "",
+   "cost_details": {
+    "currency_symbol": "",
+    "currency_code": "",
+    "currency_position": "prefix",
+    "values": []
+   },
+   "website": "https://web.facebook.com/events/1534134134607880/",
+   "show_map": true,
+   "show_map_link": true,
+   "hide_from_listings": false,
+   "sticky": false,
+   "featured": false,
+   "categories": [
+    {
+     "name": "Doncaster",
+     "slug": "doncaster",
+     "term_group": 0,
+     "term_taxonomy_id": 3191,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 7,
+     "filter": "raw",
+     "id": 3191,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/3191",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Masters",
+     "slug": "masters",
+     "term_group": 0,
+     "term_taxonomy_id": 1131,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 690,
+     "filter": "raw",
+     "id": 1131,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1131",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Men",
+     "slug": "men",
+     "term_group": 0,
+     "term_taxonomy_id": 1391,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 847,
+     "filter": "raw",
+     "id": 1391,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1391",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Single Lift",
+     "slug": "single-lift",
+     "term_group": 0,
+     "term_taxonomy_id": 1231,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 396,
+     "filter": "raw",
+     "id": 1231,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1231",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "South Yorkshire",
+     "slug": "south-yorkshire",
+     "term_group": 0,
+     "term_taxonomy_id": 2107,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 16,
+     "filter": "raw",
+     "id": 2107,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/2107",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Strongman",
+     "slug": "strongman",
+     "term_group": 0,
+     "term_taxonomy_id": 1395,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 433,
+     "filter": "raw",
+     "id": 1395,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1395",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Teenage Junior",
+     "slug": "teenage-junior",
+     "term_group": 0,
+     "term_taxonomy_id": 1394,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 471,
+     "filter": "raw",
+     "id": 1394,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1394",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "United Kingdom",
+     "slug": "united-kingdom",
+     "term_group": 0,
+     "term_taxonomy_id": 1650,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 235,
+     "filter": "raw",
+     "id": 1650,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1650",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Women",
+     "slug": "women",
+     "term_group": 0,
+     "term_taxonomy_id": 1392,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 858,
+     "filter": "raw",
+     "id": 1392,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1392",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    }
+   ],
+   "tags": [],
+   "venue": {
+    "id": 21618,
+    "status": "publish",
+    "date": "2026-01-03 15:04:15",
+    "date_utc": "2026-01-03 23:04:15",
+    "modified": "2026-01-05 09:18:24",
+    "modified_utc": "2026-01-05 17:18:24",
+    "url": "https://powerlifting.com/venue/doncaster-lakeside-shopping-village/",
+    "venue": "Doncaster Lakeside Shopping Village",
+    "slug": "doncaster-lakeside-shopping-village",
+    "address": "White Rose Way",
+    "city": "Doncaster",
+    "country": "United Kingdom",
+    "province": "South Yorkshire",
+    "state": "South Yorkshire",
+    "zip": "DN4 5PH",
+    "stateprovince": "South Yorkshire",
+    "geo_lat": 53.505581,
+    "geo_lng": -1.114287,
+    "show_map": true,
+    "show_map_link": true,
+    "global_id": "powerlifting.com?id=21618",
+    "global_id_lineage": [
+     "powerlifting.com?id=21618"
+    ]
+   },
+   "organizer": [
+    {
+     "id": 21428,
+     "status": "publish",
+     "date": "2026-01-03 13:55:25",
+     "date_utc": "2026-01-03 21:55:25",
+     "modified": "2026-01-03 13:55:25",
+     "modified_utc": "2026-01-03 21:55:25",
+     "url": "https://powerlifting.com/organizer/man-beast-strongman/",
+     "organizer": "Man Beast Strongman",
+     "slug": "man-beast-strongman",
+     "global_id": "powerlifting.com?id=21428",
+     "global_id_lineage": [
+      "powerlifting.com?id=21428"
+     ]
+    }
+   ],
+   "custom_fields": [],
+   "is_virtual": false,
+   "virtual_url": null,
+   "virtual_video_source": ""
+  },
+  {
+   "id": 27151,
+   "global_id": "powerlifting.com?id=27151",
+   "global_id_lineage": [
+    "powerlifting.com?id=27151"
+   ],
+   "author": "3",
+   "status": "publish",
+   "date": "2026-06-01 12:34:18",
+   "date_utc": "2026-06-01 19:34:18",
+   "modified": "2026-06-01 12:34:18",
+   "modified_utc": "2026-06-01 19:34:18",
+   "url": "https://powerlifting.com/event/holloman-iron-gauntlet-powerlifting-competition/",
+   "rest_url": "https://powerlifting.com/wp-json/tribe/events/v1/events/27151",
+   "title": "Holloman Iron Gauntlet: Powerlifting Competition",
+   "description": "<p>Powerlifting Meet Calendar curated by powerlifting.com / Categories: Bench Press, Deadlift, Domenici Fitness Center, Holloman AFB, New Mexico, Squat, USA</p>",
+   "excerpt": "",
+   "slug": "holloman-iron-gauntlet-powerlifting-competition",
+   "image": false,
+   "all_day": true,
+   "start_date": "2026-06-12 00:00:00",
+   "start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "12",
+    "hour": "00",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "end_date": "2026-06-12 23:59:59",
+   "end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "12",
+    "hour": "23",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "utc_start_date": "2026-06-12 07:00:00",
+   "utc_start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "12",
+    "hour": "07",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "utc_end_date": "2026-06-13 06:59:59",
+   "utc_end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "13",
+    "hour": "06",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "timezone": "America/Los_Angeles",
+   "timezone_abbr": "PDT",
+   "cost": "",
+   "cost_details": {
+    "currency_symbol": "",
+    "currency_code": "",
+    "currency_position": "prefix",
+    "values": []
+   },
+   "website": "https://web.facebook.com/events/1515973420080723/",
+   "show_map": true,
+   "show_map_link": true,
+   "hide_from_listings": false,
+   "sticky": false,
+   "featured": false,
+   "categories": [
+    {
+     "name": "Bench Press",
+     "slug": "bench-press",
+     "term_group": 0,
+     "term_taxonomy_id": 1128,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 704,
+     "filter": "raw",
+     "id": 1128,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1128",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Deadlift",
+     "slug": "deadlift",
+     "term_group": 0,
+     "term_taxonomy_id": 1129,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1099,
+     "filter": "raw",
+     "id": 1129,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1129",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Domenici Fitness Center",
+     "slug": "domenici-fitness-center",
+     "term_group": 0,
+     "term_taxonomy_id": 8384,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1,
+     "filter": "raw",
+     "id": 8384,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/8384",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Holloman AFB",
+     "slug": "holloman-afb",
+     "term_group": 0,
+     "term_taxonomy_id": 8385,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1,
+     "filter": "raw",
+     "id": 8385,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/8385",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "New Mexico",
+     "slug": "new-mexico",
+     "term_group": 0,
+     "term_taxonomy_id": 1994,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 19,
+     "filter": "raw",
+     "id": 1994,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1994",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Squat",
+     "slug": "squat",
+     "term_group": 0,
+     "term_taxonomy_id": 1127,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 539,
+     "filter": "raw",
+     "id": 1127,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1127",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "USA",
+     "slug": "usa",
+     "term_group": 0,
+     "term_taxonomy_id": 1635,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1597,
+     "filter": "raw",
+     "id": 1635,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1635",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    }
+   ],
+   "tags": [],
+   "venue": {
+    "id": 26937,
+    "status": "publish",
+    "date": "2026-06-01 11:59:59",
+    "date_utc": "2026-06-01 18:59:59",
+    "modified": "2026-06-01 11:59:59",
+    "modified_utc": "2026-06-01 18:59:59",
+    "url": "https://powerlifting.com/venue/domenici-fitness-center/",
+    "venue": "Domenici Fitness Center",
+    "slug": "domenici-fitness-center",
+    "address": "1051 W Connecticut Ave Building 588",
+    "city": "Holloman AFB",
+    "country": "USA",
+    "province": "New Mexico",
+    "state": "New Mexico",
+    "zip": "88330",
+    "stateprovince": "New Mexico",
+    "geo_lat": 32.8363448,
+    "geo_lng": -106.0893735,
+    "show_map": true,
+    "show_map_link": true,
+    "global_id": "powerlifting.com?id=26937",
+    "global_id_lineage": [
+     "powerlifting.com?id=26937"
+    ]
+   },
+   "organizer": [
+    {
+     "id": 14174,
+     "author": "3",
+     "status": "publish",
+     "date": "2025-10-28 17:35:45",
+     "date_utc": "2025-10-29 00:35:45",
+     "modified": "2026-03-13 14:07:36",
+     "modified_utc": "2026-03-13 21:07:36",
+     "url": "https://powerlifting.com/organizer/all-powerlifting-2/",
+     "organizer": "* Powerlifting",
+     "slug": "all-powerlifting-2",
+     "global_id": "powerlifting.com?id=14174",
+     "global_id_lineage": [
+      "powerlifting.com?id=14174"
+     ]
+    }
+   ],
+   "custom_fields": [],
+   "is_virtual": false,
+   "virtual_url": null,
+   "virtual_video_source": ""
+  },
+  {
+   "id": 27033,
+   "global_id": "powerlifting.com?id=27033",
+   "global_id_lineage": [
+    "powerlifting.com?id=27033"
+   ],
+   "author": "3",
+   "status": "publish",
+   "date": "2026-06-01 12:17:10",
+   "date_utc": "2026-06-01 19:17:10",
+   "modified": "2026-06-01 12:17:10",
+   "modified_utc": "2026-06-01 19:17:10",
+   "url": "https://powerlifting.com/event/2026-peipla-provincial-championships/",
+   "rest_url": "https://powerlifting.com/wp-json/tribe/events/v1/events/27033",
+   "title": "2026 PEIPLA Provincial Championships",
+   "description": "<p>Powerlifting Meet Calendar curated by powerlifting.com / Categories: Canada, Classic, Drug Testing, Equipped, Prince Edward, Special Olympics, Summerside, The Loyalist Country Inn and Conference Centre, Youth</p>",
+   "excerpt": "",
+   "slug": "2026-peipla-provincial-championships",
+   "image": false,
+   "all_day": true,
+   "start_date": "2026-06-13 00:00:00",
+   "start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "13",
+    "hour": "00",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "end_date": "2026-06-13 23:59:59",
+   "end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "13",
+    "hour": "23",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "utc_start_date": "2026-06-13 07:00:00",
+   "utc_start_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "13",
+    "hour": "07",
+    "minutes": "00",
+    "seconds": "00"
+   },
+   "utc_end_date": "2026-06-14 06:59:59",
+   "utc_end_date_details": {
+    "year": "2026",
+    "month": "06",
+    "day": "14",
+    "hour": "06",
+    "minutes": "59",
+    "seconds": "59"
+   },
+   "timezone": "America/Los_Angeles",
+   "timezone_abbr": "PDT",
+   "cost": "",
+   "cost_details": {
+    "currency_symbol": "",
+    "currency_code": "",
+    "currency_position": "prefix",
+    "values": []
+   },
+   "website": "https://docs.google.com/forms/d/e/1FAIpQLSeuSltSRUSmaTZPdGMpYr5hkY8If40O0Vdcu1s2FHdY46pVhg/viewform",
+   "show_map": true,
+   "show_map_link": true,
+   "hide_from_listings": false,
+   "sticky": false,
+   "featured": false,
+   "categories": [
+    {
+     "name": "Canada",
+     "slug": "canada",
+     "term_group": 0,
+     "term_taxonomy_id": 1709,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 66,
+     "filter": "raw",
+     "id": 1709,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1709",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Classic",
+     "slug": "classic",
+     "term_group": 0,
+     "term_taxonomy_id": 1082,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 54,
+     "filter": "raw",
+     "id": 1082,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1082",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Drug Testing",
+     "slug": "drug-testing",
+     "term_group": 0,
+     "term_taxonomy_id": 6741,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 38,
+     "filter": "raw",
+     "id": 6741,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/6741",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Equipped",
+     "slug": "equipped",
+     "term_group": 0,
+     "term_taxonomy_id": 1094,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 495,
+     "filter": "raw",
+     "id": 1094,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1094",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Prince Edward",
+     "slug": "prince-edward",
+     "term_group": 0,
+     "term_taxonomy_id": 8245,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1,
+     "filter": "raw",
+     "id": 8245,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/8245",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Special Olympics",
+     "slug": "special-olympics",
+     "term_group": 0,
+     "term_taxonomy_id": 1134,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 51,
+     "filter": "raw",
+     "id": 1134,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1134",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Summerside",
+     "slug": "summerside",
+     "term_group": 0,
+     "term_taxonomy_id": 8244,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1,
+     "filter": "raw",
+     "id": 8244,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/8244",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "The Loyalist Country Inn and Conference Centre",
+     "slug": "the-loyalist-country-inn-and-conference-centre",
+     "term_group": 0,
+     "term_taxonomy_id": 8243,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 1,
+     "filter": "raw",
+     "id": 8243,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/8243",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    },
+    {
+     "name": "Youth",
+     "slug": "youth",
+     "term_group": 0,
+     "term_taxonomy_id": 1090,
+     "taxonomy": "tribe_events_cat",
+     "description": "",
+     "parent": 0,
+     "count": 410,
+     "filter": "raw",
+     "id": 1090,
+     "urls": {
+      "self": "https://powerlifting.com/wp-json/tribe/events/v1/categories/1090",
+      "collection": "https://powerlifting.com/wp-json/tribe/events/v1/categories"
+     }
+    }
+   ],
+   "tags": [],
+   "venue": {
+    "id": 26906,
+    "status": "publish",
+    "date": "2026-06-01 11:58:49",
+    "date_utc": "2026-06-01 18:58:49",
+    "modified": "2026-06-01 11:58:49",
+    "modified_utc": "2026-06-01 18:58:49",
+    "url": "https://powerlifting.com/venue/the-loyalist-country-inn-and-conference-centre/",
+    "venue": "The Loyalist Country Inn and Conference Centre",
+    "slug": "the-loyalist-country-inn-and-conference-centre",
+    "address": "195 Heather Moyse Dr",
+    "city": "Summerside",
+    "country": "Canada",
+    "province": "Prince Edward",
+    "state": "Prince Edward",
+    "zip": "C1N 5R1",
+    "stateprovince": "Prince Edward",
+    "geo_lat": 46.3902869,
+    "geo_lng": -63.7884862,
+    "show_map": true,
+    "show_map_link": true,
+    "global_id": "powerlifting.com?id=26906",
+    "global_id_lineage": [
+     "powerlifting.com?id=26906"
+    ]
+   },
+   "organizer": [],
+   "custom_fields": [],
+   "is_virtual": false,
+   "virtual_url": null,
+   "virtual_video_source": ""
+  }
+ ],
+ "total": 11,
+ "total_pages": 1
+}

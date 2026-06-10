@@ -35,6 +35,7 @@ from powerlifting_meets.scrapers.nsf import NSFScraper
 from powerlifting_meets.scrapers.nzpu import NZPUScraper
 from powerlifting_meets.scrapers.powerlifting_america import PowerliftingAmericaScraper
 from powerlifting_meets.scrapers.powerlifting_australia import PowerliftingAustraliaScraper
+from powerlifting_meets.scrapers.powerlifting_com import PowerliftingComScraper
 from powerlifting_meets.scrapers.powerlifting_united import PowerliftingUnitedScraper
 from powerlifting_meets.scrapers.raw100 import Raw100Scraper
 from powerlifting_meets.scrapers.rps import RPSScraper
@@ -78,6 +79,9 @@ ALL_SCRAPERS: list[type[BaseScraper]] = [
     NZPUScraper,
     NPLScraper,
     UKIPLScraper,
+    # Aggregator: powerlifting.com's Tribe calendar, organizer-allowlisted to
+    # federations with no direct scraper (WRPF, 365Strong, APU, ...).
+    PowerliftingComScraper,
     # Tier B: structured non-Tribe sources (JSON API, iCal, JSON-LD).
     USPCScraper,
     WABDLScraper,
@@ -161,15 +165,20 @@ def fetch_previous_data(url: str | None) -> MeetsResponse | None:
 
 def get_previous_meets_for_federation(
     previous: MeetsResponse | None,
-    federation: str,
+    federation: str | frozenset[str] | set[str],
     today: date,
 ) -> list[Meet]:
-    """Extract still-valid meets for a federation from previous data."""
+    """Extract still-valid meets for a federation from previous data.
+
+    Accepts a set of codes for aggregator scrapers, whose meta key (the class
+    `federation`) differs from the per-meet codes they emit.
+    """
     if previous is None:
         return []
+    federations = {federation} if isinstance(federation, str) else federation
     return [
         m for m in previous.meets
-        if m.federation == federation and m.date_start >= today
+        if m.federation in federations and m.date_start >= today
     ]
 
 
@@ -365,7 +374,10 @@ def run() -> None:
         except Exception as exc:
             logger.error("%s scraper failed: %s", federation, exc, exc_info=True)
             # Fall back to previous data
-            fallback = get_previous_meets_for_federation(previous, federation, today)
+            fallback_feds = (
+                getattr(scraper_cls, "fallback_federations", None) or frozenset({federation})
+            )
+            fallback = get_previous_meets_for_federation(previous, fallback_feds, today)
             if fallback:
                 all_meets.extend(fallback)
                 prev_meta = previous.meta.get(federation) if previous else None
