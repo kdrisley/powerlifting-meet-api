@@ -122,7 +122,15 @@ full-runner verification, meta.json check).
 
 ## Phase 4 — Wix warmupData (verify-first gate)
 
-### 4a. Metal Militia + 4b. 365 Strong
+**GATE OUTCOME (2026-06-09):** Metal Militia PASSED — its warmup-data carries fully
+structured Wix Events records (title, ISO + venue-local formatted dates, geocoded
+fullAddress, external JotForm registration links, slug for per-meet URLs). Shipped as
+`metal_militia.py`. 365 Strong FAILED on every criterion: warmup-data is an empty 2KB
+stub, events are free-text blocks in the page body, and there are **no per-meet URLs and
+no registration links at all** — so it fails the feed's URL requirement even via the LLM
+tier. Dropped; recheck only if the site adds the Wix Events app or per-meet pages.
+
+### 4a. Metal Militia + 4b. 365 Strong (original gate)
 - Both sites are Wix but server-render their event lists, and the HTML embeds the Wix
   Events app's `warmupData` JSON (verified present; **contents not yet audited**).
 - Gate: before building, capture the page and confirm `warmupData` contains the full
