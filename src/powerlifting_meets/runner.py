@@ -28,6 +28,7 @@ from powerlifting_meets.scrapers.ipa import IPAScraper
 from powerlifting_meets.scrapers.ipf import IPFScraper
 from powerlifting_meets.scrapers.ipl import IPLScraper
 from powerlifting_meets.scrapers.irish import IrishScraper
+from powerlifting_meets.scrapers.metal_militia import MetalMilitiaScraper
 from powerlifting_meets.scrapers.nasa import NASAScraper
 from powerlifting_meets.scrapers.npl import NPLScraper
 from powerlifting_meets.scrapers.nsf import NSFScraper
@@ -83,6 +84,7 @@ ALL_SCRAPERS: list[type[BaseScraper]] = [
     CPUScraper,
     IPLScraper,
     APOScraper,
+    MetalMilitiaScraper,
     # Tier C: server-rendered HTML tables (US + international).
     IPFScraper,
     IrishScraper,
