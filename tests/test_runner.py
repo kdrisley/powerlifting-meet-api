@@ -74,6 +74,21 @@ class TestGetPreviousMeetsForFederation:
         result = get_previous_meets_for_federation(None, "USPA", date(2026, 3, 14))
         assert result == []
 
+    def test_accepts_federation_set_for_aggregators(self):
+        previous = MeetsResponse(
+            generated_at=datetime(2026, 3, 13, tzinfo=timezone.utc),
+            total_meets=3,
+            meets=[
+                Meet(name="WRPF Meet", federation="WRPF", date_start=date(2026, 4, 1)),
+                Meet(name="APU Meet", federation="APU", date_start=date(2026, 4, 1)),
+                Meet(name="USPA Meet", federation="USPA", date_start=date(2026, 4, 1)),
+            ],
+        )
+        result = get_previous_meets_for_federation(
+            previous, frozenset({"WRPF", "APU"}), date(2026, 3, 14)
+        )
+        assert sorted(m.federation for m in result) == ["APU", "WRPF"]
+
 
 class TestRun:
     def test_run_with_mocked_scrapers(self, tmp_path: Path):
