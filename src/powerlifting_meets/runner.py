@@ -508,6 +508,16 @@ def run() -> None:
     save_json_cache(geo_cache, OUTPUT_DIR / "geo_cache.json")
     save_json_cache(extract_cache, OUTPUT_DIR / "extract_cache.json")
 
+    # Publish the feed contract next to the data so consumers always see the
+    # schema matching the feed they fetched (cwd-relative: CI and dev runs both
+    # execute from the repo root; a missing file just skips the copy).
+    schema = Path("SCHEMA.md")
+    if schema.exists():
+        (OUTPUT_DIR / "SCHEMA.md").write_text(
+            schema.read_text(encoding="utf-8"), encoding="utf-8"
+        )
+        logger.info("Published SCHEMA.md alongside the feed")
+
 
 if __name__ == "__main__":
     # Load GEMINI_API_KEY (and friends) from a local .env for dev runs. In CI
