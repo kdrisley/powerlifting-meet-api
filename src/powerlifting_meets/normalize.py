@@ -49,8 +49,16 @@ COUNTRY_ALIASES: dict[str, str] = {
     "netherlands": "Netherlands", "belgium": "Belgium", "austria": "Austria",
     "sweden": "Sweden", "norway": "Norway", "finland": "Finland",
     "denmark": "Denmark", "iceland": "Iceland", "poland": "Poland",
-    "czech republic": "Czech Republic", "hungary": "Hungary",
+    "czech republic": "Czech Republic", "czechia": "Czech Republic",
+    "hungary": "Hungary",
     "romania": "Romania", "ukraine": "Ukraine", "russia": "Russia",
+    "russian federation": "Russia",
+    # IPL/GPC circuit stops. NOTE: "georgia" must never be added here — it
+    # would shadow the US state in trailing-segment parses.
+    "serbia": "Serbia", "croatia": "Croatia", "slovakia": "Slovakia",
+    "slovenia": "Slovenia", "bulgaria": "Bulgaria", "belarus": "Belarus",
+    "kazakhstan": "Kazakhstan", "lithuania": "Lithuania", "latvia": "Latvia",
+    "estonia": "Estonia",
     "japan": "Japan", "china": "China", "india": "India",
     "south korea": "South Korea", "philippines": "Philippines",
     "indonesia": "Indonesia", "malaysia": "Malaysia", "singapore": "Singapore",

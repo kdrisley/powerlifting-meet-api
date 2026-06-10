@@ -19,6 +19,7 @@ class ICalEvent:
     url: str | None
     date_start: date
     date_end: date | None
+    description: str | None = None
 
 
 def _unfold(text: str) -> list[str]:
@@ -107,6 +108,7 @@ def parse_ical(text: str) -> list[ICalEvent]:
                         url=cur.get("url"),
                         date_start=start,
                         date_end=end,
+                        description=cur.get("description"),
                     )
                 )
             cur = None
@@ -124,6 +126,8 @@ def parse_ical(text: str) -> list[ICalEvent]:
             cur["summary"] = _unescape(value) or None
         elif name == "LOCATION":
             cur["location"] = _unescape(value) or None
+        elif name == "DESCRIPTION":
+            cur["description"] = _unescape(value) or None
         elif name == "URL":
             cur["url"] = value.strip() or None
         elif name == "DTSTART":

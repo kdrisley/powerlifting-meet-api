@@ -20,10 +20,12 @@ from powerlifting_meets.normalize import normalize_country, normalize_state, res
 from powerlifting_meets.scrapers.adfpf import ADFPFScraper
 from powerlifting_meets.scrapers.apf import APFScraper
 from powerlifting_meets.scrapers.apl import APLScraper
+from powerlifting_meets.scrapers.apo import APOScraper
 from powerlifting_meets.scrapers.base import BaseScraper
 from powerlifting_meets.scrapers.cpu import CPUScraper
 from powerlifting_meets.scrapers.ipa import IPAScraper
 from powerlifting_meets.scrapers.ipf import IPFScraper
+from powerlifting_meets.scrapers.ipl import IPLScraper
 from powerlifting_meets.scrapers.irish import IrishScraper
 from powerlifting_meets.scrapers.nasa import NASAScraper
 from powerlifting_meets.scrapers.npl import NPLScraper
@@ -77,6 +79,8 @@ ALL_SCRAPERS: list[type[BaseScraper]] = [
     USPCScraper,
     WABDLScraper,
     CPUScraper,
+    IPLScraper,
+    APOScraper,
     # Tier C: server-rendered HTML tables (US + international).
     IPFScraper,
     IrishScraper,
