@@ -54,7 +54,7 @@ didn't say and we refused to guess" — it is never a default. Do not read
 | `sanction` | Source-provided sanction identifier, when any. |
 | `event_type` | Competition format, one of `full_power`, `push_pull`, `bench_only`, `deadlift_only`, `squat_only`, or `""`. |
 | `event_level` | Competitive tier, one of `LOCAL`, `STATE`, `REGIONAL`, `NATIONAL`, `INTERNATIONAL`, or `""`. Independent of `event_type`. |
-| `testing_status` | `tested`, `untested`, or `""` (unknown — common for federations that run both). |
+| `testing_status` | `tested`, `untested`, `both` (the meet offers tested and untested divisions side by side — RPS, IPA, UKIPL, USPC, dual APF/AAPF sanctions), or `""` (unknown). |
 
 `event_type`, `event_level`, and `testing_status` are taken from the source
 when it states them, otherwise derived deterministically from the meet name

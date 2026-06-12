@@ -92,14 +92,31 @@ class TestClassifyTestingStatus:
         assert classify_testing_status("APF", "Some Meet") == "untested"
         assert classify_testing_status("SPF", "Some Meet") == "untested"
 
+    def test_federation_default_both(self):
+        # Rulebook-verified: tested and untested divisions at the same meet.
+        assert classify_testing_status("RPS", "Some Meet") == "both"
+        assert classify_testing_status("IPA", "Some Meet") == "both"
+        assert classify_testing_status("UKIPL", "Some Meet") == "both"
+        assert classify_testing_status("USPC", "Some Meet") == "both"
+
     def test_name_keyword_overrides_default(self):
         # An untested-federation meet explicitly billed as tested.
         assert classify_testing_status("APF", "WPC Drug Tested Open") == "tested"
         # A tested-federation meet explicitly billed as untested.
         assert classify_testing_status("USAPL", "Untested Showdown") == "untested"
 
-    def test_both_posture_federation_uses_name_only(self):
-        # USPA runs both; no default, so name is the only signal.
+    def test_dual_sanction_name_marks_both(self):
+        # APF meets co-sanctioned with the tested AAPF offer both divisions.
+        assert classify_testing_status("APF", "APF-AAPF Summer Bash") == "both"
+        assert classify_testing_status("APF", "APF/AAPF Ohio State Meet") == "both"
+        # An explicit testing keyword still beats the dual marker.
+        assert classify_testing_status("APF", "AAPF Drug Tested Open") == "tested"
+        # APF-only meets keep the untested default.
+        assert classify_testing_status("APF", "APF Pillars of Strength") == "untested"
+
+    def test_separately_sanctioned_federation_uses_name_only(self):
+        # USPA/IPL sanction tested meets separately with a mandatory "Tested"
+        # name prefix, so per-meet naming is the accurate signal — no default.
         assert classify_testing_status("USPA", "Tested Classic") == "tested"
         assert classify_testing_status("USPA", "Spring Open") is None
 

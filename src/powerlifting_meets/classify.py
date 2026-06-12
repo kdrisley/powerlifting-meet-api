@@ -20,8 +20,9 @@ EVENT_TYPES = frozenset(
 # Canonical event-level (competitive tier) values, ascending.
 EVENT_LEVELS = frozenset({"LOCAL", "STATE", "REGIONAL", "NATIONAL", "INTERNATIONAL"})
 
-# Canonical testing-status values.
-TESTING_STATUSES = frozenset({"tested", "untested"})
+# Canonical testing-status values. "both" = the meet offers tested and
+# untested divisions side by side at the same event.
+TESTING_STATUSES = frozenset({"tested", "untested", "both"})
 
 
 # --- event type -------------------------------------------------------------
@@ -124,10 +125,23 @@ def classify_event_level(name: str | None) -> str | None:
 # --- testing status ---------------------------------------------------------
 
 # Per-federation default testing posture. Only federations with a clear,
-# well-known stance are listed; everything else (federations that run both
-# tested and untested meets, or whose posture we're unsure of) is omitted and
-# resolves to None unless the meet name says otherwise. Keys are the
-# `federation` identifiers set on each scraper.
+# well-known stance are listed; everything else (per-meet posture, or unsure)
+# is omitted and resolves to None unless the meet name says otherwise. Keys
+# are the `federation` identifiers set on each scraper.
+#
+# "both" = the rulebook runs tested and untested divisions side by side at a
+# single meet (verified against each federation's own rules/site):
+#   RPS    untested Pro + drug-tested Amateur/Elite at every meet.
+#   IPA    Professional (untested) and Amateur (tested) are per-lifter entry
+#          choices on one meet's form, Nationals included.
+#   UKIPL  IPL rules pair a tested and an untested contest over the same
+#          weekend; sources list them as one event.
+#   USPC   tested division is a per-meet director opt-in offered alongside
+#          the untested divisions (most meets; registration page decides).
+# USPA/IPL are NOT "both": their rulebook sanctions tested meets separately
+# and mandates a "Tested" name prefix, so the name signal is already accurate
+# per meet. APF stays untested: its tested sibling is the separately-branded
+# AAPF, and dual meets carry "AAPF" in the name (see _BOTH_NAME_RE).
 _FEDERATION_TESTING_DEFAULT: dict[str, str] = {
     # IPF and its affiliates are drug-tested by default.
     "USAPL": "tested",
@@ -145,30 +159,41 @@ _FEDERATION_TESTING_DEFAULT: dict[str, str] = {
     "100RAW": "tested",   # 100% RAW (drug-free)
     # Predominantly untested federations.
     "APF": "untested",    # American Powerlifting Federation / WPC
-    "RPS": "untested",
     "SPF": "untested",
-    # Deliberately omitted (run both / uncertain → name signal only):
-    # USPA, IPA, APL, WABDL, USPC, PLU.
+    # Tested and untested divisions at the same meet.
+    "RPS": "both",
+    "IPA": "both",
+    "UKIPL": "both",
+    "USPC": "both",
+    # Deliberately omitted (per-meet posture / uncertain → name signal only):
+    # USPA, IPL, APL, WABDL, PLU.
 }
 
 _TESTED_NAME_RE = re.compile(r"\bdrug[\s-]*tested\b|\btested\b|\bnatural\b|\bdrug[\s-]*free\b")
 _UNTESTED_NAME_RE = re.compile(r"\buntested\b|\bnon[\s-]*tested\b")
+# Dual-sanction marker: an untested fed's meet co-sanctioned with its tested
+# sibling ("APF-AAPF Summer Bash", "WPC/AWPC Worlds") offers both divisions.
+_BOTH_NAME_RE = re.compile(r"\baapf\b|\bawpc\b")
 
 
 def classify_testing_status(federation: str | None, name: str | None) -> str | None:
     """Infer drug-testing status from the federation default and meet name.
 
     A name keyword ("Tested" / "Untested" / "Drug Free") always overrides the
-    federation default. For federations that run both postures (no default
-    listed), the name is the only signal; absent it, returns None rather than
-    guessing.
+    federation default, and a dual-sanction marker ("AAPF"/"AWPC") marks the
+    meet as offering both. For federations with no default listed, the name is
+    the only signal; absent it, returns None rather than guessing.
     """
     low = (name or "").lower()
-    # An explicit name keyword wins over the federation default.
+    # An explicit name keyword wins over the federation default. Untested
+    # before tested (so "untested" never half-matches), both-marker last so
+    # "AAPF Drug Tested Open" stays tested.
     if _UNTESTED_NAME_RE.search(low):
         return "untested"
     if _TESTED_NAME_RE.search(low):
         return "tested"
+    if _BOTH_NAME_RE.search(low):
+        return "both"
     if federation:
         return _FEDERATION_TESTING_DEFAULT.get(federation)
     return None
