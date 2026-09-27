@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  issues: read  # ManualScraper reads approved meet-submission issues
   pages: write
   id-token: write
 
@@ -32,6 +33,7 @@ jobs:
         run: python -m powerlifting_meets.runner
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
