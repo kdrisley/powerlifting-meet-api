@@ -27,6 +27,7 @@ from powerlifting_meets.scrapers.cpu import CPUScraper
 from powerlifting_meets.scrapers.ipa import IPAScraper
 from powerlifting_meets.scrapers.ipf import IPFScraper
 from powerlifting_meets.scrapers.ipl import IPLScraper
+from powerlifting_meets.scrapers.manual import ManualScraper
 from powerlifting_meets.scrapers.irish import IrishScraper
 from powerlifting_meets.scrapers.metal_militia import MetalMilitiaScraper
 from powerlifting_meets.scrapers.nasa import NASAScraper
@@ -99,6 +100,10 @@ ALL_SCRAPERS: list[type[BaseScraper]] = [
     IPAScraper,
     NASAScraper,
     Raw100Scraper,
+    # Manually submitted meets approved on this repo's issues. Must stay LAST:
+    # dedup keeps the first (name, federation, date_start) after a stable sort,
+    # so a scraped copy of the same meet wins over the manual one.
+    ManualScraper,
 ]
 
 
