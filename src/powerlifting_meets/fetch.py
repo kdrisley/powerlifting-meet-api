@@ -42,8 +42,10 @@ _CHALLENGE_MARKERS = (
     "challenge-platform/h/",
 )
 # A JSON or text body rendered by a browser comes back as a bare <pre>.
+# Chrome may append an empty JSON-viewer container after the <pre>.
 _BARE_PRE = re.compile(
-    r"^\s*<html[^>]*>\s*<head>.*?</head>\s*<body>\s*<pre[^>]*>(.*)</pre>\s*</body>\s*</html>\s*$",
+    r"^\s*<html[^>]*>\s*<head>.*?</head>\s*<body[^>]*>\s*<pre[^>]*>(.*)</pre>"
+    r"(?:\s*<div[^>]*>\s*</div>)*\s*</body>\s*</html>\s*$",
     re.DOTALL | re.IGNORECASE,
 )
 
@@ -188,7 +190,8 @@ class JinaFallbackTransport(httpx.BaseTransport):
             # embedded in JSON strings and corrupts it; markdown mode returns
             # the body verbatim after a short header.
             md = jina_get(url, "markdown", client=self._jina)
-            text = strip_jina_markdown_header(md) if md is not None else unwrap_pre(text)
+            # If that fails, don't fall back to the corrupted HTML; try the next service.
+            text = strip_jina_markdown_header(md) if md is not None else None
         if text is None:
             text = scrapingant_get(url, client=self._jina)
             via = "scrapingant"
