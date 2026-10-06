@@ -122,3 +122,14 @@ def test_helpers():
     assert not is_blocked(httpx.Response(503))
     assert looks_like_challenge("<title>Attention Required! | Cloudflare</title>")
     assert unwrap_pre("<p>not wrapped</p>") == "<p>not wrapped</p>"
+
+
+def test_bare_pre_with_chrome_json_viewer_div():
+    from powerlifting_meets.fetch import is_bare_pre
+
+    doc = (
+        '<html><head><meta name="color-scheme" content="light dark"><meta charset="utf-8"></head>'
+        '<body><pre>{"a":"x &amp; y"}</pre><div class="json-formatter-container"></div></body></html>'
+    )
+    assert is_bare_pre(doc)
+    assert unwrap_pre(doc) == '{"a":"x & y"}'
