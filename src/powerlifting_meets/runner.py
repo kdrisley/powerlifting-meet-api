@@ -16,6 +16,7 @@ from powerlifting_meets.classify import (
     classify_testing_status,
 )
 from powerlifting_meets.models import FederationMeta, Meet, MeetsResponse
+from powerlifting_meets import fetch
 from powerlifting_meets.normalize import normalize_country, normalize_state, resolve_location
 from powerlifting_meets.scrapers.adfpf import ADFPFScraper
 from powerlifting_meets.scrapers.apf import APFScraper
@@ -503,6 +504,8 @@ def run() -> None:
         encoding="utf-8",
     )
     logger.info("Wrote %s (%d meets)", events_path, len(unique_meets))
+    if fetch.fallback_hosts:
+        logger.info("Fetched via Jina fallback (direct request blocked): %s", ", ".join(sorted(fetch.fallback_hosts)))
 
     # Write meta.json separately for easy monitoring
     meta_path = OUTPUT_DIR / "meta.json"
