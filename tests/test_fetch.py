@@ -47,15 +47,47 @@ def test_403_retries_through_jina_with_html_format():
     assert fetch.fallback_hosts == {"www.usapowerlifting.com"}
 
 
-def test_json_wrapped_in_pre_is_unwrapped():
+def test_json_document_is_refetched_as_markdown():
     wrapped = (
         '<html><head><meta name="color-scheme" content="light dark"></head><body>'
-        '<pre style="word-wrap: break-word;">{"events":[{"title":"A &amp; B"}]}</pre></body></html>'
+        '<pre style="word-wrap: break-word;">{"events":[{"d":"<a href=\\"x\\">mangled</a>"}]}</pre></body></html>'
     )
-    client, _ = make_client(lambda r: httpx.Response(403), lambda r: httpx.Response(200, text=wrapped))
-    assert client.get("https://powerliftingunited.com/wp-json/tribe/events/v1/events").json() == {
-        "events": [{"title": "A & B"}]
-    }
+    markdown = 'Title: \n\nURL Source: https://x\n\nMarkdown Content:\n{"events":[{"d":"<p>ok</p>"}]}'
+
+    def jina(request):
+        fmt = request.headers["X-Return-Format"]
+        return httpx.Response(200, text=wrapped if fmt == "html" else markdown)
+
+    client, calls = make_client(lambda r: httpx.Response(403), jina)
+    resp = client.get("https://npleague.net/wp-json/tribe/events/v1/events")
+    assert resp.json() == {"events": [{"d": "<p>ok</p>"}]}
+    assert [c.headers["X-Return-Format"] for c in calls] == ["html", "markdown"]
+
+
+def test_scrapingant_used_when_jina_blocked_and_key_set(monkeypatch):
+    monkeypatch.setenv("SCRAPINGANT_API_KEY", "k")
+
+    def jina_or_ant(request):
+        if request.url.host == "r.jina.ai":
+            return httpx.Response(200, text="<h1>Checking the site connection security</h1>")
+        assert request.url.params["browser"] == "true"
+        return httpx.Response(200, text="<html><body>real meets</body></html>")
+
+    client, calls = make_client(lambda r: httpx.Response(403), jina_or_ant)
+    resp = client.get("https://npleague.net/events/")
+    assert "real meets" in resp.text
+    assert resp.headers["x-fetched-via"] == "scrapingant"
+    assert calls[-1].url.host == "api.scrapingant.com"
+
+
+def test_no_scrapingant_without_key(monkeypatch):
+    monkeypatch.delenv("SCRAPINGANT_API_KEY", raising=False)
+    client, calls = make_client(
+        lambda r: httpx.Response(403),
+        lambda r: httpx.Response(200, text="Checking the site connection security"),
+    )
+    assert client.get("https://npleague.net/").status_code == 403
+    assert all(c.url.host == "r.jina.ai" for c in calls)
 
 
 def test_jina_challenge_or_error_returns_original_403():

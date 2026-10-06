@@ -10,8 +10,9 @@ https://r.jina.ai/, which fetches the page from Jina's own browsers and
 returns the rendered HTML. No scraper code changes are needed.
 
 Jina's keyless tier allows 20 requests/minute, so fallback calls are spaced
-out. A Jina failure, or a Jina response that is itself a challenge page,
-returns the original blocked response, so callers see the same error they
+out. If Jina is blocked too and SCRAPINGANT_API_KEY is set, ScrapingAnt's browser
+fetch is tried next. When every fallback fails (or returns a challenge page),
+the original blocked response is returned, so callers see the same error they
 would have without the fallback.
 """
 from __future__ import annotations
@@ -34,6 +35,8 @@ JINA_TIMEOUT_S = 90.0
 
 _CHALLENGE_MARKERS = (
     "Attention Required! | Cloudflare",
+    "Checking the site connection security",
+    "robot-suspicion.svg",
     "<title>Just a moment...</title>",
     "cf-browser-verification",
     "challenge-platform/h/",
@@ -72,6 +75,43 @@ def unwrap_pre(body: str) -> str:
     """Return the raw text of a browser-rendered JSON/text document."""
     m = _BARE_PRE.match(body)
     return html.unescape(m.group(1)) if m else body
+
+
+def is_bare_pre(body: str) -> bool:
+    return _BARE_PRE.match(body) is not None
+
+
+def strip_jina_markdown_header(text: str) -> str:
+    """Jina's markdown mode prefixes 'Title: / URL Source: / Markdown Content:'."""
+    marker = "Markdown Content:"
+    i = text.find(marker)
+    return text[i + len(marker):].strip() if i >= 0 else text
+
+
+SCRAPINGANT_ENDPOINT = "https://api.scrapingant.com/v2/general"
+
+
+def scrapingant_get(url: str, client: httpx.Client | None = None) -> str | None:
+    """Second fallback (optional): ScrapingAnt's browser fetch when Jina is also
+    blocked. Only used when SCRAPINGANT_API_KEY is set (free tier: 10k credits/
+    month; a browser request costs 10)."""
+    key = os.environ.get("SCRAPINGANT_API_KEY")
+    if not key:
+        return None
+    own = client is None
+    client = client or httpx.Client(timeout=JINA_TIMEOUT_S)
+    try:
+        r = client.get(SCRAPINGANT_ENDPOINT, params={"url": url, "x-api-key": key, "browser": "true"})
+    except httpx.HTTPError as exc:
+        logger.warning("ScrapingAnt fetch failed for %s: %s", url, exc)
+        return None
+    finally:
+        if own:
+            client.close()
+    if r.status_code != 200 or looks_like_challenge(r.text):
+        logger.warning("ScrapingAnt fetch unusable for %s (HTTP %s)", url, r.status_code)
+        return None
+    return r.text
 
 
 def _wait_turn() -> None:
@@ -142,14 +182,26 @@ class JinaFallbackTransport(httpx.BaseTransport):
     def _fetch_via_jina(self, request: httpx.Request) -> httpx.Response | None:
         url = str(request.url)
         text = jina_get(url, "html", client=self._jina)
+        via = "jina"
+        if text is not None and is_bare_pre(text):
+            # A JSON/text document. Jina's HTML serialization re-parses markup
+            # embedded in JSON strings and corrupts it; markdown mode returns
+            # the body verbatim after a short header.
+            md = jina_get(url, "markdown", client=self._jina)
+            text = strip_jina_markdown_header(md) if md is not None else unwrap_pre(text)
+        if text is None:
+            text = scrapingant_get(url, client=self._jina)
+            via = "scrapingant"
+            if text is not None and is_bare_pre(text):
+                text = unwrap_pre(text)
         if text is None:
             return None
         fallback_hosts.add(request.url.host)
-        logger.info("Fetched %s via Jina fallback (direct request was blocked)", url)
-        body = unwrap_pre(text)
+        logger.info("Fetched %s via %s fallback (direct request was blocked)", url, via)
+        body = text
         return httpx.Response(
             200,
-            headers={"content-type": "text/html; charset=utf-8", "x-fetched-via": "jina"},
+            headers={"content-type": "text/html; charset=utf-8", "x-fetched-via": via},
             content=body.encode("utf-8"),
             request=request,
         )

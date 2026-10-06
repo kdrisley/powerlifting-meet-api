@@ -34,6 +34,9 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Optional fallbacks for blocked sites (see src/powerlifting_meets/fetch.py).
+          JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
+          SCRAPINGANT_API_KEY: ${{ secrets.SCRAPINGANT_API_KEY }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
