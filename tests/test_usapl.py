@@ -9,62 +9,47 @@ from powerlifting_meets.scrapers.usapl import USAPLScraper
 
 
 @pytest.fixture
-def usapl_html(fixtures_dir: Path) -> str:
-    return (fixtures_dir / "usapl_calendar.html").read_text()
+def usapl_events_html(fixtures_dir: Path) -> str:
+    # Page 4 of https://www.usapowerlifting.com/events as returned through Jina
+    # Reader (X-Return-Format: html), captured 2026-10-06.
+    return (fixtures_dir / "usapl_events_page.html").read_text()
 
 
-class TestUSAPLScraper:
-    def test_scrape_from_fixture(self, usapl_html: str):
-        def mock_handler(request: httpx.Request) -> httpx.Response:
-            return httpx.Response(200, text=usapl_html)
+class TestUSAPLEventsCalendar:
+    def test_parses_events_page_and_stops_on_empty_page(self, usapl_events_html: str):
+        pages: list[str] = []
 
-        transport = httpx.MockTransport(mock_handler)
-        client = httpx.Client(transport=transport)
+        def handler(request: httpx.Request) -> httpx.Response:
+            page = request.url.params.get("page")
+            pages.append(page)
+            return httpx.Response(200, text=usapl_events_html if page == "1" else "<html></html>")
 
+        client = httpx.Client(transport=httpx.MockTransport(handler))
         with patch.object(USAPLScraper, "__init__", lambda self, **kw: None):
             scraper = USAPLScraper()
-            scraper.client = client
-            scraper._owns_client = False
+        scraper.client = client
+        scraper._owns_client = False
+        with patch("powerlifting_meets.scrapers.usapl.date") as mock_date:
+            mock_date.today.return_value = date(2026, 10, 6)
+            mock_date.side_effect = lambda *a, **kw: date(*a, **kw)
+            meets = scraper._scrape_live()
 
-            with patch("powerlifting_meets.scrapers.usapl.date") as mock_date:
-                mock_date.today.return_value = date(2026, 3, 1)
-                mock_date.side_effect = lambda *a, **kw: date(*a, **kw)
-                meets = scraper.scrape()
+        assert pages[:2] == ["1", "2"]
+        assert len(meets) == 9
+        freak = meets[0]
+        assert freak.name == "2026 USA Powerlifting Freak Fest"
+        assert freak.date_start == date(2026, 10, 31)
+        assert (freak.city, freak.state) == ("Marshall", "WI")
+        assert freak.sanction == "WI-2026-10"
+        assert freak.event_level == "LOCAL"
+        assert freak.director_name == "Maxwell Soucy"
+        assert str(freak.registration_url) == "https://liftingcast.com/meets/mctz2ojn7y6e/registration"
+        assert any(m.venue_address for m in meets)
 
-        assert len(meets) == 3
-        assert all(m.federation == "USAPL" for m in meets)
+    def test_total_pages_from_results_count(self, usapl_events_html: str):
+        from bs4 import BeautifulSoup
 
-        m = meets[0]
-        assert m.name == "2026 USA Powerlifting Surge Legacy Series"
-        assert m.date_start == date(2026, 3, 14)
-        assert m.city == "Carol Stream"
-        assert m.state == "IL"
-        # url is the "More Info" page; registration is its own field.
-        assert str(m.url) == "https://www.surgetonewlevels.net/"
-        assert str(m.registration_url) == "https://liftingcast.com/meets/m0247b0mongl/registration"
-        # "Type of Event" is the competitive tier, captured as event_level.
-        assert m.event_level == "LOCAL"
-        assert m.sanction == "IL-2026-04"
-        assert m.director_name == "Sergio Luna"
-        assert m.director_email == "surgetonewlevels@gmail.com"
-
-    def test_date_range_parsing(self):
-        scraper = USAPLScraper.__new__(USAPLScraper)
-
-        # Single date
-        start, end = scraper._parse_date_range("Mar 14, 2026")
-        assert start == date(2026, 3, 14)
-        assert end is None
-
-        # Same-month range
-        start, end = scraper._parse_date_range("Mar 14-15, 2026")
-        assert start == date(2026, 3, 14)
-        assert end == date(2026, 3, 15)
-
-        # Cross-month range
-        start, end = scraper._parse_date_range("Mar 30 - Apr 1, 2026")
-        assert start == date(2026, 3, 30)
-        assert end == date(2026, 4, 1)
+        assert USAPLScraper._total_pages(BeautifulSoup(usapl_events_html, "lxml")) == 26
 
 
 class TestUSAPLSnapshotFallback:

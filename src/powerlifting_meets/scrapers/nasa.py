@@ -2,15 +2,16 @@ from __future__ import annotations
 
 import logging
 
-from powerlifting_meets.scrapers.llm_extract_base import LLMExtractionScraper, visible_text
+from powerlifting_meets.fetch import jina_get
+from powerlifting_meets.scrapers.llm_extract_base import LLMExtractionScraper
 
 logger = logging.getLogger(__name__)
 
-# NASA Powerlifting lists its schedule as free text on the schedule page
-# ("June 13th – Illinois Tri-State Summer (Flora, IL)"), with years implied by
-# ordering rather than written. The format is irregular (blank rows, multi-meet
-# rows), so we hand the page text to the LLM extraction tier.
-SCHEDULE_PAGE = "https://nasa-sports.com/schedule/"
+# NASA Powerlifting moved its schedule to /upcoming-meets/ (2026), which builds
+# the meet list with JavaScript, so the page is fetched through Jina Reader
+# (rendered to markdown) and handed to the LLM extraction tier. The old
+# /schedule/ page now 404s.
+SCHEDULE_PAGE = "https://nasa-sports.com/upcoming-meets/"
 
 
 class NASAScraper(LLMExtractionScraper):
@@ -19,6 +20,7 @@ class NASAScraper(LLMExtractionScraper):
     kind = "text"
 
     def fetch_blob(self) -> tuple[bytes, str]:
-        resp = self.client.get(SCHEDULE_PAGE)
-        resp.raise_for_status()
-        return visible_text(resp.text).encode("utf-8"), "text/plain"
+        rendered = jina_get(SCHEDULE_PAGE, "markdown")
+        if rendered is None:
+            raise RuntimeError(f"NASA schedule could not be rendered: {SCHEDULE_PAGE}")
+        return rendered.encode("utf-8"), "text/plain"

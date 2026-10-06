@@ -4,6 +4,7 @@ The extraction itself is covered (mocked) in test_llm_extract.py; here we verify
 each scraper turns its source into the right blob/mime for the extraction tier.
 """
 import httpx
+import pytest
 
 from powerlifting_meets.scrapers.ipa import IPAScraper
 from powerlifting_meets.scrapers.nasa import NASAScraper
@@ -45,18 +46,25 @@ def test_ipa_fetch_blob_strips_chrome():
     assert "menu junk" not in text and "footer junk" not in text
 
 
-def test_nasa_fetch_blob_extracts_schedule_text():
-    page = """<html><head><script>x</script></head><body><nav>menu</nav>
-      <main>July 25th – Illinois Tri-State Summer (Flora, IL)
-      October 3rd – Ohio Regional (Springfield, OH)</main>
-      <footer>foot</footer></body></html>"""
+def test_nasa_fetch_blob_uses_rendered_upcoming_meets(monkeypatch):
+    # /upcoming-meets/ builds its list with JavaScript, so NASA always reads the
+    # Jina-rendered markdown rather than the raw HTML.
+    calls = []
 
-    def handler(request):
-        return httpx.Response(200, text=page)
+    def fake_jina_get(url, fmt="html", client=None):
+        calls.append((url, fmt))
+        return "**October 2026**\nColorado Regional · October 17, 2026 · Greeley, CO"
 
-    sc = NASAScraper(client=_client(handler), extract_cache={})
+    monkeypatch.setattr("powerlifting_meets.scrapers.nasa.jina_get", fake_jina_get)
+    sc = NASAScraper(client=_client(lambda r: httpx.Response(500)), extract_cache={})
     blob, mime = sc.fetch_blob()
+    assert calls == [("https://nasa-sports.com/upcoming-meets/", "markdown")]
     assert mime == "text/plain"
-    text = blob.decode("utf-8")
-    assert "Illinois Tri-State Summer" in text
-    assert "menu" not in text and "foot" not in text
+    assert "Colorado Regional" in blob.decode("utf-8")
+
+
+def test_nasa_fetch_blob_raises_when_render_fails(monkeypatch):
+    monkeypatch.setattr("powerlifting_meets.scrapers.nasa.jina_get", lambda *a, **k: None)
+    sc = NASAScraper(client=_client(lambda r: httpx.Response(500)), extract_cache={})
+    with pytest.raises(RuntimeError):
+        sc.fetch_blob()

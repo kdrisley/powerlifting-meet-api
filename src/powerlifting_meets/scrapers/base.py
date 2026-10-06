@@ -5,6 +5,7 @@ import logging
 
 import httpx
 
+from powerlifting_meets.fetch import JinaFallbackTransport
 from powerlifting_meets.models import Meet
 
 logger = logging.getLogger(__name__)
@@ -32,10 +33,12 @@ class BaseScraper(abc.ABC):
             self.client = client
             self._owns_client = False
         else:
+            # Direct requests first; blocked ones retry via Jina (see fetch.py).
             self.client = httpx.Client(
                 headers={"User-Agent": USER_AGENT},
                 timeout=30.0,
                 follow_redirects=True,
+                transport=JinaFallbackTransport(),
             )
             self._owns_client = True
 
