@@ -1,25 +1,96 @@
 from __future__ import annotations
 
+import json
 import logging
 import re
 from datetime import date, datetime
+from pathlib import Path
+
+import httpx
 
 from bs4 import BeautifulSoup, Tag
 
 from powerlifting_meets.classify import normalize_event_level
 from powerlifting_meets.models import Meet
-from powerlifting_meets.normalize import normalize_state
+from powerlifting_meets.normalize import clean_street_address, normalize_state
 from powerlifting_meets.scrapers.base import BaseScraper
 
 logger = logging.getLogger(__name__)
 
 CALENDAR_URL = "https://usapowerlifting.com/calendar/"
 
+# USAPL's calendar (now at /events) sits behind Cloudflare bot protection that
+# returns 403 to every non-browser client, including GitHub Actions, since
+# about 2026-07-16. Until that changes, the scraper falls back to a snapshot
+# of the calendar captured in a regular browser session and committed here.
+SNAPSHOT_PATH = Path(__file__).resolve().parents[3] / "snapshots" / "usapl-events.json"
+
 
 class USAPLScraper(BaseScraper):
     federation = "USAPL"
 
     def scrape(self) -> list[Meet]:
+        try:
+            meets = self._scrape_live()
+        except httpx.HTTPError as exc:
+            logger.warning("USAPL live calendar unavailable (%s); using snapshot", exc)
+            return self._scrape_snapshot()
+        if not meets:
+            logger.warning("USAPL live calendar parsed 0 meets; using snapshot")
+            return self._scrape_snapshot()
+        return meets
+
+    def _scrape_snapshot(self, path: Path = SNAPSHOT_PATH) -> list[Meet]:
+        """Upcoming meets from the committed browser-captured calendar snapshot."""
+        data = json.loads(path.read_text(encoding="utf-8"))
+        cols = data["columns"]
+        today = date.today()
+        meets: list[Meet] = []
+        for row in data["rows"]:
+            r = dict(zip(cols, row))
+            date_start, date_end = self._parse_long_date_range(r["dates"])
+            if date_start is None or date_start < today:
+                continue
+            level = (r.get("level") or "").removesuffix(" Event").strip()
+            meets.append(
+                Meet(
+                    name=r["name"],
+                    federation="USAPL",
+                    date_start=date_start,
+                    date_end=date_end,
+                    state=normalize_state(r.get("state")),
+                    city=r.get("city") or None,
+                    country="United States" if normalize_state(r.get("state")) else None,
+                    url=r.get("info_url") or None,
+                    registration_url=r.get("registration_url") or None,
+                    venue_address=clean_street_address(r.get("venue_address")),
+                    status="active",
+                    sanction=r.get("sanction") or None,
+                    event_level=normalize_event_level(level),
+                    director_name=r.get("director") or None,
+                )
+            )
+        logger.info(
+            "Loaded %d upcoming USAPL meets from snapshot captured %s",
+            len(meets),
+            data.get("captured_at"),
+        )
+        return meets
+
+    @staticmethod
+    def _parse_long_date_range(text: str) -> tuple[date | None, date | None]:
+        """Parse 'October 10, 2026' or 'October 16, 2026 - October 18, 2026'."""
+        parts = [p.strip() for p in (text or "").split(" - ")]
+        try:
+            days = [datetime.strptime(p, "%B %d, %Y").date() for p in parts if p]
+        except ValueError:
+            return None, None
+        if not days:
+            return None, None
+        start, end = days[0], days[-1]
+        return start, (end if end != start else None)
+
+    def _scrape_live(self) -> list[Meet]:
         logger.info("Fetching USAPL calendar")
         resp = self.client.get(CALENDAR_URL)
         resp.raise_for_status()
