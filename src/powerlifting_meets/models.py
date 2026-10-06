@@ -24,6 +24,12 @@ class Meet(BaseModel):
     url: HttpUrl | None = None
     registration_url: HttpUrl | None = None
     venue: str | None = None
+    # One-line street address of the venue when the source publishes one
+    # ("2315 Bob Wallace Ave SW Suite 114, Huntsville, AL 35805"), and its
+    # coordinates when the source geocodes it. Used to locate host gyms.
+    venue_address: str | None = None
+    venue_lat: float | None = None
+    venue_lng: float | None = None
     status: str | None = None
     equipment: str | None = None
     restrictions: str | None = None

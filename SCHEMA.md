@@ -29,7 +29,8 @@ may appear. Consumers should ignore fields they don't recognize.
 ## Event object
 
 All values are strings unless noted. **Unknown is the empty string `""`**
-(`geo_inferred` excepted — it's a boolean). An empty field means "the source
+(`geo_inferred` excepted — it's a boolean; `venue_lat`/`venue_lng` are
+numbers or `null`). An empty field means "the source
 didn't say and we refused to guess" — it is never a default. Do not read
 `""` in `testing_status` as "untested" or `""` in `event_type` as anything.
 
@@ -45,6 +46,8 @@ didn't say and we refused to guess" — it is never a default. Do not read
 | `country` | Full country name (`"United States"`, `"United Kingdom"`). US meets with a known state always have it. |
 | `geo_inferred` | Boolean. `true` = city/state/region/country were filled by an LLM fallback rather than parsed from the source. Treat as lower-confidence location. |
 | `venue` | Venue name or venue string from the source. |
+| `venue_address` | One-line street address of the venue (`"2320 Market Drive, Fleming Island, FL 32003"`) when the source publishes one with a street number, else `""`. No trailing country. |
+| `venue_lat` / `venue_lng` | Numbers, or `null` when the source doesn't geocode the venue. |
 | `link` | Primary per-meet URL: the info page when one exists, **otherwise it falls back to the registration link** so there is always a usable URL when the source provides any. |
 | `registration_url` | Explicit sign-up link (registration platform, entry form) when the source distinguishes one. May equal `link`. |
 | `status` | `"active"` or `"cancelled"`. |

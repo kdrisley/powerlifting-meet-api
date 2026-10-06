@@ -239,6 +239,46 @@ def parse_full_address(
     return city or None, state, region, country
 
 
+_STREET_NUMBER_RE = re.compile(r"^\d+[A-Za-z]?\b")
+_TRAILING_US_RE = re.compile(r",\s*(USA|US|United States( of America)?)\s*$", re.I)
+
+
+def clean_street_address(text: str | None) -> str | None:
+    """Return a one-line street address, or None when `text` isn't one.
+
+    Accepts only text that carries a street number somewhere ("700 W Wheeler
+    Ave, Aransas Pass, TX 78336, USA"); a bare "Aransas Pass, TX" or a venue
+    name is not an address. Collapses whitespace and drops a trailing
+    "USA"/"United States", since the feed's `country` already says so.
+    """
+    if not text:
+        return None
+    one_line = re.sub(r"\s+", " ", text.replace("\n", ", ")).strip(" ,")
+    one_line = re.sub(r"\s*,\s*", ", ", one_line)
+    one_line = _TRAILING_US_RE.sub("", one_line).strip(" ,")
+    if not any(_STREET_NUMBER_RE.match(seg) for seg in one_line.split(", ")):
+        return None
+    return one_line or None
+
+
+def split_venue_address(text: str | None) -> tuple[str | None, str | None]:
+    """Split "Venue, 123 Street, City, ST" into (venue, street_address).
+
+    iCal LOCATION lines usually lead with the venue name. The venue is the
+    text before the first segment that starts with a street number; when the
+    text starts with the number there is no venue name.
+    """
+    address = clean_street_address(text)
+    if address is None:
+        return None, None
+    segs = address.split(", ")
+    for i, seg in enumerate(segs):
+        if _STREET_NUMBER_RE.match(seg):
+            venue = ", ".join(segs[:i]) or None
+            return venue, ", ".join(segs[i:])
+    return None, address
+
+
 def resolve_location(
     text: str | None,
 ) -> tuple[str | None, str | None, str | None]:

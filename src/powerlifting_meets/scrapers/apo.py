@@ -8,7 +8,7 @@ from datetime import date
 from bs4 import BeautifulSoup
 
 from powerlifting_meets.models import Meet
-from powerlifting_meets.normalize import parse_full_address
+from powerlifting_meets.normalize import clean_street_address, parse_full_address
 from powerlifting_meets.scrapers.base import BaseScraper
 from powerlifting_meets.scrapers.tribe_events import extract_equipment, extract_restrictions
 
@@ -77,6 +77,7 @@ class APOScraper(BaseScraper):
             country="United States",
             url=(item.get("url") or "").strip() or None,
             venue=venue,
+            venue_address=clean_street_address(location.get("address")),
             status="cancelled" if cancelled else "active",
             equipment=extract_equipment(name),
             restrictions=extract_restrictions(name),
