@@ -5,7 +5,11 @@ import re
 from datetime import date, datetime, timezone
 
 from powerlifting_meets.models import Meet
-from powerlifting_meets.normalize import parse_address_location, resolve_location
+from powerlifting_meets.normalize import (
+    clean_street_address,
+    parse_address_location,
+    resolve_location,
+)
 from powerlifting_meets.scrapers.base import BaseScraper
 from powerlifting_meets.scrapers.tribe_events import extract_equipment, extract_restrictions
 
@@ -95,6 +99,7 @@ class USPCScraper(BaseScraper):
             city=city,
             country=country,
             url=url,
+            venue_address=clean_street_address(address),
             status="cancelled" if cancelled else "active",
             equipment=extract_equipment(name),
             restrictions=extract_restrictions(name),

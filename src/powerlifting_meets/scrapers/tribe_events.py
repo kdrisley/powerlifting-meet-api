@@ -6,6 +6,7 @@ from datetime import date, datetime
 
 from powerlifting_meets.models import Meet
 from powerlifting_meets.normalize import (
+    clean_street_address,
     normalize_country,
     normalize_state,
     parse_address_location,
@@ -84,6 +85,9 @@ class TribeEventsScraper(BaseScraper):
             return None
 
         venue_data = event.get("venue", {}) or {}
+        # Events with several venues return a list; the first is the meet site.
+        if isinstance(venue_data, list):
+            venue_data = next((v for v in venue_data if isinstance(v, dict)), {})
 
         date_start = self._parse_date(event.get("start_date"))
         if date_start is None:
@@ -112,6 +116,8 @@ class TribeEventsScraper(BaseScraper):
                     state = loc[1]
                     country = country or "United States"
 
+        venue_address, venue_lat, venue_lng = self._venue_address(venue_data, city, state or region)
+
         event_url = event.get("url") or None
 
         equipment = self._extract_equipment(title)
@@ -130,6 +136,9 @@ class TribeEventsScraper(BaseScraper):
             country=country,
             url=event_url,
             venue=venue_name,
+            venue_address=venue_address,
+            venue_lat=venue_lat,
+            venue_lng=venue_lng,
             status=status,
             equipment=equipment,
             restrictions=restrictions,
@@ -172,6 +181,29 @@ class TribeEventsScraper(BaseScraper):
             # Surface it as a region rather than dropping it.
             return None, raw_province, country
         return None, None, country
+
+    @staticmethod
+    def _venue_address(
+        venue_data: dict, city: str | None, state: str | None
+    ) -> tuple[str | None, float | None, float | None]:
+        """(street address line, lat, lng) from a Tribe venue dict.
+
+        Tribe splits the address into street/city/state/zip; join them into one
+        line. Coordinates are present only when the site geocoded the venue.
+        """
+        street = html.unescape((venue_data.get("address") or "").strip())
+        zip_code = (venue_data.get("zip") or "").strip()
+        tail = " ".join(p for p in (state, zip_code) if p)
+        address = clean_street_address(", ".join(p for p in (street, city, tail) if p)) if street else None
+
+        def coord(key: str) -> float | None:
+            try:
+                value = float(venue_data.get(key))
+            except (TypeError, ValueError):
+                return None
+            return value if value != 0 else None
+
+        return address, coord("geo_lat"), coord("geo_lng")
 
     @staticmethod
     def _extract_organizer(event: dict) -> tuple[str | None, str | None]:

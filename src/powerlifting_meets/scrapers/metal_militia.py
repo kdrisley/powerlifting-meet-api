@@ -9,6 +9,7 @@ from powerlifting_meets.models import Meet
 from powerlifting_meets.normalize import (
     normalize_country,
     normalize_state,
+    clean_street_address,
     parse_full_address,
 )
 from powerlifting_meets.scrapers.base import BaseScraper
@@ -122,6 +123,9 @@ class MetalMilitiaScraper(BaseScraper):
             url=url,
             registration_url=registration_url,
             venue=(event.get("location") or {}).get("name") or None,
+            venue_address=clean_street_address((event.get("location") or {}).get("address")),
+            venue_lat=((event.get("location") or {}).get("coordinates") or {}).get("lat"),
+            venue_lng=((event.get("location") or {}).get("coordinates") or {}).get("lng"),
             status="active",
             equipment=extract_equipment(name),
             restrictions=extract_restrictions(name),

@@ -4,7 +4,7 @@ import logging
 from datetime import date
 
 from powerlifting_meets.models import Meet
-from powerlifting_meets.normalize import parse_full_address
+from powerlifting_meets.normalize import parse_full_address, split_venue_address
 from powerlifting_meets.scrapers.base import BaseScraper
 from powerlifting_meets.scrapers.ical import parse_ical
 from powerlifting_meets.scrapers.tribe_events import extract_equipment, extract_restrictions
@@ -47,6 +47,7 @@ class WABDLScraper(BaseScraper):
             return None
 
         city, state, region, country = parse_full_address(ev.location)
+        venue, venue_address = split_venue_address(ev.location)
 
         return Meet(
             name=name,
@@ -58,6 +59,8 @@ class WABDLScraper(BaseScraper):
             city=city,
             country=country,
             url=ev.url or None,
+            venue=venue,
+            venue_address=venue_address,
             equipment=extract_equipment(name),
             restrictions=extract_restrictions(name),
             status="active",
