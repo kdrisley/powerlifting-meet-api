@@ -149,7 +149,7 @@ _FEDERATION_TESTING_DEFAULT: dict[str, str] = {
     "EPF": "tested",
     "PA": "tested",       # Powerlifting America (IPF US affiliate)
     "PA-AUS": "tested",   # Powerlifting Australia (IPF affiliate)
-    "NZPU": "tested",     # New Zealand Powerlifting Union (IPF affiliate)
+    "NZPU": "tested",     # New Zealand Powerlifting United (IPL affiliate; publishes a drug test policy)
     "CPU": "tested",      # Canadian Powerlifting Union (IPF affiliate)
     "IrishPF": "tested",  # Irish Powerlifting Federation (IPF affiliate)
     # Explicitly drug-free / natural federations.
