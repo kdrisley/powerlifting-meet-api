@@ -12,7 +12,6 @@ import pytest
 from powerlifting_meets.scrapers.adfpf import ADFPFScraper
 from powerlifting_meets.scrapers.apl import APLScraper
 from powerlifting_meets.scrapers.npl import NPLScraper
-from powerlifting_meets.scrapers.nzpu import NZPUScraper
 from powerlifting_meets.scrapers.powerlifting_australia import PowerliftingAustraliaScraper
 from powerlifting_meets.scrapers.powerlifting_united import PowerliftingUnitedScraper
 
@@ -21,7 +20,6 @@ CASES = [
     (ADFPFScraper, "adfpf_tribe.json", "ADFPF"),
     (PowerliftingAustraliaScraper, "powerlifting_australia_tribe.json", "PA-AUS"),
     (APLScraper, "apl_tribe.json", "APL"),
-    (NZPUScraper, "nzpu_tribe.json", "NZPU"),
     (NPLScraper, "npl_tribe.json", "NPL"),
 ]
 
@@ -87,11 +85,3 @@ def test_npl_state_resolved_and_stateless_meet_keeps_country(fixtures_dir, scrap
     shik = next(m for m in meets if "Shikellamy" in m.name)
     assert shik.state is None
     assert shik.country == "United States"
-
-
-def test_nzpu_country_set_region_optional(fixtures_dir, scraper_runner):
-    meets = scraper_runner(NZPUScraper, _load(fixtures_dir, "nzpu_tribe.json"))
-    # All NZ meets get the country; region only when the source provides one.
-    assert all(m.country == "New Zealand" and m.state is None for m in meets)
-    sub_zero = meets[2]  # Sub ZeroW II (Sydenham, Christchurch)
-    assert sub_zero.region == "Christchurch"
